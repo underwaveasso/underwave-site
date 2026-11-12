@@ -209,7 +209,7 @@ a.row:hover{background:var(--lime)}
     <div class="top g"><span class="tag">Open Platine</span><span class="num">01/04</span></div>
     <div class="bot g"><span class="sub s">Rendez-vous régulier dédié aux DJ locaux, autour de la pratique, de l’échange et de l'accompagnement avec un espace dédié.</span><span class="go flip">Voir le projet</span></div>
   </a>
-  <a class="proj" href="#espaces-partages" style="--bg:#a3c0dd;--fg:var(--black)">
+  <a class="proj" href="#espaces-partages" style="--bg:var(--white);--fg:var(--black)">
     <div class="media ep-card"><canvas class="ep-map" aria-hidden="true"></canvas><span class="ep-card-t">Espaces<br>Partagés</span></div>
     <div class="top g"><span class="tag">Espaces Partagés</span><span class="num">02/04</span></div>
     <div class="bot g"><span class="sub s">Trouvez un lieu pour votre projet, ou référencez le vôtre. Le site est en ligne.</span><span class="go flip">Voir le projet</span></div>
@@ -420,10 +420,10 @@ a.row:hover{background:var(--lime)}
     const C=[380,340]; // centre-ville sur le plan (838 × 860)
     let W=0,H=0,dpr=1,sc=1,ox=0,oy=0,places=[],links=[],next=0,raf=0,visible=false,ready=false,landPts=[];
     const P=([x,y])=>[ox+x*sc,oy+y*sc];
-    function readLand(){ // repère les zones de terre (bleu foncé ou rues blanches)
+    function readLand(){ // repère les rues (traits foncés sur le vert), pour que les points tombent toujours sur une rue
       const c=document.createElement('canvas');c.width=img.width;c.height=img.height;const g=c.getContext('2d');g.drawImage(img,0,0);
       const d=g.getImageData(0,0,c.width,c.height).data;
-      for(let y=4;y<c.height;y+=6)for(let x=4;x<c.width;x+=6){const i=(y*c.width+x)*4;if(d[i]<60&&d[i+2]>200)landPts.push([x,y]);}
+      for(let y=2;y<c.height;y+=3)for(let x=2;x<c.width;x+=3){const i=(y*c.width+x)*4;if(d[i+1]<215&&d[i+2]<100)landPts.push([x,y]);}
     }
     function size(){
       const r=cv.getBoundingClientRect(); dpr=Math.min(2,devicePixelRatio||1); W=r.width;H=r.height;
@@ -443,8 +443,8 @@ a.row:hover{background:var(--lime)}
         const[x1,y1]=P(L.a.p),[x2,y2]=P(L.b.p); const mx=(x1+x2)/2-(y2-y1)*.25,my=(y1+y2)/2+(x2-x1)*.25;
         ctx.beginPath();ctx.moveTo(x1,y1);
         for(let i=1;i<=24;i++){const u=i/24*g;ctx.lineTo((1-u)*(1-u)*x1+2*u*(1-u)*mx+u*u*x2,(1-u)*(1-u)*y1+2*u*(1-u)*my+u*u*y2);}
-        ctx.strokeStyle='rgba(222,254,82,'+(.9*a)+')';ctx.lineWidth=1.6;ctx.stroke();
-        [[x1,y1,0],[x2,y2,.55]].forEach(([x,y,d])=>{const q=k-d;if(q<0)return;ctx.beginPath();ctx.arc(x,y,3+q*26,0,7);ctx.strokeStyle='rgba(222,254,82,'+(.8*a*(1-q))+')';ctx.lineWidth=1.2;ctx.stroke();ctx.beginPath();ctx.arc(x,y,3.5,0,7);ctx.fillStyle='rgba(222,254,82,'+a+')';ctx.fill();});
+        ctx.strokeStyle='rgba(234,51,210,'+(.95*a)+')';ctx.lineWidth=2.2;ctx.stroke();
+        [[x1,y1,0],[x2,y2,.55]].forEach(([x,y,d])=>{const q=k-d;if(q<0)return;ctx.beginPath();ctx.arc(x,y,3+q*26,0,7);ctx.strokeStyle='rgba(234,51,210,'+(.8*a*(1-q))+')';ctx.lineWidth=1.2;ctx.stroke();ctx.beginPath();ctx.arc(x,y,3.5,0,7);ctx.fillStyle='rgba(234,51,210,'+a+')';ctx.fill();});
       });
       links=links.filter(L=>t-L.t0<2600);
     }
