@@ -414,72 +414,71 @@ a.row:hover{background:var(--lime)}
   addEventListener('hashchange',show);show();
 
   // Accueil : carte animée de Marseille derrière « Espaces Partagés »
+  // Tracé simplifié d'après un plan de Marseille (coordonnées en pixels sur un plan de 1496 × 1364)
   (function(){
     const cv=document.querySelector('.ep-map'); if(!cv)return;
     const ctx=cv.getContext('2d');
-    // Trait de côte simplifié (longitude, latitude), de L'Estaque aux Calanques
-    const coast=[[5.27,43.372],[5.300,43.364],[5.318,43.358],[5.333,43.348],[5.344,43.336],[5.352,43.322],[5.358,43.310],[5.362,43.300],[5.366,43.296],[5.376,43.2955],[5.368,43.293],[5.360,43.292],[5.356,43.288],[5.352,43.282],[5.349,43.278],[5.354,43.271],[5.362,43.266],[5.371,43.258],[5.373,43.249],[5.366,43.240],[5.357,43.230],[5.350,43.220],[5.348,43.212],[5.362,43.212],[5.380,43.207],[5.400,43.205],[5.420,43.209],[5.445,43.207],[5.470,43.211],[5.500,43.206],[5.540,43.208]];
-    const land=[[4.9,43.372]].concat(coast,[[5.9,43.208],[5.9,43.7],[4.9,43.7]]);
-    const isles=[[[5.293,43.284],[5.305,43.281],[5.311,43.277],[5.302,43.275],[5.292,43.279]],[[5.308,43.272],[5.318,43.270],[5.322,43.266],[5.312,43.265]],[[5.325,43.280],[5.330,43.279],[5.329,43.276],[5.324,43.277]]];
-    // Grands axes (approximatifs)
+    const coast=[[0,140],[120,110],[200,85],[280,75],[330,90],[380,130],[430,170],[480,215],[520,260],[545,330],[565,380],[580,430],[590,480],[585,530],[580,585],[570,605],[555,618],[535,622],[518,645],[512,685],[530,712],[560,742],[590,790],[625,830],[648,875],[650,920],[630,962],[602,1010],[590,1045],[583,1082],[566,1112],[530,1132],[498,1162],[460,1200],[432,1238],[422,1268],[462,1280],[520,1270],[600,1268],[700,1280],[800,1290],[905,1300],[1000,1310],[1100,1330],[1200,1340],[1300,1340],[1400,1320],[1496,1300]];
+    const land=coast.concat([[1496,0],[0,0]]);
+    const isles=[[[175,712],[240,690],[300,680],[355,668],[350,690],[290,705],[230,720],[180,728]],[[140,830],[180,800],[230,772],[272,760],[262,786],[212,812],[160,862]],[[362,712],[382,708],[378,722],[362,722]]];
     const roads=[
-      [[5.376,43.2965],[5.385,43.305],[5.390,43.320],[5.385,43.340],[5.372,43.365],[5.36,43.40]],
-      [[5.376,43.2965],[5.400,43.300],[5.425,43.302],[5.455,43.300],[5.490,43.296],[5.54,43.292]],
-      [[5.360,43.310],[5.345,43.330],[5.325,43.352],[5.300,43.368]],
-      [[5.381,43.293],[5.386,43.280],[5.392,43.266],[5.395,43.250],[5.400,43.232]],
-      [[5.381,43.293],[5.398,43.285],[5.420,43.275],[5.445,43.262],[5.47,43.24]],
-      [[5.392,43.266],[5.380,43.262],[5.371,43.258]],
-      [[5.400,43.300],[5.405,43.318],[5.420,43.335],[5.445,43.350],[5.47,43.37]],
-      [[5.405,43.318],[5.430,43.312],[5.455,43.318]],
-      [[5.386,43.280],[5.405,43.290],[5.410,43.305],[5.400,43.320],[5.385,43.322]]
+      [[575,0],[580,60],[600,110],[650,180],[670,240],[680,290],[675,340],[665,420],[660,480]],
+      [[520,230],[540,280],[560,340],[580,400],[600,470],[610,540]],
+      [[680,285],[760,300],[880,310],[930,340],[940,420],[945,500],[950,580],[955,680]],
+      [[660,640],[750,680],[850,680],[955,680],[1050,650],[1150,612],[1250,600],[1340,630],[1496,670]],
+      [[680,640],[740,720],[775,800],[790,870],[810,930],[860,980],[950,990],[1050,1010],[1250,1040],[1496,1080]],
+      [[830,420],[900,370],[980,350],[1100,370],[1150,420],[1200,480],[1260,560]],
+      [[930,340],[1000,300],[1100,280],[1250,280]],
+      [[700,350],[760,430],[810,500],[820,580],[800,650]],
+      [[595,560],[680,540],[760,520],[830,500]],
+      [[780,700],[820,800],[870,900],[920,955]],
+      [[150,85],[250,65],[420,30],[560,10]]
     ];
-    const B={x0:5.30,x1:5.50,y0:43.21,y1:43.37},K=Math.cos(43.3*Math.PI/180);
-    let W=0,H=0,dpr=1,sc=1,ox=0,oy=0,places=[],streets=[],links=[],last=0,next=0,raf=0,visible=false;
-    const P=([lo,la])=>[ox+(lo-B.x0)*K*sc, oy+(B.y1-la)*sc];
+    const C=[640,600]; // centre-ville
+    let W=0,H=0,dpr=1,sc=1,ox=0,oy=0,places=[],streets=[],links=[],next=0,raf=0,visible=false;
+    const P=([x,y])=>[ox+x*sc,oy+y*sc];
     function inside(pt,poly){let c=false;for(let i=0,j=poly.length-1;i<poly.length;j=i++){const a=poly[i],b=poly[j];if((a[1]>pt[1])!=(b[1]>pt[1])&&pt[0]<(b[0]-a[0])*(pt[1]-a[1])/(b[1]-a[1])+a[0])c=!c;}return c;}
+    const onLand=pt=>inside(pt,land)&&!isles.some(i=>inside(pt,i));
+    function pick(n,spread){const out=[];let k=0;while(out.length<n&&k++<n*40){const x=Math.random()*1496,y=Math.random()*1364;const d=Math.hypot(x-C[0],y-C[1])/900;if(Math.random()>1.1-d*spread)continue;if(onLand([x,y]))out.push([x,y]);}return out;}
     function size(){
       const r=cv.getBoundingClientRect(); dpr=Math.min(2,devicePixelRatio||1); W=r.width;H=r.height;
       cv.width=W*dpr;cv.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
-      const mw=(B.x1-B.x0)*K, mh=(B.y1-B.y0); sc=Math.min(W/mw,H/mh)*1.3; ox=(W-mw*sc)/2; oy=(H-mh*sc)/2;
-      places=[]; let n=0;
-      while(places.length<46&&n++<3000){const lo=5.33+Math.random()*0.17,la=43.215+Math.random()*0.15;
-        const d=Math.hypot((lo-5.385)*1.4,la-43.30); if(Math.random()>1.15-d*5)continue;
-        if(inside([lo,la],land))places.push({p:[lo,la],ph:Math.random()*6.28});}
-      // petites rues : chaque point relié à ses deux voisins les plus proches
-      const nodes=[];n=0;
-      while(nodes.length<260&&n++<6000){const lo=5.31+Math.random()*0.21,la=43.212+Math.random()*0.17;
-        const d=Math.hypot((lo-5.385)*1.4,la-43.30); if(Math.random()>1.05-d*4)continue; if(inside([lo,la],land))nodes.push([lo,la]);}
-      streets=[];nodes.forEach(a=>{nodes.map(b=>[b,Math.hypot((a[0]-b[0])*K,a[1]-b[1])]).filter(x=>x[1]>0).sort((x,y)=>x[1]-y[1]).slice(0,2).forEach(([b])=>streets.push([a,b]));});
+      sc=Math.max(W/1496,H/1364); ox=W/2-C[0]*sc; oy=H/2-C[1]*sc;
+      ox=Math.min(0,Math.max(W-1496*sc,ox)); oy=Math.min(0,Math.max(H-1364*sc,oy));
+      places=pick(50,1.3).map(p=>({p,ph:Math.random()*6.28}));
+      const nodes=pick(320,1.1); streets=[];
+      nodes.forEach(a=>{nodes.map(b=>[b,Math.hypot(a[0]-b[0],a[1]-b[1])]).filter(x=>x[1]>0).sort((x,y)=>x[1]-y[1]).slice(0,2).forEach(([b])=>streets.push([a,b]));});
     }
     function line(pts,close){ctx.beginPath();pts.forEach((q,i)=>{const[x,y]=P(q);i?ctx.lineTo(x,y):ctx.moveTo(x,y);});if(close)ctx.closePath();}
     function draw(t){
       ctx.clearRect(0,0,W,H);
       line(land,true);ctx.fillStyle='#f4f4f1';ctx.fill();
-      line(coast);ctx.strokeStyle='rgba(0,0,0,.18)';ctx.lineWidth=1;ctx.stroke();
+      ctx.strokeStyle='rgba(0,0,0,.18)';ctx.lineWidth=1;line(coast);ctx.stroke();
       isles.forEach(i=>{line(i,true);ctx.fillStyle='#f4f4f1';ctx.fill();ctx.stroke();});
       ctx.strokeStyle='rgba(0,0,0,.06)';ctx.lineWidth=.8;streets.forEach(r=>{line(r);ctx.stroke();});
-      ctx.strokeStyle='rgba(0,0,0,.12)';ctx.lineWidth=1.4;roads.forEach(r=>{line(r);ctx.stroke();});
+      ctx.strokeStyle='rgba(0,0,0,.13)';ctx.lineWidth=1.4;roads.forEach(r=>{line(r);ctx.stroke();});
       places.forEach(pl=>{const[x,y]=P(pl.p);ctx.beginPath();ctx.arc(x,y,2,0,7);ctx.fillStyle='rgba(0,0,0,'+(.16+.1*Math.sin(t/900+pl.ph))+')';ctx.fill();});
       links.forEach(L=>{
         const k=(t-L.t0)/2600; if(k>1)return;
         const g=Math.min(1,k/.55), a=k<.7?1:1-(k-.7)/.3;
         const[x1,y1]=P(L.a.p),[x2,y2]=P(L.b.p); const mx=(x1+x2)/2-(y2-y1)*.25,my=(y1+y2)/2+(x2-x1)*.25;
         ctx.beginPath();ctx.moveTo(x1,y1);
-        for(let i=1;i<=24;i++){const u=i/24*g;const x=(1-u)*(1-u)*x1+2*u*(1-u)*mx+u*u*x2,y=(1-u)*(1-u)*y1+2*u*(1-u)*my+u*u*y2;ctx.lineTo(x,y);}
+        for(let i=1;i<=24;i++){const u=i/24*g;ctx.lineTo((1-u)*(1-u)*x1+2*u*(1-u)*mx+u*u*x2,(1-u)*(1-u)*y1+2*u*(1-u)*my+u*u*y2);}
         ctx.strokeStyle='rgba(234,51,210,'+(.55*a)+')';ctx.lineWidth=1.3;ctx.stroke();
-        [[x1,y1,0],[x2,y2,.55]].forEach(([x,y,d])=>{const q=k-d;if(q<0)return;const rr=3+q*26;ctx.beginPath();ctx.arc(x,y,rr,0,7);ctx.strokeStyle='rgba(234,51,210,'+(.5*a*(1-q))+')';ctx.lineWidth=1;ctx.stroke();ctx.beginPath();ctx.arc(x,y,3,0,7);ctx.fillStyle='rgba(234,51,210,'+(.8*a)+')';ctx.fill();});
+        [[x1,y1,0],[x2,y2,.55]].forEach(([x,y,d])=>{const q=k-d;if(q<0)return;ctx.beginPath();ctx.arc(x,y,3+q*26,0,7);ctx.strokeStyle='rgba(234,51,210,'+(.5*a*(1-q))+')';ctx.lineWidth=1;ctx.stroke();ctx.beginPath();ctx.arc(x,y,3,0,7);ctx.fillStyle='rgba(234,51,210,'+(.8*a)+')';ctx.fill();});
       });
       links=links.filter(L=>t-L.t0<2600);
     }
     function loop(t){
-      if(t>next&&places.length>1){const a=places[Math.random()*places.length|0];const near=places.filter(q=>q!==a).sort((x,y)=>Math.hypot(x.p[0]-a.p[0],x.p[1]-a.p[1])-Math.hypot(y.p[0]-a.p[0],y.p[1]-a.p[1])).slice(0,6);const b=near[Math.random()*near.length|0];links.push({a,b,t0:t});next=t+900+Math.random()*900;}
+      if(t>next&&places.length>1){const a=places[Math.random()*places.length|0];const near=places.filter(q=>q!==a).sort((x,y)=>Math.hypot(x.p[0]-a.p[0],x.p[1]-a.p[1])-Math.hypot(y.p[0]-a.p[0],y.p[1]-a.p[1])).slice(0,6);links.push({a,b:near[Math.random()*near.length|0],t0:t});next=t+900+Math.random()*900;}
       draw(t); raf=visible?requestAnimationFrame(loop):0;
     }
     const still=matchMedia('(prefers-reduced-motion: reduce)').matches;
     size(); addEventListener('resize',()=>{size();if(!raf)draw(performance.now());});
-    new IntersectionObserver(e=>{visible=e[0].isIntersecting&&!still&&!document.hidden;if(visible&&!raf)raf=requestAnimationFrame(loop);else if(!visible)draw(performance.now());}).observe(cv);
+    new IntersectionObserver(e=>{visible=e[0].isIntersecting&&!still;if(visible&&!raf)raf=requestAnimationFrame(loop);}).observe(cv);
     draw(0);
   })();
+
   // Espaces Partagés : copier le lien du site
   const cp=document.getElementById('ep-copy');
   if(cp)cp.addEventListener('click',async()=>{const u=cp.dataset.url;try{await navigator.clipboard.writeText(u);}catch(e){const t=document.createElement('textarea');t.value=u;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove();}const o=cp.textContent;cp.textContent='Lien copié ✓';setTimeout(()=>cp.textContent=o,2000);});
