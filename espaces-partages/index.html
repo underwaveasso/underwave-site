@@ -3756,11 +3756,11 @@ function viewAccueil(){
 
   <section class="etapes">
     <div class="g etapes-head"><span class="kicker">Comment ça marche</span><a class="btn small" href="#a-propos">En savoir plus sur le projet →</a></div>
-    <ol class="etapes-list">
-      <li><b>1</b><h3>Les lieux se présentent</h3><p>Bars, ateliers, centres sociaux, galeries, jardins… Chaque lieu indique ce qu’il peut accueillir et à quelles conditions.</p></li>
-      <li><b>2</b><h3>Les projets cherchent</h3><p>Artistes, collectifs, associations, créateur·ices : on cherche par besoin, ou on publie une annonce.</p></li>
-      <li><b>3</b><h3>On se contacte directement</h3><p>Par la messagerie du site, sans intermédiaire. Ensuite, chacun s’organise librement.</p></li>
-    </ol>
+    <ul class="etapes-list">
+      <li><b aria-hidden="true">1</b><h3>Des lieux à faire vivre</h3><p>Bars, ateliers, galeries, centres sociaux, tiers-lieux… présentent leur espace, ce qu’ils peuvent accueillir et à quelles conditions, pour s’ouvrir à de nouvelles propositions et à de nouveaux publics.</p></li>
+      <li><b aria-hidden="true">2</b><h3>Des idées à faire exister</h3><p>Artistes, collectifs, associations et habitant·es trouvent un espace adapté à leurs besoins, partout dans Marseille, ou publient une annonce à destination des lieux.</p></li>
+      <li><b aria-hidden="true">3</b><h3>Une rencontre en direct</h3><p>La prise de contact se fait par la messagerie du site, sans intermédiaire ni commission. Chacun y trouve son compte, et l’organisation se décide ensuite librement, entre partenaires.</p></li>
+    </ul>
   </section>
 
   ${recentes.length?`<section class="g" style="padding-top:clamp(32px,5vw,56px)"><div class="etapes-head" style="padding:0 0 14px"><span class="kicker" style="margin:0">Annonces récentes</span><a class="btn small" href="#annonces">Toutes les annonces</a></div></section>
@@ -4205,8 +4205,7 @@ function viewAlt(){
   $("#app").innerHTML=`
   <div class="page-head g altpage"><span class="kicker">ALT · le média d’Underwave</span><h1>Faites parler de votre projet</h1>
   <p>ALT est le média indépendant musique et culture porté par Underwave. Si votre projet a trouvé son lieu grâce à Espaces Partagés, ou si vous voulez simplement nous le présenter, écrivez-nous : relais, annonce, interview sur ALT FM, ALT Sessions, article…</p>
-  <div class="row-btns" style="margin-top:20px"><button class="btn dark" id="altGo">Contacter ALT</button></div></div>
-  <div class="cards">${ALT_FORMATS.filter(f=>f!=="Autre").map(f=>`<article class="card"><h3>${esc(f)}</h3><p class="muted">${({"Relais sur Instagram":"Un post ou une story pour faire connaître le projet.","Annonce de l’événement":"Votre date relayée dans nos annonces.","Interview ALT FM":"Un passage dans l’émission mensuelle d’ALT sur Ola Radio.","ALT Sessions":"Une session d’écoute ou de projection en petit comité.","Article / focus":"Un focus sur votre projet ou votre démarche."})[f]}</p></article>`).join("")}</div>`;
+  <div class="row-btns" style="margin-top:20px"><button class="btn dark" id="altGo">Contacter ALT</button></div></div>`;
   $("#altGo").onclick=()=>altModal({});
 }
 function altModal(p={}){
