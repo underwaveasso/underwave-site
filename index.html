@@ -130,50 +130,20 @@ a.row:hover{background:var(--lime)}
 .p-body .side p+p{margin-top:.7em}
 .p-body .side ul{padding-left:1.1em}
 .p-body .side p a,.cols3 p a{text-decoration:underline;text-underline-offset:.15em}
-.ep .kicker{color:inherit}
-.ep-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;padding-top:clamp(48px,8vw,110px);padding-bottom:clamp(20px,2.5vw,32px);border-bottom:1px solid var(--black)}
-.ep-top .title{font-size:clamp(44px,8.5vw,140px);letter-spacing:-.045em;line-height:.92;margin-top:.1em}
-.ep-sub{margin-top:.4em}
-.ep-btns{display:flex;gap:8px;flex-wrap:wrap}
-.ep-b{display:inline-block;border:1.5px solid var(--black);border-radius:999px;padding:.45em 1em;font-size:var(--small);line-height:1.2;transition:background .2s,color .2s}
-.ep-b.dark{background:var(--black);color:var(--white)}
-.ep-b.pink{background:var(--magenta);border-color:var(--magenta);color:var(--white)}
-.ep-b.light{border-color:currentColor}
-.ep-b:hover{background:var(--lime);border-color:var(--black);color:var(--black)}
-.ep-line{display:flex;flex-wrap:wrap;align-items:center;gap:.5em;padding-block:12px;border-bottom:1px solid var(--black);font-size:var(--small)}
-.ep-line a{text-decoration:underline;text-underline-offset:.15em;overflow-wrap:anywhere}
-.ep-dot{width:10px;height:10px;border-radius:50%;background:var(--magenta);flex:none}
-.ep-big{font-size:clamp(28px,3.6vw,56px);line-height:1.05;letter-spacing:-.03em;max-width:20em;padding-block:clamp(40px,6vw,88px);text-wrap:pretty}
-.ep-duo{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--black);border-bottom:1px solid var(--black)}
-.ep-duo a{display:grid;gap:.6em;align-content:start;padding:clamp(24px,3vw,44px) var(--pad);transition:background .2s}
-.ep-duo a+a{border-left:1px solid var(--black)}
-.ep-duo a:hover{background:var(--lime)}
-.ep-duo h2{font-size:clamp(30px,3.6vw,56px);font-weight:400;letter-spacing:-.03em;line-height:1}
-.ep-duo p{max-width:30em}
-.ep-more{margin-top:.6em}
-.ep-stats{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--black)}
-.ep-stats div{padding:20px 0;font-size:var(--small)}
-.ep-stats div+div{border-left:1px solid var(--black);padding-left:var(--pad)}
-.ep-stats b{display:block;font-weight:400;font-size:clamp(26px,3vw,44px);letter-spacing:-.03em;line-height:1.1}
-.ep-sec{margin-top:clamp(56px,8vw,110px)}
-.ep-h{padding-bottom:10px;border-bottom:1px solid var(--black)}
-.ep-steps{list-style:none;padding:0;margin:0}
-.ep-steps li{display:grid;grid-template-columns:44px minmax(0,14em) minmax(0,1fr);gap:16px var(--pad);align-items:center;padding:14px var(--pad);border-bottom:1px solid var(--black)}
-.ep-steps b{font-weight:400;font-size:clamp(20px,1.8vw,26px);letter-spacing:-.015em}
-.ep-n{width:44px;height:44px;border-radius:50%;background:var(--black);color:var(--lime);display:grid;place-items:center;font-size:18px}
-.ep-why .kicker{padding-bottom:10px;border-bottom:1px solid var(--black);margin-bottom:20px}
-.ep-cols{columns:2;column-gap:var(--pad)}
-.ep-cols p{break-inside:avoid;margin-bottom:.8em}
-.ep-val{background:var(--magenta);color:var(--white);margin-top:clamp(56px,8vw,110px);padding-block:clamp(40px,6vw,80px);display:grid;gap:24px;justify-items:start}
-.ep-val p{font-size:clamp(24px,3vw,46px);line-height:1.08;letter-spacing:-.025em;max-width:22em}
-.ep-val .ep-b:hover{background:var(--white);color:var(--black)}
-.ep-band{display:block;background:var(--lime);color:var(--black);padding:clamp(40px,7vw,96px) var(--pad)}
-.ep-band .kicker{margin-bottom:.8em}
-.ep-band .big{display:block;font-size:clamp(40px,8vw,130px);line-height:.95;letter-spacing:-.045em}
-.ep-band:hover .big{color:var(--magenta)}
-.ep-legal{margin-top:24px}
-.ep-legal a{text-decoration:underline}
-@media (max-width:760px){.ep-duo{grid-template-columns:1fr}.ep-duo a+a{border-left:0;border-top:1px solid var(--black)}.ep-stats{grid-template-columns:1fr}.ep-stats div+div{border-left:0;border-top:1px solid var(--black);padding-left:0}.ep-steps li{grid-template-columns:36px 1fr;align-items:start;row-gap:4px}.ep-steps li .s{grid-column:2}.ep-n{width:36px;height:36px;font-size:15px}.ep-cols{columns:1}}
+.ep-go{display:flex;justify-content:space-between;align-items:baseline;gap:.5em;margin-top:clamp(28px,4vw,56px);padding:.35em 0;border-block:1px solid var(--black);font-size:clamp(30px,5vw,80px);line-height:1;letter-spacing:-.04em;transition:background .2s,padding .2s}
+.ep-go:hover{background:var(--lime);padding-inline:.2em}
+.ep-share{background:var(--lime);margin-top:clamp(56px,9vw,120px);padding-block:clamp(40px,6vw,88px)}
+.ep-share-in{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:clamp(28px,5vw,80px);align-items:center}
+.ep-share-in img{width:100%;height:auto;display:block;border:1px solid var(--black)}
+.ep-share-txt{display:grid;gap:18px;justify-items:start;max-width:34em}
+.ep-share-big{font-size:clamp(28px,3.4vw,52px);line-height:1.04;letter-spacing:-.03em}
+.ep-share-btns{display:flex;gap:8px;flex-wrap:wrap}
+.ep-btn{font:inherit;font-size:var(--small);cursor:pointer;border:1.5px solid var(--black);border-radius:999px;padding:.5em 1.1em;background:transparent;color:var(--black)}
+.ep-btn.dark{background:var(--black);color:var(--white)}
+.ep-btn:hover{background:var(--magenta);border-color:var(--magenta);color:var(--white)}
+.ep-url{overflow-wrap:anywhere}
+.ep-legal{margin-top:24px}.ep-legal a{text-decoration:underline}
+@media (max-width:700px){.ep-share-in{grid-template-columns:1fr}.ep-share-in img{max-width:260px}}
 @media (max-width:860px){.p-body{grid-template-columns:1fr}}
 .pill{display:inline-flex;gap:.4em;flex-wrap:wrap}
 .pill a{border:1.5px solid currentColor;border-radius:999px;padding:.4em .9em;font-size:var(--small);letter-spacing:0}
@@ -312,40 +282,33 @@ a.row:hover{background:var(--lime)}
 </article>
 
 <!-- ================= ESPACES PARTAGÉS ================= -->
-<article data-page="espaces-partages" class="page ep" hidden>
-  <div class="ep-top g">
-    <div><span class="kicker">Projet 02 · Un projet de l’association Underwave</span><h1 class="title">Espaces Partagés</h1><p class="ep-sub">Répertoire culturel marseillais · collaboratif</p></div>
-    <div class="ep-btns"><a class="ep-b dark" href="espaces-partages/">Accéder au site ↗</a><a class="ep-b pink" href="espaces-partages/#proposer">Proposer un lieu +</a></div>
+<article data-page="espaces-partages" class="page" hidden>
+  <div class="p-head g"><span class="kicker">Projet 02</span><h1 class="title">Espaces Partagés</h1><p class="tagline">Répertoire culturel marseillais · collaboratif</p></div>
+  <div class="g">
+    <a class="ep-go" href="espaces-partages/"><span>Accéder au site Espaces Partagés</span><span>↗</span></a>
+    <div class="p-body">
+      <div class="lead">
+        <p>Espaces Partagés est un projet porté par l’association Underwave.<br>Il vise à faciliter les collaborations entre artistes / collectifs / associations et lieux marseillais susceptibles d’accueillir des initiatives culturelles.</p>
+        <p>Trouvez un lieu pour votre projet, partout dans Marseille, et contactez-le directement. Gratuit, sans intermédiaire.</p>
+      </div>
+      <div class="side s">
+        <section><h2>Pourquoi ce projet ?</h2><p>À Marseille, de nombreuses initiatives indépendantes participent activement à la vie culturelle : concerts, expositions, DJ sets, performances, ateliers, projections ou formats hybrides...</p><p>Pourtant, trouver un espace adapté et entrer en contact avec des lieux ouverts à ces propositions reste souvent compliqué : manque de visibilité, informations dispersées, interlocuteurs difficiles à identifier.</p><p>De leur côté, plusieurs lieux (bars, restaurants, commerces, galeries, espaces associatifs ou hybrides) souhaitent faire vivre leurs espaces et accueillir des propositions culturelles, sans toujours savoir comment se connecter aux porteurs de projets.</p><p>Espaces Partagés répond à ce besoin commun : rendre la mise en relation plus simple, plus lisible, et plus directe.</p></section>
+        <section><h2>Nos valeurs</h2><p>Espaces Partagés est un outil associatif porté par Underwave, au service du bien commun. Antiraciste, féministe, queer et antifasciste, il rassemble les lieux et les projets qui partagent ces valeurs. Ceux qui les contredisent, ou qui font l’objet de signalements pour violences ou discriminations, n’y ont pas leur place.</p></section>
+      </div>
+    </div>
   </div>
-  <div class="ep-line g"><span class="ep-dot"></span>Le site est en ligne : <a href="espaces-partages/">underwaveasso.github.io/underwave-site/espaces-partages</a></div>
-  <p class="ep-big g">Trouvez un lieu pour votre projet, partout dans Marseille, et contactez-le directement. Gratuit, sans intermédiaire.</p>
-  <div class="ep-duo">
-    <a href="espaces-partages/#proposer"><span class="kicker">Lieux</span><h2>J’ai un lieu</h2><p class="s">Référencez votre espace, dites ce que vous pouvez accueillir et à quelles conditions, et publiez vos créneaux libres.</p><span class="ep-more">Référencer mon lieu →</span></a>
-    <a href="espaces-partages/#lieux"><span class="kicker">Artistes, collectifs, associations</span><h2>Je cherche un lieu</h2><p class="s">Parcourez le répertoire, filtrez par secteur, capacité et conditions, ou consultez les annonces de lieux qui proposent des créneaux.</p><span class="ep-more">Voir les lieux →</span></a>
-  </div>
-  <div class="ep-stats g"><div><b>0 €</b>gratuit, sans commission</div><div><b>Toute la ville</b>les lieux hors du centre-ville sont mis en avant</div><div><b>Vérifié</b>chaque fiche est relue par Underwave</div></div>
-  <section class="ep-sec">
-    <div class="ep-h g"><span class="kicker">Comment ça marche</span></div>
-    <ol class="ep-steps">
-      <li><span class="ep-n">1</span><b>Créer un compte</b><span class="s">Gratuit, en tant que lieu ou porteur·se de projet.</span></li>
-      <li><span class="ep-n">2</span><b>Publier sa fiche</b><span class="s">Les lieux disent ce qu’ils peuvent accueillir, leurs équipements, leurs conditions (gratuit, partage des recettes, location…). Ils peuvent aussi publier des créneaux libres.</span></li>
-      <li><span class="ep-n">3</span><b>Chercher un lieu</b><span class="s">Les porteur·ses de projets cherchent un lieu ou publient une annonce « Je cherche un lieu pour… ».</span></li>
-      <li><span class="ep-n">4</span><b>Vérification</b><span class="s">Underwave vérifie chaque fiche, annonce et récit avant publication.</span></li>
-      <li><span class="ep-n">5</span><b>Se contacter</b><span class="s">Directement, par la messagerie du site. Le lieu accepte ou décline la demande.</span></li>
-      <li><span class="ep-n">6</span><b>S’organiser</b><span class="s">Lieu et porteur·se de projet s’organisent librement entre eux.</span></li>
-      <li><span class="ep-n">7</span><b>Raconter</b><span class="s">Une fois le projet réalisé, on peut le raconter dans « Né ici » et proposer à ALT, le média d’Underwave, d’en parler.</span></li>
-    </ol>
+  <section class="ep-share">
+    <div class="g ep-share-in">
+      <img src="img/espaces-partages-story.png" alt="Story Instagram Espaces Partagés avec un QR code vers le site du projet" width="1080" height="1920">
+      <div class="ep-share-txt">
+        <span class="kicker">Partager le projet</span>
+        <p class="ep-share-big">Vous avez un lieu ? Vous cherchez un lieu ? Faites tourner.</p>
+        <p class="s">Plus il y a de lieux et de projets inscrits, plus le répertoire est utile. Téléchargez l’image, mettez-la en story, et ajoutez le lien du site avec le sticker « Lien ».</p>
+        <div class="ep-share-btns"><a class="ep-btn dark" href="img/espaces-partages-story.png" download="espaces-partages-story.png">Télécharger la story</a><button class="ep-btn" type="button" id="ep-copy" data-url="https://underwaveasso.github.io/underwave-site/espaces-partages/">Copier le lien du site</button></div>
+        <p class="s ep-url">underwaveasso.github.io/underwave-site/espaces-partages/</p>
+      </div>
+    </div>
   </section>
-  <section class="ep-sec g ep-why">
-    <span class="kicker">Pourquoi ce projet ?</span>
-    <div class="ep-cols s"><p>À Marseille, de nombreuses initiatives indépendantes participent activement à la vie culturelle : concerts, expositions, DJ sets, performances, ateliers, projections ou formats hybrides...</p><p>Pourtant, trouver un espace adapté et entrer en contact avec des lieux ouverts à ces propositions reste souvent compliqué : manque de visibilité, informations dispersées, interlocuteurs difficiles à identifier.</p><p>De leur côté, plusieurs lieux (bars, restaurants, commerces, galeries, espaces associatifs ou hybrides) souhaitent faire vivre leurs espaces et accueillir des propositions culturelles, sans toujours savoir comment se connecter aux porteurs de projets.</p><p>Espaces Partagés répond à ce besoin commun : rendre la mise en relation plus simple, plus lisible, et plus directe.</p></div>
-  </section>
-  <section class="ep-val g">
-    <span class="kicker">Nos valeurs</span>
-    <p>Espaces Partagés est un outil associatif porté par Underwave, au service du bien commun. Antiraciste, féministe, queer et antifasciste, il rassemble les lieux et les projets qui partagent ces valeurs.</p>
-    <a class="ep-b light" href="espaces-partages/#regles">Lire nos valeurs et nos règles ↗</a>
-  </section>
-  <a class="ep-band" href="espaces-partages/"><span class="kicker">Espaces Partagés</span><span class="big">Entrer dans le répertoire ↗</span></a>
   <div class="g">
     <p class="s ep-legal"><a href="#mentions-legales">Mentions légales</a></p>
     <nav class="next" aria-label="Projets"><a class="flip" href="#opn">Projet précédent : OPN</a><a class="flip" href="#alt-media">Projet suivant : ALT MEDIA</a></nav>
@@ -449,6 +412,10 @@ a.row:hover{background:var(--lime)}
     scrollTo(0,0);
   }
   addEventListener('hashchange',show);show();
+  // Espaces Partagés : copier le lien du site
+  const cp=document.getElementById('ep-copy');
+  if(cp)cp.addEventListener('click',async()=>{const u=cp.dataset.url;try{await navigator.clipboard.writeText(u);}catch(e){const t=document.createElement('textarea');t.value=u;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove();}const o=cp.textContent;cp.textContent='Lien copié ✓';setTimeout(()=>cp.textContent=o,2000);});
+
 
   // Flèche de l'accueil
   document.querySelectorAll('[data-scroll]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();document.getElementById(a.dataset.scroll).scrollIntoView({behavior:'smooth'});}));
