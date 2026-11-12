@@ -130,6 +130,15 @@ a.row:hover{background:var(--lime)}
 .p-body .side p+p{margin-top:.7em}
 .p-body .side ul{padding-left:1.1em}
 .p-body .side p a,.cols3 p a{text-decoration:underline;text-underline-offset:.15em}
+.ep-launch{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:.4em 1em;margin-top:clamp(24px,3vw,40px);padding-block:.5em;border-block:1px solid var(--black);font-size:clamp(21px,2.3vw,34px);letter-spacing:-.015em}
+.ep-go{background:var(--lime);padding:.15em .5em;border-radius:999px}
+.ep-go:hover{background:var(--black);color:var(--lime)}
+.ep-band{display:block;background:var(--lime);color:var(--black);padding:clamp(40px,7vw,96px) var(--pad);margin-top:clamp(56px,9vw,120px)}
+.ep-band .kicker{margin-bottom:.8em}
+.ep-band .big{display:block;font-size:clamp(34px,6vw,96px);line-height:.98;letter-spacing:-.035em;max-width:14em}
+.ep-band:hover .big{color:var(--magenta)}
+.p-body .side ol{padding-left:1.3em}
+.p-body .side li+li{margin-top:.3em}
 @media (max-width:860px){.p-body{grid-template-columns:1fr}}
 .pill{display:inline-flex;gap:.4em;flex-wrap:wrap}
 .pill a{border:1.5px solid currentColor;border-radius:999px;padding:.4em .9em;font-size:var(--small);letter-spacing:0}
@@ -196,7 +205,7 @@ a.row:hover{background:var(--lime)}
   <a class="proj shade" href="#espaces-partages" style="--bg:var(--black);--fg:var(--white)">
     <div class="media"><img src="img/espaces-partages.jpg" alt="Un lieu marseillais aménagé avec tables, chaises et plantes" class="on"></div>
     <div class="top g"><span class="tag">Espaces Partagés</span><span class="num">02/04</span></div>
-    <div class="bot g"><span class="sub s">Guide des lieux pour initiatives culturelles à Marseille.</span><span class="go flip">Voir le projet</span></div>
+    <div class="bot g"><span class="sub s">Répertoire culturel collaboratif : trouvez un lieu pour votre projet, partout dans Marseille. Site en ligne.</span><span class="go flip">Voir le projet</span></div>
   </a>
   <a class="proj" href="#alt-media" style="--bg:var(--lime);--fg:var(--black)">
     <div class="media"><img src="img/alt-media.png" alt="Touche de clavier alt." class="contain blend on"></div>
@@ -230,7 +239,7 @@ a.row:hover{background:var(--lime)}
   <div class="list">
     <div class="row head"><span>Projet</span><span>Type</span><span>Statut</span></div>
     <a class="row" href="#opn" data-peek="img/opn.jpg"><span>Open Platine Night</span><span>DJing, rencontres</span><span>Évolutif</span></a>
-    <a class="row" href="#espaces-partages" data-peek="img/espaces-partages.jpg"><span>Espaces Partagés</span><span>Guide des lieux</span><span>En ligne</span></a>
+    <a class="row" href="#espaces-partages" data-peek="img/espaces-partages.jpg"><span>Espaces Partagés</span><span>Répertoire des lieux</span><span>En ligne</span></a>
     <a class="row" href="#alt-media" data-peek="img/alt-media.png"><span>ALT MEDIA</span><span>Média</span><span>En préparation</span></a>
     <a class="row" href="#actions-solidaires" data-peek="img/solidaire-1.jpg"><span>Soirée de soutien aux grévistes d’ID Logistics</span><span>Action solidaire</span><span>16.11.2024</span></a>
   </div>
@@ -269,26 +278,36 @@ a.row:hover{background:var(--lime)}
 
 <!-- ================= ESPACES PARTAGÉS ================= -->
 <article data-page="espaces-partages" class="page" hidden>
-  <div class="p-head g"><span class="kicker">Projet 02</span><h1 class="title">Espaces Partagés</h1><p class="tagline">Guide des lieux pour initiatives culturelles à Marseille</p></div>
+  <div class="p-head g"><span class="kicker">Projet 02 · Un projet de l’association Underwave</span><h1 class="title">Espaces Partagés</h1><p class="tagline">Répertoire culturel collaboratif à Marseille</p></div>
+  <div class="ep-launch g"><p>Le site est en ligne.</p><a class="ep-go" href="espaces-partages/">Accéder à Espaces Partagés ↗</a></div>
   <div class="p-hero"><img src="img/espaces-partages.jpg" alt="Un lieu marseillais aménagé avec tables, chaises et plantes"></div>
   <div class="g">
     <div class="p-body">
       <div class="lead">
         <p>Espaces Partagés est un projet porté par l’association Underwave.<br>Il vise à faciliter les collaborations entre artistes / collectifs / associations et lieux marseillais susceptibles d’accueillir des initiatives culturelles.</p>
-        <p>Le projet prend la forme d’un guide en ligne, alimenté progressivement : une ressource simple, évolutive, pour identifier des espaces, comprendre ce qu’ils peuvent accueillir, et prendre contact directement.</p>
-        <div class="pill" style="margin-top:.4em"><a href="espaces-partages/">Consulter le guide des lieux ↗</a><a href="espaces-partages/#proposer">Référencer un lieu ↗</a></div>
+        <p>Trouvez un lieu pour votre projet, partout dans Marseille, et contactez-le directement. Gratuit, sans intermédiaire.</p>
+        <div class="pill" style="margin-top:.4em"><a href="espaces-partages/#lieux">Trouver un lieu ↗</a><a href="espaces-partages/#proposer">Référencer un lieu ↗</a><a href="espaces-partages/#annonces">Voir les annonces ↗</a></div>
       </div>
       <div class="side s">
-        <section class="box"><h2>Le guide est en ligne</h2><p>Lieux, artistes, collectifs et associations : créez un compte gratuit sur le site Espaces Partagés pour référencer un lieu, chercher un espace ou publier une annonce.</p></section>
+        <section class="box"><h2>Gratuit, sans commission</h2><p>Espaces Partagés est un outil associatif, gratuit et collaboratif, pensé pour le bien commun. Il n’y a ni commission, ni publicité, ni revente de données. Le répertoire veut faire vivre toute la ville, pas seulement le centre : les lieux hors du centre-ville sont mis en avant.</p></section>
         <section><h2>Pourquoi ce projet ?</h2><p>À Marseille, de nombreuses initiatives indépendantes participent activement à la vie culturelle : concerts, expositions, DJ sets, performances, ateliers, projections ou formats hybrides...</p><p>Pourtant, trouver un espace adapté et entrer en contact avec des lieux ouverts à ces propositions reste souvent compliqué : manque de visibilité, informations dispersées, interlocuteurs difficiles à identifier.</p><p>De leur côté, plusieurs lieux (bars, restaurants, commerces, galeries, espaces associatifs ou hybrides) souhaitent faire vivre leurs espaces et accueillir des propositions culturelles, sans toujours savoir comment se connecter aux porteurs de projets.</p><p>Espaces Partagés répond à ce besoin commun : rendre la mise en relation plus simple, plus lisible, et plus directe.</p></section>
-        <section><h2>Le guide des lieux</h2><p>Le guide Espaces Partagés rassemble des lieux à Marseille pouvant accueillir des initiatives artistiques et culturelles, de manière ponctuelle ou régulière.</p><p>Chaque fiche peut inclure, selon les informations partagées par le lieu :</p><ul><li>localisation</li><li>type d’espace (intérieur/extérieur, scène, capacité, etc.)</li><li>formats possibles (concert, expo, atelier, projection…)</li><li>équipements disponibles (son, lumière, mobilier…)</li><li>conditions ou préférences (si le lieu souhaite les indiquer)</li></ul><p>Le guide est alimenté progressivement au fil des référencements.</p></section>
-        <section><h2>Fonctionnement</h2><p>Les lieux qui souhaitent apparaître dans le guide créent un compte gratuit sur le site Espaces Partagés, puis publient leur fiche avec les informations qu’ils choisissent de partager (bouton « Référencer un lieu » en haut de cette page).</p><p>Underwave vérifie chaque fiche avant sa publication dans le guide.</p><p>Les artistes, collectifs et associations utilisent ensuite le guide pour repérer des espaces correspondant à leurs besoins et contacter les lieux directement, par la messagerie du site.</p><p>Espaces Partagés facilite l’accès à l’information et la mise en relation, mais n’encadre pas les collaborations : les modalités sont définies directement entre les parties.</p></section>
-        <section><h2>Gestion du guide</h2><p>Le guide Espaces Partagés est porté et administré par Underwave.<br>L’association assure la gestion des demandes de référencement et la mise à jour des informations lorsque cela est nécessaire.</p><p>Dans ce cadre, Underwave se réserve la possibilité :</p><ul><li>de sélectionner les lieux référencés,</li><li>de mettre à jour certaines informations,</li><li>ou, si nécessaire, de retirer un lieu du guide.</li></ul><p>Le guide repose sur une logique de confiance entre lieux et acteurs culturels.</p><p>Underwave peut prendre en compte des retours d’expérience liés à l’utilisation du guide. En cas de signalements concordants indiquant des difficultés répétées, l’association peut décider de ne plus maintenir un lieu dans le référencement, afin de préserver une ressource cohérente et respectueuse pour ses utilisateurs.</p></section>
-        <section><h2>Impact culturel et dynamique locale</h2><p>À travers Espaces Partagés, l’association Underwave souhaite contribuer au développement d’une dynamique culturelle locale plus ouverte et collaborative. En facilitant la rencontre entre initiatives artistiques et espaces disponibles, le projet vise à encourager l’émergence de nouvelles propositions culturelles, à diversifier les lieux investis et à permettre à davantage d’acteurs de participer à la vie culturelle marseillaise.</p><p>En rendant ces connexions plus accessibles, Espaces Partagés souhaite soutenir une scène locale vivante, où artistes, collectifs, associations et lieux peuvent plus facilement se rencontrer, expérimenter et développer de nouvelles initiatives.</p></section>
-        <section><h2>Retours et contributions</h2><p>Si une initiative voit le jour grâce à une mise en relation via Espaces Partagés, vous pouvez nous en informer : lorsque cela est possible, nous pourrons relayer certaines propositions et contribuer à leur visibilité.</p><p>Nous sommes également preneurs de retours (témoignages, suggestions, besoins) afin de faire évoluer le projet au plus près des réalités du terrain.</p></section>
-        <section><p><a href="#mentions-legales">Mentions légales</a></p></section>
+        <section><h2>Comment ça marche</h2><ol>
+          <li>On crée un compte, gratuit, en tant que lieu ou porteur·se de projet.</li>
+          <li>Les lieux publient leur fiche : ce qu’ils peuvent accueillir, leurs équipements, leurs conditions (gratuit, partage des recettes, location…). Ils peuvent aussi publier des créneaux libres.</li>
+          <li>Les porteur·ses de projets cherchent un lieu ou publient une annonce « Je cherche un lieu pour… ».</li>
+          <li>Underwave vérifie chaque fiche, annonce et récit avant publication.</li>
+          <li>On se contacte directement par la messagerie du site. Le lieu accepte ou décline la demande.</li>
+          <li>Ensuite, lieu et porteur·se de projet s’organisent librement entre eux.</li>
+          <li>Une fois le projet réalisé, on peut le raconter dans « Né ici » et proposer à ALT, le média d’Underwave, d’en parler.</li>
+        </ol></section>
+        <section><h2>Nos valeurs</h2><p>Espaces Partagés est un outil associatif porté par Underwave, au service du bien commun. Antiraciste, féministe, queer et antifasciste, il rassemble les lieux et les projets qui partagent ces valeurs. Ceux qui les contredisent, ou qui font l’objet de signalements pour violences ou discriminations, n’y ont pas leur place.</p><p><a href="espaces-partages/#regles">Lire les valeurs et les règles ↗</a></p></section>
+        <section><h2>Impact culturel et dynamique locale</h2><p>À travers Espaces Partagés, l’association Underwave souhaite contribuer au développement d’une dynamique culturelle locale plus ouverte et collaborative. En facilitant la rencontre entre initiatives artistiques et espaces disponibles, le projet vise à encourager l’émergence de nouvelles propositions culturelles, à diversifier les lieux investis et à permettre à davantage d’acteurs de participer à la vie culturelle marseillaise.</p></section>
+        <section><h2>Retours et contributions</h2><p>Si une initiative voit le jour grâce à une mise en relation via Espaces Partagés, vous pouvez nous en informer : lorsque cela est possible, nous pourrons relayer certaines propositions et contribuer à leur visibilité.</p><p>Nous sommes également preneurs de retours (témoignages, suggestions, besoins) afin de faire évoluer le projet au plus près des réalités du terrain.</p><p><a href="#mentions-legales">Mentions légales</a></p></section>
       </div>
     </div>
+  </div>
+  <a class="ep-band" href="espaces-partages/"><span class="kicker">Espaces Partagés</span><span class="big">Trouver un lieu, référencer le sien : c’est par ici ↗</span></a>
+  <div class="g">
     <nav class="next" aria-label="Projets"><a class="flip" href="#opn">Projet précédent : OPN</a><a class="flip" href="#alt-media">Projet suivant : ALT MEDIA</a></nav>
   </div>
 </article>
