@@ -3628,7 +3628,7 @@ function viewAccueil(){
     <div><b>${hc}</b>hors du centre-ville</div>
     <div><b>0 €</b>gratuit, sans commission</div>
   </div>
-  <section class="valeurs g"><span class="kicker">Nos valeurs</span><p>Porté par Underwave, association culturelle et engagée, Espaces Partagés est un outil au service du bien commun. Il est réservé aux lieux et aux projets qui partagent nos valeurs : une culture accessible et solidaire, l’égalité, la lutte contre toutes les discriminations et contre l’extrême droite.</p><a class="btn" href="#regles">Lire nos valeurs et nos règles</a></section>
+  <section class="valeurs g"><span class="kicker">Nos valeurs</span><p>Espaces Partagés est un outil associatif porté par Underwave, au service du bien commun. Antiraciste, féministe, queer et antifasciste, il rassemble les lieux et les projets qui partagent ces valeurs. Ceux qui les contredisent, ou qui font l’objet de signalements pour violences ou discriminations, n’y ont pas leur place.</p><a class="btn" href="#regles">Lire nos valeurs et nos règles</a></section>
   ${ne.length?`<div class="page-head g" style="border-bottom:1px solid var(--line)"><span class="kicker">Né ici</span><h2 class="h2big">Ce qui s’est passé grâce au répertoire</h2></div><div class="cards">${ne.map(neIciCard).join("")}</div><div class="g" style="padding-block:18px"><a class="btn small" href="#ne-ici">Tout voir</a></div>`:""}
   <section class="altband g"><div><span class="kicker">ALT</span><p>Votre projet a trouvé son lieu ? ALT, le média d’Underwave, peut en parler.</p></div><a class="btn dark" href="#alt">Faire parler de mon projet</a></section>`;
   $("#need").onsubmit=e=>{ e.preventDefault(); const fd=new FormData(e.target);
