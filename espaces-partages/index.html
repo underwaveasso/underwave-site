@@ -707,7 +707,13 @@ header.top{position:sticky;top:0;z-index:1000;background:var(--white);border-bot
 .brand{display:flex;flex-direction:column;text-decoration:none;line-height:1}
 .brand b{font-weight:500;font-size:var(--big);letter-spacing:-.03em}
 .brand span{font-size:var(--small);margin-top:.35em}
-nav.main{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+nav.main{display:flex;gap:8px 18px;flex-wrap:wrap;align-items:center;justify-content:flex-end}
+nav.main .nav-links{display:flex;gap:2px 4px;flex-wrap:wrap;align-items:center}
+nav.main .nav-acts{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+nav.main .nav-links a{border:0;border-radius:0;padding:7px 8px;font-size:17px;background:none;color:var(--black);border-bottom:2px solid transparent}
+nav.main .nav-links a:hover{border-bottom-color:var(--black)}
+nav.main .nav-links a.on{background:none;color:var(--black);border-bottom-color:var(--magenta)}
+@media (max-width:760px){nav.main{justify-content:flex-start}nav.main .nav-links{width:100%;margin-left:-8px}}
 nav.main a{text-decoration:none;padding:7px 12px;border:1px solid var(--black);border-radius:99px;white-space:nowrap}
 nav.main a.on{background:var(--black);color:var(--white)}
 nav.main a.cta{background:var(--magenta);border-color:var(--magenta);color:var(--white)}
@@ -987,6 +993,52 @@ details.mail pre{white-space:pre-wrap;font:inherit;font-size:14px;padding:0 14px
 .regles .engage b{font-weight:500}
 .regles b{font-weight:500}
 .regles .toc a[href="#mentions-legales"]{margin-top:10px}
+.hero{position:relative;overflow:hidden}
+.hero .ep-map{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero .in{position:relative;z-index:1}
+.hero .lede{background:var(--lime);justify-self:start;padding:.15em .3em;margin-left:-.3em}
+.hero .kicker{background:var(--lime);justify-self:start;padding:.2em .4em;margin-left:-.4em}
+.ep-share{background:var(--lime);padding-block:clamp(40px,6vw,88px);border-top:1px solid var(--line)}
+.ep-share-in{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:clamp(28px,5vw,80px);align-items:center}
+.ep-share-in img{width:100%;height:auto;display:block;border:1px solid var(--black)}
+.ep-share-txt{display:grid;gap:18px;justify-items:start;max-width:34em}
+.ep-share-txt .kicker{margin:0}
+.ep-share-big{font-size:clamp(28px,3.4vw,52px);line-height:1.04;letter-spacing:-.03em}
+@media (max-width:700px){.ep-share-in{grid-template-columns:1fr}.ep-share-in img{max-width:260px}}
+.projet{padding-block:clamp(32px,5vw,64px);border-bottom:1px solid var(--line)}
+.projet .kicker{margin-bottom:14px}
+.projet-in{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px 40px;align-items:end}
+.projet-big{font-size:var(--mid);line-height:1.3;max-width:38em}
+@media (max-width:760px){.projet-in{grid-template-columns:1fr}}
+.hero2{position:relative;overflow:hidden;background:#000;color:#fff;min-height:min(78vh,760px);display:flex;flex-direction:column;justify-content:space-between;border-bottom:1px solid var(--line)}
+.hero2 .ep-map{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero2::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,.72),rgba(0,0,0,.25) 55%,rgba(0,0,0,0))}
+.hero2 .in{position:relative;z-index:1;display:grid;gap:22px;padding-block:clamp(48px,9vw,120px) 24px;max-width:1100px}
+.hero2 .kicker{color:var(--lime);margin:0}
+.hero2 h1{font-size:clamp(36px,6vw,92px);line-height:.96;letter-spacing:-.04em;max-width:12em;text-wrap:balance}
+.hero2 p{font-size:var(--mid);max-width:30em;line-height:1.3}
+.hero2 .btn{font-size:var(--mid);padding:12px 22px}
+.hero2 .btn.lime{border-color:var(--lime);color:#000}
+.hero2-stats{position:relative;z-index:1;display:flex;gap:10px 28px;flex-wrap:wrap;padding-block:18px 22px;font-size:15px}
+.hero2-stats b{color:var(--lime);font-weight:500;font-size:var(--mid)}
+.hero2.th-blanc,.hero2.th-lime{color:#000}.hero2.th-blanc .kicker,.hero2.th-lime .kicker{color:#000}.hero2.th-blanc .hero2-stats b,.hero2.th-lime .hero2-stats b{color:var(--magenta)}
+.hero2.th-blanc::after{background:linear-gradient(90deg,rgba(255,255,255,.85),rgba(255,255,255,.3) 55%,rgba(255,255,255,0))}
+.hero2.th-lime::after{background:linear-gradient(90deg,rgba(222,254,82,.85),rgba(222,254,82,.3) 55%,rgba(222,254,82,0))}
+.recherche{padding-block:clamp(36px,6vw,72px);border-bottom:1px solid var(--line);background:var(--soft)}
+.recherche .kicker{margin-bottom:16px}
+.etapes{border-bottom:1px solid var(--line)}
+.etapes-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding-block:clamp(28px,4vw,48px) 18px}
+.etapes-head .kicker{margin:0}
+.etapes-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line)}
+.etapes-list li{padding:22px var(--pad) 30px;display:grid;gap:10px;align-content:start}
+.etapes-list li+li{border-left:1px solid var(--line)}
+.etapes-list b{font-weight:400;font-size:var(--big);line-height:1;color:var(--magenta)}
+.etapes-list h3{font-size:var(--mid);font-weight:500}
+@media (max-width:760px){.etapes-list{grid-template-columns:1fr}.etapes-list li+li{border-left:0;border-top:1px solid var(--line)}}
+@media (max-width:760px){.hero2::after{background:rgba(0,0,0,.6)}.hero2.th-blanc::after{background:rgba(255,255,255,.75)}}
+.hero2-more{color:#fff;font-size:var(--small);text-decoration:underline;text-underline-offset:4px;justify-self:start}
+.hero2-more:hover{color:var(--lime)}
+.hero2.th-blanc .hero2-more,.hero2.th-lime .hero2-more{color:#000}
 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--black);color:var(--white);padding:12px 18px;border-radius:99px;z-index:3000;font-size:15px;max-width:90vw}
 table.adm{width:100%;border-collapse:collapse}
 table.adm td,table.adm th{border-bottom:1px solid var(--line);padding:10px 8px;text-align:left;vertical-align:top}
@@ -1012,7 +1064,7 @@ table.adm th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-w
 <footer>
   <div>
     <div>Espaces Partagés est un projet porté par l’association Underwave.</div>
-    <div style="margin-top:6px"><a href="#a-propos">À propos</a> · <a href="#regles">Valeurs et règles</a> · <a href="#ne-ici">Né ici</a> · <a href="#alt">Parler de son projet sur ALT</a> · <a href="https://underwaveasso.github.io/underwave-site/" target="_blank" rel="noopener">Site Underwave</a> · <a href="https://www.instagram.com/underwaveconcept/" target="_blank" rel="noopener">Instagram</a><br><a href="#mentions-legales">Mentions légales</a> · <a href="#confidentialite">Confidentialité</a> · Contact : underwave.asso@gmail.com</div>
+    <div style="margin-top:6px"><a href="#a-propos">À propos</a> · <a href="#regles">Valeurs et règles</a> · <a href="#ne-ici">Né ici</a> · <a href="#partager" id="lkShare">Partager le projet</a> · <a href="#alt">Parler de son projet sur ALT</a> · <a href="https://underwaveasso.github.io/underwave-site/" target="_blank" rel="noopener">Site Underwave</a> · <a href="https://www.instagram.com/underwaveconcept/" target="_blank" rel="noopener">Instagram</a><br><a href="#mentions-legales">Mentions légales</a> · <a href="#confidentialite">Confidentialité</a> · Contact : underwave.asso@gmail.com</div>
   </div>
   <span class="mark" aria-label="Underwave"></span>
 </footer>
@@ -3370,6 +3422,8 @@ const LIVE = !!(CONFIG.supabaseUrl && CONFIG.supabaseKey && window.supabase);
 /* Adresse publique du site */
 const SITE_URL = "https://underwaveasso.github.io/underwave-site/espaces-partages/";
 const CONTACT = "underwave.asso@gmail.com";
+/* Images reprises du site Underwave (dossier img/ à la racine du dépôt) */
+const IMG_STORY = "../img/espaces-partages-story.png", IMG_PLAN = "../img/espaces-partages-plan.webp";
 
 /* ---------- Utilitaires ---------- */
 const $ = (s,el=document)=>el.querySelector(s);
@@ -3552,20 +3606,24 @@ let map=null;
 
 function renderNav(route){
   const me=DB.me(); const n=DB.lieux().length; const un=DB.unread();
-  const items=[["lieux",`Lieux<span class="n">${n}</span>`],["annonces","Annonces"],["alt","ALT"],["proposer","Proposer un lieu +","cta"]];
-  if(me){ items.push(["messages",`Messages${un?`<span class="badge-dot">${un}</span>`:""}`]); items.push(["compte",esc(shortName(me))]); if(me.admin) items.push(["admin","Gestion"]); }
-  else items.push(["connexion","Connexion"]);
-  $("#nav").innerHTML=items.map(([h,l,c])=>`<a href="#${h}" class="${c||""} ${route===h?"on":""}">${l}</a>`).join("");
+  const links=[["lieux",`Lieux<span class="n">${n}</span>`],["annonces","Annonces"],["alt","ALT"],["a-propos","À propos"]];
+  const acts=[["proposer","Proposer un lieu +","cta"]];
+  if(me){ acts.push(["messages",`Messages${un?`<span class="badge-dot">${un}</span>`:""}`]); acts.push(["compte",esc(shortName(me))]); if(me.admin) acts.push(["admin","Gestion"]); }
+  else acts.push(["connexion","Connexion"]);
+  const a=([h,l,c])=>`<a href="#${h}" class="${c||""} ${route===h?"on":""}" ${route===h?'aria-current="page"':""}>${l}</a>`;
+  $("#nav").innerHTML=`<span class="nav-links">${links.map(a).join("")}</span><span class="nav-acts">${acts.map(a).join("")}</span>`;
 }
 function route(){
   const h=(location.hash||"#accueil").slice(1);
   if(map){ map.remove(); map=null; }
+  if(stopPlan){ stopPlan(); stopPlan=null; }
   closeModal();
   let r=h;
   if(h.startsWith("lieu-")) { viewLieu(h.slice(5)); r="lieux"; }
   else if(h.startsWith("modifier-")) { viewProposer(h.slice(9)); r="proposer"; }
   else switch(h){
     case "accueil": viewAccueil(); break;
+    case "partager": viewAccueil(); r="accueil"; renderNav(r); setTimeout(()=>{ const el=document.getElementById("partager"); if(el) el.scrollIntoView(); },0); return;
     case "lieux": viewLieux(); break;
     case "annonces": viewAnnonces(); break;
     case "proposer": viewProposer(); break;
@@ -3603,34 +3661,129 @@ function neIciCard(n){ const l=DB.lieu(n.lieu); const u=DB.user(n.by);
     <h3>${esc(n.titre)}</h3>${n.photo?`<img class="neimg" src="${n.photo}" alt="">`:""}<p>${esc(n.texte)}</p>
     <div class="foot"><span class="muted">${l?`<a href="#lieu-${l.id}">${esc(l.nom)}</a> · ${esc(l.arr)}`:""}${u?` · ${esc(shortName(u))}`:""}</span></div></article>`; }
 
+/* ---------- Plan de Marseille animé (repris du site Underwave) ----------
+   Toutes les 0,9 à 1,8 s, deux points proches, pris sur les rues du plan, se relient par un trait magenta. */
+let stopPlan=null;
+/* Couleurs du plan : mer, ville, rues, liens */
+const PLAN_THEMES = {
+  noir:  { mer:[0,0,0],       ville:[16,16,16],    rue:[222,254,82],  lien:"234,51,210" },
+  blanc: { mer:[255,255,255], ville:[243,243,240], rue:[150,150,150], lien:"234,51,210" },
+  lime:  { mer:[255,255,255], ville:[222,254,82],  rue:[150,170,40],  lien:"234,51,210" },
+};
+let PLAN_THEME = "noir";
+function recolorPlan(img,th){
+  const c=document.createElement("canvas"); c.width=img.width; c.height=img.height; const g=c.getContext("2d"); g.drawImage(img,0,0);
+  const id=g.getImageData(0,0,c.width,c.height), d=id.data;
+  for(let i=0;i<d.length;i+=4){
+    const r=d[i],gg=d[i+1],b=d[i+2];
+    const sea=Math.max(0,Math.min(1,(b-90)/140));            // le bleu monte vers le blanc de la mer
+    const st=Math.max(0,Math.min(1,(250-gg)/90))*(1-sea);   // plus le vert baisse, plus c'est une rue
+    for(let k=0;k<3;k++){ const land=th.ville[k]*(1-st)+th.rue[k]*st; d[i+k]=Math.round(th.mer[k]*sea+land*(1-sea)); }
+  }
+  g.putImageData(id,0,0); return c;
+}
+function startPlan(cv){
+  if(!cv) return;
+  const ctx=cv.getContext("2d"), img=new Image(); const th=PLAN_THEMES[cv.dataset.theme||PLAN_THEME]||PLAN_THEMES.noir; let pic=null;
+  const C=[380,340]; // centre-ville sur le plan (838 × 860)
+  let W=0,H=0,dpr=1,sc=1,ox=0,oy=0,places=[],links=[],next=0,raf=0,visible=false,ready=false,landPts=[],alive=true;
+  const P=([x,y])=>[ox+x*sc,oy+y*sc];
+  function readLand(){ const c=document.createElement("canvas"); c.width=img.width; c.height=img.height; const g=c.getContext("2d"); g.drawImage(img,0,0);
+    const d=g.getImageData(0,0,c.width,c.height).data;
+    for(let y=2;y<c.height;y+=3) for(let x=2;x<c.width;x+=3){ const i=(y*c.width+x)*4; if(d[i+1]<215&&d[i+2]<100) landPts.push([x,y]); } }
+  function size(){
+    const r=cv.getBoundingClientRect(); dpr=Math.min(2,devicePixelRatio||1); W=r.width; H=r.height;
+    cv.width=W*dpr; cv.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
+    if(!ready) return;
+    sc=Math.max(W/img.width,H/img.height); ox=W/2-C[0]*sc; oy=H/2-C[1]*sc;
+    ox=Math.min(0,Math.max(W-img.width*sc,ox)); oy=Math.min(0,Math.max(H-img.height*sc,oy));
+    const vis=landPts.filter(([x,y])=>{ const[a,b]=P([x,y]); return a>20&&a<W-20&&b>20&&b<H-20&&Math.hypot(x-C[0],y-C[1])<520; });
+    places=[]; for(let i=0;i<55&&vis.length;i++) places.push({p:vis[Math.random()*vis.length|0]});
+  }
+  function draw(t){
+    ctx.clearRect(0,0,W,H); if(!ready) return;
+    ctx.drawImage(pic||img,ox,oy,img.width*sc,img.height*sc);
+    links.forEach(L=>{
+      const k=(t-L.t0)/2600; if(k>1) return;
+      const g=Math.min(1,k/.55), a=k<.7?1:1-(k-.7)/.3;
+      const[x1,y1]=P(L.a.p),[x2,y2]=P(L.b.p); const mx=(x1+x2)/2-(y2-y1)*.25, my=(y1+y2)/2+(x2-x1)*.25;
+      ctx.beginPath(); ctx.moveTo(x1,y1);
+      for(let i=1;i<=24;i++){ const u=i/24*g; ctx.lineTo((1-u)*(1-u)*x1+2*u*(1-u)*mx+u*u*x2,(1-u)*(1-u)*y1+2*u*(1-u)*my+u*u*y2); }
+      ctx.strokeStyle="rgba("+th.lien+","+(.95*a)+")"; ctx.lineWidth=2.2; ctx.stroke();
+      [[x1,y1,0],[x2,y2,.55]].forEach(([x,y,d])=>{ const q=k-d; if(q<0) return; ctx.beginPath(); ctx.arc(x,y,3+q*26,0,7); ctx.strokeStyle="rgba("+th.lien+","+(.8*a*(1-q))+")"; ctx.lineWidth=1.2; ctx.stroke(); ctx.beginPath(); ctx.arc(x,y,3.5,0,7); ctx.fillStyle="rgba("+th.lien+","+a+")"; ctx.fill(); });
+    });
+    links=links.filter(L=>t-L.t0<2600);
+  }
+  function loop(t){
+    if(t>next&&places.length>1){ const a=places[Math.random()*places.length|0]; const near=places.filter(q=>q!==a).sort((x,y)=>Math.hypot(x.p[0]-a.p[0],x.p[1]-a.p[1])-Math.hypot(y.p[0]-a.p[0],y.p[1]-a.p[1])).slice(0,6); links.push({a,b:near[Math.random()*near.length|0],t0:t}); next=t+900+Math.random()*900; }
+    draw(t); raf=(visible&&alive)?requestAnimationFrame(loop):0;
+  }
+  const still=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const onResize=()=>{ size(); if(!raf) draw(performance.now()); };
+  img.onload=()=>{ if(!alive) return; ready=true; readLand(); try{ pic=recolorPlan(img,th); }catch(e){ pic=null; } size(); draw(performance.now()); };
+  img.src=IMG_PLAN;
+  size(); addEventListener("resize",onResize);
+  const io=new IntersectionObserver(e=>{ visible=e[0].isIntersecting&&!still; if(visible&&!raf&&alive) raf=requestAnimationFrame(loop); }); io.observe(cv);
+  stopPlan=()=>{ alive=false; io.disconnect(); removeEventListener("resize",onResize); if(raf) cancelAnimationFrame(raf); };
+}
+
 /* ---------- Accueil : partir du besoin ---------- */
 function viewAccueil(){
   const lieux=DB.lieux(); const ann=DB.annonces(); const hc=lieux.filter(horsCentre).length; const ne=DB.neIci().slice(0,3);
-  const b=state.besoin||{};
+  const b=state.besoin||{}; const recentes=ann.slice(0,3);
   $("#app").innerHTML=`
-  <section class="hero"><div class="in g">
-    <span class="kicker">Un projet porté par l’association Underwave</span>
-    <p class="lede">Trouvez un lieu pour votre projet, partout dans Marseille, et contactez-le directement. Gratuit, sans intermédiaire.</p>
+  <section class="hero2 th-${PLAN_THEME}"><canvas class="ep-map" aria-hidden="true"></canvas>
+    <div class="in g">
+      <span class="kicker">Un projet porté par l’association Underwave</span>
+      <h1>Trouvez un lieu pour votre projet, partout dans Marseille.</h1>
+      <p>Lieux et porteur·ses de projets se contactent directement. Gratuit, sans intermédiaire, sans commission.</p>
+      <div class="row-btns"><a class="btn lime" href="#recherche" data-scroll="recherche">Je cherche un lieu</a><a class="btn pink" href="#proposer">J’ai un lieu</a></div>
+      <a class="hero2-more" href="#a-propos">Découvrir le projet →</a>
+    </div>
+    <div class="hero2-stats g"><span><b>${lieux.length}</b> lieux</span><span><b>${hc}</b> hors du centre-ville</span><span><b>${ann.length}</b> annonces en cours</span></div>
+  </section>
+
+  <section class="recherche g" id="recherche">
+    <span class="kicker">Trouver un lieu</span>
     <form class="need" id="need">
       <div class="nrow"><span class="nl">Je veux organiser</span>${evtSelect("evt",b.evt,"un événement, un atelier, une vente…")}</div>
       <div class="nrow"><span class="nl">pour</span><input type="number" name="personnes" min="1" placeholder="nombre" value="${esc(b.personnes||"")}"><span class="nl">personnes,</span></div>
-      <div class="nrow"><span class="nl">plutôt dans le secteur</span><select name="secteur"><option value="">peu importe</option>${Object.keys(SECTEURS).map(s=>`<option ${b.secteur===s?"selected":""}>${s}</option>`).join("")}</select></div>
+      <div class="nrow"><span class="nl">plutôt dans le secteur</span><select name="secteur"><option value="">peu importe</option>${Object.keys(SECTEURS).map(x=>`<option ${b.secteur===x?"selected":""}>${x}</option>`).join("")}</select></div>
       <div class="nrow wrapchips"><span class="nl">avec comme conditions</span>${checks("conditions",CONDITIONS,b.conditions||[])}</div>
       <div class="row-btns"><button class="btn dark" type="submit">Voir les lieux</button><a class="btn" href="#lieux">Parcourir tout le répertoire</a></div>
     </form>
-  </div></section>
-  <div class="duo">
-    <a href="#proposer"><h2>J’ai un lieu</h2><p>Référencez votre espace, dites ce que vous pouvez accueillir et à quelles conditions, et publiez vos créneaux libres.</p><span>Référencer mon lieu →</span></a>
-    <a href="#annonces"><h2>Annonces</h2><p>Des projets qui cherchent un lieu, des lieux qui proposent des créneaux. Répondez directement.</p><span>${ann.length} annonce${ann.length>1?"s":""} en cours →</span></a>
-  </div>
-  <div class="stats">
-    <div><b>${lieux.length}</b>lieux référencés</div>
-    <div><b>${hc}</b>hors du centre-ville</div>
-    <div><b>0 €</b>gratuit, sans commission</div>
-  </div>
-  <section class="valeurs g"><span class="kicker">Nos valeurs</span><p>Espaces Partagés est un outil associatif porté par Underwave, au service du bien commun. Antiraciste, féministe, queer et antifasciste, il rassemble les lieux et les projets qui partagent ces valeurs. Ceux qui les contredisent, ou qui font l’objet de signalements pour violences ou discriminations, n’y ont pas leur place.</p><a class="btn" href="#regles">Lire nos valeurs et nos règles</a></section>
-  ${ne.length?`<div class="page-head g" style="border-bottom:1px solid var(--line)"><span class="kicker">Né ici</span><h2 class="h2big">Ce qui s’est passé grâce au répertoire</h2></div><div class="cards">${ne.map(neIciCard).join("")}</div><div class="g" style="padding-block:18px"><a class="btn small" href="#ne-ici">Tout voir</a></div>`:""}
-  <section class="altband g"><div><span class="kicker">ALT</span><p>Votre projet a trouvé son lieu ? ALT, le média d’Underwave, peut en parler.</p></div><a class="btn dark" href="#alt">Faire parler de mon projet</a></section>`;
+  </section>
+
+  <section class="etapes">
+    <div class="g etapes-head"><span class="kicker">Comment ça marche</span><a class="btn small" href="#a-propos">En savoir plus sur le projet →</a></div>
+    <ol class="etapes-list">
+      <li><b>1</b><h3>Les lieux se présentent</h3><p>Bars, ateliers, centres sociaux, galeries, jardins… Chaque lieu indique ce qu’il peut accueillir et à quelles conditions.</p></li>
+      <li><b>2</b><h3>Les projets cherchent</h3><p>Artistes, collectifs, associations, créateur·ices : on cherche par besoin, ou on publie une annonce.</p></li>
+      <li><b>3</b><h3>On se contacte directement</h3><p>Par la messagerie du site, sans intermédiaire. Ensuite, chacun s’organise librement.</p></li>
+    </ol>
+  </section>
+
+  ${recentes.length?`<section class="g" style="padding-top:clamp(32px,5vw,56px)"><div class="etapes-head" style="padding:0 0 14px"><span class="kicker" style="margin:0">Annonces récentes</span><a class="btn small" href="#annonces">Toutes les annonces</a></div></section>
+  <div class="cards">${recentes.map(a=>{ const cr=a.kind==="creneau"; const l=a.lieu&&DB.lieu(a.lieu); return `<a class="card ${cr?"cr":""}" href="#annonces" style="text-decoration:none"><span class="kicker" style="margin:0">${cr?"Créneau dispo":"Cherche un lieu"}${a.evt?` · ${esc(a.evt)}`:""}</span><h3>${cr?esc(a.titre):"Pour "+esc(a.titre.charAt(0).toLowerCase()+a.titre.slice(1))}</h3><div class="meta">${cr&&l?esc(l.nom)+" · ":""}${esc(a.periode||"")}</div></a>`; }).join("")}</div>`:""}
+
+  ${ne.length?`<section class="g" style="padding-top:clamp(32px,5vw,56px)"><div class="etapes-head" style="padding:0 0 14px"><span class="kicker" style="margin:0">Né ici</span><a class="btn small" href="#ne-ici">Tout voir</a></div></section><div class="cards">${ne.map(neIciCard).join("")}</div>`:""}
+
+  <section class="altband g"><div><span class="kicker">ALT</span><p>Votre projet a trouvé son lieu ? ALT, le média d’Underwave, peut en parler.</p></div><a class="btn dark" href="#alt">Faire parler de mon projet</a></section>
+  <section class="ep-share" id="partager">
+    <div class="g ep-share-in">
+      <img src="${IMG_STORY}" alt="Image Espaces Partagés au format 1080 × 1920, avec un QR code vers le site du projet" width="1080" height="1920">
+      <div class="ep-share-txt">
+        <span class="kicker">Partager le projet</span>
+        <p class="ep-share-big">Vous avez un lieu, ou vous en cherchez un ? Partagez le projet.</p>
+        <p>Plus il y a de lieux et de projets inscrits, plus le répertoire est utile. Téléchargez l’image, publiez-la sur vos réseaux et ajoutez-y le lien du site.<br>Sur téléphone, si le téléchargement ne démarre pas : appui long sur l’image, puis «&nbsp;Enregistrer&nbsp;».</p>
+        <div class="row-btns"><a class="btn dark" href="${IMG_STORY}" download="espaces-partages-1080x1920.png">Télécharger l’image (1080 × 1920)</a><button class="btn" type="button" id="ep-copy">Copier le lien du site</button></div>
+      </div>
+    </div>
+  </section>
+  <section class="valeurs g"><span class="kicker">Nos valeurs</span><p>Espaces Partagés est un outil associatif porté par Underwave, au service du bien commun. Antiraciste, féministe, queer et antifasciste, il rassemble les lieux et les projets qui partagent ces valeurs. Ceux qui les contredisent, ou qui font l’objet de signalements pour violences ou discriminations, n’y ont pas leur place.</p><a class="btn" href="#regles">Lire nos valeurs et nos règles</a></section>`;
+  $$("[data-scroll]").forEach(x=>x.onclick=e=>{ e.preventDefault(); document.getElementById(x.dataset.scroll).scrollIntoView({behavior:"smooth"}); });
+  startPlan($("#app .hero2 .ep-map"));
+  const cp=$("#ep-copy"); if(cp) cp.onclick=async()=>{ const u=SITE_URL; try{ await navigator.clipboard.writeText(u); }catch(e){ const t=document.createElement("textarea"); t.value=u; document.body.appendChild(t); t.select(); try{ document.execCommand("copy"); }catch(_){} t.remove(); } const o=cp.textContent; cp.textContent="Lien copié ✓"; setTimeout(()=>cp.textContent=o,2000); };
   $("#need").onsubmit=e=>{ e.preventDefault(); const fd=new FormData(e.target);
     state.besoin={evt:fd.get("evt"),personnes:fd.get("personnes"),secteur:fd.get("secteur"),conditions:fd.getAll("conditions")};
     state.f=emptyF(); state.q=""; state.capMax=""; state.page=1;
@@ -4313,15 +4466,21 @@ function viewAPropos(){
   <div class="page-head g"><span class="kicker">À propos</span><h1>Espaces Partagés</h1><p>Répertoire culturel marseillais · collaboratif</p></div>
   <div class="wrap g about">
     <div class="lead">
-      <p>Espaces Partagés est un projet porté par l’association Underwave.<br>Il vise à faciliter les collaborations entre artistes / collectifs / associations et lieux marseillais susceptibles d’accueillir des initiatives culturelles.</p>
-      <p>Le projet prend la forme d’un guide en ligne, alimenté progressivement : une ressource simple, évolutive, pour identifier des espaces, comprendre ce qu’ils peuvent accueillir, et prendre contact directement.</p>
-      <div class="row-btns" style="margin-top:20px"><a class="btn dark" href="#lieux">Parcourir les lieux</a><a class="btn pink" href="#proposer">Référencer un lieu</a><a class="btn" href="#regles">Fonctionnement et règles</a></div>
+      <p>Espaces Partagés est un projet porté par l’association Underwave. Il facilite la rencontre entre les lieux marseillais qui souhaitent accueillir des initiatives culturelles, sociales et associatives, et les artistes, collectifs, associations et habitant·es qui cherchent un espace pour les faire exister.</p>
+      <p>Le répertoire est gratuit et collaboratif. Les lieux y présentent ce qu’ils peuvent accueillir et à quelles conditions. Les porteur·ses de projets y cherchent un espace ou publient une annonce. Puis chacun se contacte directement, sans intermédiaire.</p>
+      <div class="row-btns" style="margin-top:20px"><a class="btn dark" href="#lieux">Parcourir les lieux</a><a class="btn pink" href="#proposer">Référencer un lieu</a><a class="btn" href="#regles">Valeurs et fonctionnement</a></div>
     </div>
     <div>
-      <section><h2>Pourquoi ce projet ?</h2><p>À Marseille, de nombreuses initiatives indépendantes participent activement à la vie culturelle : concerts, expositions, DJ sets, performances, ateliers, projections ou formats hybrides...</p><p>Pourtant, trouver un espace adapté et entrer en contact avec des lieux ouverts à ces propositions reste souvent compliqué : manque de visibilité, informations dispersées, interlocuteurs difficiles à identifier.</p><p>De leur côté, plusieurs lieux (bars, restaurants, commerces, galeries, espaces associatifs ou hybrides) souhaitent faire vivre leurs espaces et accueillir des propositions culturelles, sans toujours savoir comment se connecter aux porteurs de projets.</p><p>Espaces Partagés répond à ce besoin commun : rendre la mise en relation plus simple, plus lisible, et plus directe.</p></section>
-      <section><h2>Gestion du guide</h2><p>Le guide Espaces Partagés est porté et administré par Underwave.<br>L’association assure la gestion des demandes de référencement et la mise à jour des informations lorsque cela est nécessaire.</p><p>Dans ce cadre, Underwave se réserve la possibilité :</p><ul><li>de sélectionner les lieux référencés,</li><li>de mettre à jour certaines informations,</li><li>ou, si nécessaire, de retirer un lieu du guide.</li></ul><p>Le guide repose sur une logique de confiance entre lieux et acteurs culturels.</p><p>Underwave peut prendre en compte des retours d’expérience liés à l’utilisation du guide. En cas de signalements concordants indiquant des difficultés répétées, l’association peut décider de ne plus maintenir un lieu dans le référencement, afin de préserver une ressource cohérente et respectueuse pour ses utilisateurs.</p></section>
-      <section><h2>Impact culturel et dynamique locale</h2><p>À travers Espaces Partagés, l’association Underwave souhaite contribuer au développement d’une dynamique culturelle locale plus ouverte et collaborative. En facilitant la rencontre entre initiatives artistiques et espaces disponibles, le projet vise à encourager l’émergence de nouvelles propositions culturelles, à diversifier les lieux investis et à permettre à davantage d’acteurs de participer à la vie culturelle marseillaise.</p></section>
-      <section><h2>Retours et contributions</h2><p>Si une initiative voit le jour grâce à une mise en relation via Espaces Partagés, vous pouvez nous en informer : lorsque cela est possible, nous pourrons relayer certaines propositions et contribuer à leur visibilité.</p><p>Nous sommes également preneurs de retours (témoignages, suggestions, besoins) afin de faire évoluer le projet au plus près des réalités du terrain.</p></section>
+      <section><h2>Pourquoi ce projet ?</h2><p>À Marseille, de nombreuses initiatives indépendantes participent activement à la vie culturelle et sociale : concerts, expositions, DJ sets, performances, ateliers, projections, marchés de créateur·ices, rencontres ou formats hybrides.</p><p>Pourtant, trouver un espace adapté et entrer en contact avec des lieux ouverts à ces propositions reste souvent compliqué : manque de visibilité, informations dispersées, interlocuteurs difficiles à identifier.</p><p>De leur côté, de nombreux lieux (bars, restaurants, commerces, galeries, centres sociaux, espaces associatifs ou hybrides) souhaitent faire vivre leurs espaces, sans toujours savoir comment se connecter aux porteur·ses de projets.</p><p>Espaces Partagés répond à ce besoin commun : rendre la mise en relation plus simple, plus lisible et plus directe.</p></section>
+      <section><h2>Toute la ville</h2><p>Les événements et les projets se concentrent souvent dans les mêmes quartiers et les mêmes lieux, alors que Marseille est immense. Espaces Partagés veut faire vivre toute la ville : les lieux hors du centre-ville sont mis en avant, et la carte montre les quartiers où il reste des lieux à découvrir.</p></section>
+      <section><h2>Comment ça marche</h2><ul>
+        <li>Les lieux créent un compte et présentent leur espace : formats possibles, équipements, conditions d’accueil, disponibilités.</li>
+        <li>Les porteur·ses de projets cherchent un lieu selon leurs besoins, ou publient une annonce « Je cherche un lieu pour… ». Les lieux peuvent aussi proposer leurs créneaux libres.</li>
+        <li>La prise de contact se fait par la messagerie du site. Ensuite, lieux et porteur·ses de projets s’organisent librement entre eux.</li>
+        <li>Une fois le projet réalisé, il peut être raconté dans « Né ici », et ALT, le média d’Underwave, peut en parler.</li></ul></section>
+      <section><h2>Gestion du répertoire</h2><p>Le répertoire Espaces Partagés est porté et administré par Underwave. L’association vérifie chaque fiche de lieu et chaque annonce avant publication, et met à jour les informations lorsque c’est nécessaire.</p><p>Dans ce cadre, Underwave se réserve la possibilité :</p><ul><li>de sélectionner les lieux et les annonces publiés ;</li><li>de mettre à jour certaines informations ;</li><li>ou, si nécessaire, de retirer un lieu ou une annonce du répertoire.</li></ul><p>Le répertoire repose sur une logique de confiance entre lieux et acteurs culturels. Underwave prend en compte les retours d’expérience et les signalements. En cas de signalements concordants indiquant des difficultés répétées, l’association peut décider de ne plus maintenir un lieu dans le répertoire, afin de préserver une ressource cohérente et respectueuse pour ses utilisateur·ices.</p></section>
+      <section><h2>Impact culturel et dynamique locale</h2><p>À travers Espaces Partagés, l’association Underwave souhaite contribuer au développement d’une dynamique culturelle locale plus ouverte et collaborative. En facilitant la rencontre entre initiatives et espaces disponibles, le projet vise à encourager l’émergence de nouvelles propositions, à diversifier les lieux investis et à permettre à davantage d’acteurs de participer à la vie culturelle marseillaise.</p></section>
+      <section><h2>Retours et contributions</h2><p>Si une initiative voit le jour grâce à Espaces Partagés, vous pouvez la raconter dans <a href="#ne-ici">« Né ici »</a> ou la proposer à <a href="#alt">ALT</a> : lorsque c’est possible, nous la relaierons pour contribuer à sa visibilité.</p><p>Nous sommes aussi preneurs de retours (témoignages, suggestions, besoins) pour faire évoluer le projet au plus près des réalités du terrain : <b style="font-weight:500">${CONTACT}</b></p></section>
     </div>
   </div>`;
 }
@@ -4483,7 +4642,7 @@ document.addEventListener("click",e=>{ const a=e.target.closest("[data-regles],[
    puis envoyée à la base. La base applique elle-même les règles
    (validation, droits de l'équipe, messages privés).
    ========================================================= */
-const Live = (()=>{
+const Live = !LIVE ? null : (()=>{
   const sb = window.supabase.createClient(CONFIG.supabaseUrl, CONFIG.supabaseKey, { auth:{ persistSession:true, autoRefreshToken:true, detectSessionInUrl:true } });
   const demo = { ...DB };
   const iso = v => v || now();
