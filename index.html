@@ -68,7 +68,8 @@ nav .c{margin-right:.22em}
 .proj img.contain{object-fit:contain;padding:calc(var(--big)*2 + 60px) var(--pad) calc(var(--big)*2 + 70px)}
 .proj img.blend{mix-blend-mode:multiply}
 .proj .ep-card{display:grid;place-items:center;cursor:pointer}
-.ep-card-t{font-size:clamp(56px,16vw,240px);line-height:.88;letter-spacing:-.05em;text-align:center}
+.ep-card-t{position:relative;font-size:clamp(56px,16vw,240px);line-height:.88;letter-spacing:-.05em;text-align:center}
+.ep-map{position:absolute;inset:0;width:100%;height:100%;display:block}
 .proj img.on{opacity:1}
 .proj .top,.proj .bot{position:absolute;left:0;right:0;z-index:2;display:flex;justify-content:space-between;align-items:baseline;gap:1em;pointer-events:none}
 .proj .top{top:22px}
@@ -209,7 +210,7 @@ a.row:hover{background:var(--lime)}
     <div class="bot g"><span class="sub s">Rendez-vous régulier dédié aux DJ locaux, autour de la pratique, de l’échange et de l'accompagnement avec un espace dédié.</span><span class="go flip">Voir le projet</span></div>
   </a>
   <a class="proj" href="#espaces-partages" style="--bg:var(--white);--fg:var(--black)">
-    <div class="media ep-card"><span class="ep-card-t">Espaces<br>Partagés</span></div>
+    <div class="media ep-card"><canvas class="ep-map" aria-hidden="true"></canvas><span class="ep-card-t">Espaces<br>Partagés</span></div>
     <div class="top g"><span class="tag">Espaces Partagés</span><span class="num">02/04</span></div>
     <div class="bot g"><span class="sub s">Trouvez un lieu pour votre projet, ou référencez le vôtre. Le site est en ligne.</span><span class="go flip">Voir le projet</span></div>
   </a>
@@ -411,6 +412,74 @@ a.row:hover{background:var(--lime)}
     scrollTo(0,0);
   }
   addEventListener('hashchange',show);show();
+
+  // Accueil : carte animée de Marseille derrière « Espaces Partagés »
+  (function(){
+    const cv=document.querySelector('.ep-map'); if(!cv)return;
+    const ctx=cv.getContext('2d');
+    // Trait de côte simplifié (longitude, latitude), de L'Estaque aux Calanques
+    const coast=[[5.27,43.372],[5.300,43.364],[5.318,43.358],[5.333,43.348],[5.344,43.336],[5.352,43.322],[5.358,43.310],[5.362,43.300],[5.366,43.296],[5.376,43.2955],[5.368,43.293],[5.360,43.292],[5.356,43.288],[5.352,43.282],[5.349,43.278],[5.354,43.271],[5.362,43.266],[5.371,43.258],[5.373,43.249],[5.366,43.240],[5.357,43.230],[5.350,43.220],[5.348,43.212],[5.362,43.212],[5.380,43.207],[5.400,43.205],[5.420,43.209],[5.445,43.207],[5.470,43.211],[5.500,43.206],[5.540,43.208]];
+    const land=[[4.9,43.372]].concat(coast,[[5.9,43.208],[5.9,43.7],[4.9,43.7]]);
+    const isles=[[[5.293,43.284],[5.305,43.281],[5.311,43.277],[5.302,43.275],[5.292,43.279]],[[5.308,43.272],[5.318,43.270],[5.322,43.266],[5.312,43.265]],[[5.325,43.280],[5.330,43.279],[5.329,43.276],[5.324,43.277]]];
+    // Grands axes (approximatifs)
+    const roads=[
+      [[5.376,43.2965],[5.385,43.305],[5.390,43.320],[5.385,43.340],[5.372,43.365],[5.36,43.40]],
+      [[5.376,43.2965],[5.400,43.300],[5.425,43.302],[5.455,43.300],[5.490,43.296],[5.54,43.292]],
+      [[5.360,43.310],[5.345,43.330],[5.325,43.352],[5.300,43.368]],
+      [[5.381,43.293],[5.386,43.280],[5.392,43.266],[5.395,43.250],[5.400,43.232]],
+      [[5.381,43.293],[5.398,43.285],[5.420,43.275],[5.445,43.262],[5.47,43.24]],
+      [[5.392,43.266],[5.380,43.262],[5.371,43.258]],
+      [[5.400,43.300],[5.405,43.318],[5.420,43.335],[5.445,43.350],[5.47,43.37]],
+      [[5.405,43.318],[5.430,43.312],[5.455,43.318]],
+      [[5.386,43.280],[5.405,43.290],[5.410,43.305],[5.400,43.320],[5.385,43.322]]
+    ];
+    const B={x0:5.30,x1:5.50,y0:43.21,y1:43.37},K=Math.cos(43.3*Math.PI/180);
+    let W=0,H=0,dpr=1,sc=1,ox=0,oy=0,places=[],streets=[],links=[],last=0,next=0,raf=0,visible=false;
+    const P=([lo,la])=>[ox+(lo-B.x0)*K*sc, oy+(B.y1-la)*sc];
+    function inside(pt,poly){let c=false;for(let i=0,j=poly.length-1;i<poly.length;j=i++){const a=poly[i],b=poly[j];if((a[1]>pt[1])!=(b[1]>pt[1])&&pt[0]<(b[0]-a[0])*(pt[1]-a[1])/(b[1]-a[1])+a[0])c=!c;}return c;}
+    function size(){
+      const r=cv.getBoundingClientRect(); dpr=Math.min(2,devicePixelRatio||1); W=r.width;H=r.height;
+      cv.width=W*dpr;cv.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
+      const mw=(B.x1-B.x0)*K, mh=(B.y1-B.y0); sc=Math.min(W/mw,H/mh)*1.3; ox=(W-mw*sc)/2; oy=(H-mh*sc)/2;
+      places=[]; let n=0;
+      while(places.length<46&&n++<3000){const lo=5.33+Math.random()*0.17,la=43.215+Math.random()*0.15;
+        const d=Math.hypot((lo-5.385)*1.4,la-43.30); if(Math.random()>1.15-d*5)continue;
+        if(inside([lo,la],land))places.push({p:[lo,la],ph:Math.random()*6.28});}
+      // petites rues : chaque point relié à ses deux voisins les plus proches
+      const nodes=[];n=0;
+      while(nodes.length<260&&n++<6000){const lo=5.31+Math.random()*0.21,la=43.212+Math.random()*0.17;
+        const d=Math.hypot((lo-5.385)*1.4,la-43.30); if(Math.random()>1.05-d*4)continue; if(inside([lo,la],land))nodes.push([lo,la]);}
+      streets=[];nodes.forEach(a=>{nodes.map(b=>[b,Math.hypot((a[0]-b[0])*K,a[1]-b[1])]).filter(x=>x[1]>0).sort((x,y)=>x[1]-y[1]).slice(0,2).forEach(([b])=>streets.push([a,b]));});
+    }
+    function line(pts,close){ctx.beginPath();pts.forEach((q,i)=>{const[x,y]=P(q);i?ctx.lineTo(x,y):ctx.moveTo(x,y);});if(close)ctx.closePath();}
+    function draw(t){
+      ctx.clearRect(0,0,W,H);
+      line(land,true);ctx.fillStyle='#f4f4f1';ctx.fill();
+      line(coast);ctx.strokeStyle='rgba(0,0,0,.18)';ctx.lineWidth=1;ctx.stroke();
+      isles.forEach(i=>{line(i,true);ctx.fillStyle='#f4f4f1';ctx.fill();ctx.stroke();});
+      ctx.strokeStyle='rgba(0,0,0,.06)';ctx.lineWidth=.8;streets.forEach(r=>{line(r);ctx.stroke();});
+      ctx.strokeStyle='rgba(0,0,0,.12)';ctx.lineWidth=1.4;roads.forEach(r=>{line(r);ctx.stroke();});
+      places.forEach(pl=>{const[x,y]=P(pl.p);ctx.beginPath();ctx.arc(x,y,2,0,7);ctx.fillStyle='rgba(0,0,0,'+(.16+.1*Math.sin(t/900+pl.ph))+')';ctx.fill();});
+      links.forEach(L=>{
+        const k=(t-L.t0)/2600; if(k>1)return;
+        const g=Math.min(1,k/.55), a=k<.7?1:1-(k-.7)/.3;
+        const[x1,y1]=P(L.a.p),[x2,y2]=P(L.b.p); const mx=(x1+x2)/2-(y2-y1)*.25,my=(y1+y2)/2+(x2-x1)*.25;
+        ctx.beginPath();ctx.moveTo(x1,y1);
+        for(let i=1;i<=24;i++){const u=i/24*g;const x=(1-u)*(1-u)*x1+2*u*(1-u)*mx+u*u*x2,y=(1-u)*(1-u)*y1+2*u*(1-u)*my+u*u*y2;ctx.lineTo(x,y);}
+        ctx.strokeStyle='rgba(234,51,210,'+(.55*a)+')';ctx.lineWidth=1.3;ctx.stroke();
+        [[x1,y1,0],[x2,y2,.55]].forEach(([x,y,d])=>{const q=k-d;if(q<0)return;const rr=3+q*26;ctx.beginPath();ctx.arc(x,y,rr,0,7);ctx.strokeStyle='rgba(234,51,210,'+(.5*a*(1-q))+')';ctx.lineWidth=1;ctx.stroke();ctx.beginPath();ctx.arc(x,y,3,0,7);ctx.fillStyle='rgba(234,51,210,'+(.8*a)+')';ctx.fill();});
+      });
+      links=links.filter(L=>t-L.t0<2600);
+    }
+    function loop(t){
+      if(t>next&&places.length>1){const a=places[Math.random()*places.length|0];const near=places.filter(q=>q!==a).sort((x,y)=>Math.hypot(x.p[0]-a.p[0],x.p[1]-a.p[1])-Math.hypot(y.p[0]-a.p[0],y.p[1]-a.p[1])).slice(0,6);const b=near[Math.random()*near.length|0];links.push({a,b,t0:t});next=t+900+Math.random()*900;}
+      draw(t); raf=visible?requestAnimationFrame(loop):0;
+    }
+    const still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    size(); addEventListener('resize',()=>{size();if(!raf)draw(performance.now());});
+    new IntersectionObserver(e=>{visible=e[0].isIntersecting&&!still&&!document.hidden;if(visible&&!raf)raf=requestAnimationFrame(loop);else if(!visible)draw(performance.now());}).observe(cv);
+    draw(0);
+  })();
   // Espaces Partagés : copier le lien du site
   const cp=document.getElementById('ep-copy');
   if(cp)cp.addEventListener('click',async()=>{const u=cp.dataset.url;try{await navigator.clipboard.writeText(u);}catch(e){const t=document.createElement('textarea');t.value=u;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove();}const o=cp.textContent;cp.textContent='Lien copié ✓';setTimeout(()=>cp.textContent=o,2000);});
