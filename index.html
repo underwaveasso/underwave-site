@@ -67,6 +67,7 @@ nav .c{margin-right:.22em}
 .proj img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .35s ease}
 .proj img.contain{object-fit:contain;padding:calc(var(--big)*2 + 60px) var(--pad) calc(var(--big)*2 + 70px)}
 .proj img.blend{mix-blend-mode:multiply}
+@media (max-width:640px){.proj img.contain.tall{padding-bottom:calc(var(--big)*2 + 130px)}}
 .proj img.on{opacity:1}
 .proj .top,.proj .bot{position:absolute;left:0;right:0;z-index:2;display:flex;justify-content:space-between;align-items:baseline;gap:1em;pointer-events:none}
 .proj .top{top:22px}
@@ -206,10 +207,10 @@ a.row:hover{background:var(--lime)}
     <div class="top g"><span class="tag">Open Platine</span><span class="num">01/04</span></div>
     <div class="bot g"><span class="sub s">Rendez-vous régulier dédié aux DJ locaux, autour de la pratique, de l’échange et de l'accompagnement avec un espace dédié.</span><span class="go flip">Voir le projet</span></div>
   </a>
-  <a class="proj shade" href="#espaces-partages" style="--bg:var(--black);--fg:var(--white)">
-    <div class="media"><img src="img/espaces-partages.jpg" alt="Un lieu marseillais aménagé avec tables, chaises et plantes" class="on"></div>
+  <a class="proj" href="#espaces-partages" style="--bg:var(--white);--fg:var(--black)">
+    <div class="media"><img src="img/espaces-partages-story.png" alt="Visuel Espaces Partagés : J’ai un lieu, Je cherche un lieu, avec un QR code vers le site du projet" class="contain tall on"></div>
     <div class="top g"><span class="tag">Espaces Partagés</span><span class="num">02/04</span></div>
-    <div class="bot g"><span class="sub s">Répertoire culturel collaboratif : trouvez un lieu pour votre projet, partout dans Marseille. Site en ligne.</span><span class="go flip">Voir le projet</span></div>
+    <div class="bot g"><span class="sub s">Trouvez un lieu pour votre projet, ou référencez le vôtre. Le site est en ligne.</span><span class="go flip">Voir le projet</span></div>
   </a>
   <a class="proj" href="#alt-media" style="--bg:var(--lime);--fg:var(--black)">
     <div class="media"><img src="img/alt-media.png" alt="Touche de clavier alt." class="contain blend on"></div>
