@@ -982,7 +982,7 @@ details.mail pre{white-space:pre-wrap;font:inherit;font-size:14px;padding:0 14px
 .valeurs{display:grid;gap:12px;padding-block:clamp(24px,4vw,44px);background:var(--black);color:var(--white);border-bottom:1px solid var(--line)}
 .valeurs .kicker{color:var(--lime);margin:0}
 .valeurs p{font-size:var(--mid);max-width:40em;line-height:1.3}
-.valeurs .btn{justify-self:start}
+.valeurs .btn{justify-self:start;background:var(--lime);color:var(--black);border-color:var(--lime)}
 .regles .engage{background:var(--black);color:var(--white);padding:14px 16px;border-radius:12px;font-size:var(--mid);line-height:1.3}
 .regles .engage b{font-weight:500}
 .regles b{font-weight:500}
@@ -3628,7 +3628,7 @@ function viewAccueil(){
     <div><b>${hc}</b>hors du centre-ville</div>
     <div><b>0 €</b>gratuit, sans commission</div>
   </div>
-  <section class="valeurs g"><span class="kicker">Un répertoire engagé</span><p>Espaces Partagés est un outil associatif pour le bien commun, antifasciste, antiraciste, féministe et queer. Aucun événement contraire à ces valeurs ne passera par ce site, et aucun lieu signalé pour des violences ou des discriminations n’y aura sa place.</p><a class="btn" href="#regles">Nos valeurs et nos règles</a></section>
+  <section class="valeurs g"><span class="kicker">Nos valeurs</span><p>Un outil associatif, pensé pour le bien commun. Les lieux et les projets qu’on y partage sont ouverts à toutes et tous : ici, pas de place pour le racisme, le sexisme, les LGBTQIA+phobies ou l’extrême droite.</p><a class="btn" href="#regles">Lire nos valeurs et nos règles</a></section>
   ${ne.length?`<div class="page-head g" style="border-bottom:1px solid var(--line)"><span class="kicker">Né ici</span><h2 class="h2big">Ce qui s’est passé grâce au répertoire</h2></div><div class="cards">${ne.map(neIciCard).join("")}</div><div class="g" style="padding-block:18px"><a class="btn small" href="#ne-ici">Tout voir</a></div>`:""}
   <section class="altband g"><div><span class="kicker">ALT</span><p>Votre projet a trouvé son lieu ? ALT, le média d’Underwave, peut en parler.</p></div><a class="btn dark" href="#alt">Faire parler de mon projet</a></section>`;
   $("#need").onsubmit=e=>{ e.preventDefault(); const fd=new FormData(e.target);
