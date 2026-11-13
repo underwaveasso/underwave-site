@@ -199,6 +199,33 @@ a.row:hover{background:var(--lime)}
 .cols3 .big-links a,.cols3 .big-links span{overflow-wrap:anywhere}
 @media (max-width:860px){.cols3{grid-template-columns:1fr}}
 
+/* Résidence ROOT.S */
+.brouillon{background:var(--magenta);color:var(--white);padding-block:.6em}
+.duo{display:flex;align-items:center;gap:.5em;margin-top:1.2em;font-size:var(--big)}
+.duo img{height:1.3em;width:auto}
+.duo .mark{height:1.3em;width:auto}
+.dj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:48px var(--pad);margin-top:1.4em}
+.dj{display:grid;gap:14px;align-content:start}
+.dj img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+.dj img.logo{object-fit:contain;padding:18%;background:var(--white);border:1px solid currentColor}
+.dj-t{display:grid;gap:.5em}
+.dj h3{font-size:var(--big);font-weight:400;letter-spacing:-.03em;line-height:1}
+.dj .cred{color:var(--grey)}
+.relais-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:var(--pad);margin-top:1.2em}
+.relais{display:grid;gap:.5em;padding:12px;border:1px solid currentColor}
+.relais img{width:100%;aspect-ratio:16/7;object-fit:contain}
+@media (hover:hover){.relais:hover{background:var(--lime)}}
+.lieu-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--pad);margin-top:1.2em}
+.lieu-grid img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+.part-list .row{grid-template-columns:minmax(0,1fr) minmax(0,1.2fr) 11em}
+.part-list .row span:last-child{font-size:var(--small);align-self:center}
+.pers-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:32px var(--pad);margin-top:1.2em}
+.pers{margin:0;display:grid;gap:10px;align-content:start}
+.pers img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
+.pers h3{font-size:var(--small);font-weight:500;letter-spacing:.06em;text-transform:uppercase}
+.pers .role{color:var(--grey)}
+@media (max-width:640px){.lieu-grid{grid-template-columns:1fr}}
+
 /* Style « brat » : typo type Arial, serrée ; grands titres étirés en hauteur (lettres compressées en largeur
    et agrandies d'autant, comme une Arial Narrow étirée) et contours légèrement flous */
 body{letter-spacing:-.03em}
@@ -283,11 +310,107 @@ body{letter-spacing:-.03em}
   <p class="index-intro">Cette page regroupe l’ensemble des projets menés par Underwave. Accédez directement à chacun d’eux ci-dessous.</p>
   <div class="list">
     <div class="row head"><span>Projet</span><span>Type</span><span>Lancement</span></div>
-    <a class="row" href="#opn" data-peek="img/opn.jpg"><span>Open Platine Night</span><span>DJing, rencontres</span><span>2023</span></a>
-    <a class="row" href="#espaces-partages" data-peek="img/espaces-partages-apercu.jpg"><span>Espaces Partagés</span><span>Répertoire des lieux</span><span>2026</span></a>
     <a class="row" href="#alt-media" data-peek="img/alt-media.png"><span>ALT MEDIA</span><span>Média</span><span>À venir</span></a>
+    <a class="row" href="#espaces-partages" data-peek="img/espaces-partages-apercu.jpg"><span>Espaces Partagés</span><span>Répertoire des lieux</span><span>2026</span></a>
+    <a class="row" href="#residence-roots" data-peek="img/roots/shoot-pipa-wave.jpg"><span>Résidence ROOT.S × Underwave</span><span>Résidence artistique collaborative</span><span>2024</span></a>
+    <a class="row" href="#opn" data-peek="img/opn.jpg"><span>Open Platine Night</span><span>DJing, rencontres</span><span>2023</span></a>
   </div>
 </div>
+
+<!-- ================= RÉSIDENCE ROOT.S × UNDERWAVE ================= -->
+<article data-page="residence-roots" class="page" hidden>
+  <div class="p-head g"><span class="kicker">Projet · Résidence artistique collaborative · Mars 2024</span><h1 class="title">Résidence ROOT.S × Underwave</h1><p class="tagline">Deux collectifs, l’un parisien, l’autre marseillais, réunis une semaine autour du DJing et de la création.</p>
+    <div class="figs"><span><b>04 → 09.03.2024</b><span class="s">En Provence, à 1 h de Marseille</span></span><span><b>6 DJ</b><span class="s">de Paris et de Marseille</span></span><span><b>7 épisodes</b><span class="s">Le Relais, sur YouTube</span></span></div>
+    <div class="duo"><img src="img/roots/logo-roots-noir.png" alt="Logo ROOT.S"><span aria-hidden="true">×</span><span class="mark" role="img" aria-label="Logo Underwave"></span></div>
+  </div>
+  <div class="g">
+    <div class="p-body">
+      <div class="lead">
+        <p>Au printemps 2024, ROOT.S, collectif parisien, et Underwave, collectif marseillais, ont invité un groupe varié de talents créatifs pour une résidence artistique : DJs, compositeur, photographes, vidéastes, créatrice et styliste.</p>
+        <p>L’idée : créer une synergie entre les univers créatifs de Paris et de Marseille, favoriser les échanges culturels, stimuler la création à travers des collaborations et offrir un terrain fertile pour l’émergence de projets transdisciplinaires.</p>
+        <p>Dans un ancien corps de ferme au cœur de la nature provençale, les artistes ont pu se déconnecter de la ville, prendre le temps de réfléchir et de créer, seul·e·s ou en collectif.</p>
+      </div>
+      <div class="side s">
+        <section><h2>Le programme</h2><p>Connecter les artistes DJs de Marseille et de Paris pour créer des ponts entre deux scènes foisonnantes : des espaces de création, de performance et d’exposition pour enrichir les univers de chacun·e, donner de la visibilité aux projets et élargir les audiences.</p><p>Pour chaque artiste, un shooting photo avec des tenues proposées par une styliste et une créatrice, et une captation vidéo pour la série Le Relais.</p></section>
+        <section><h2>Les soirées</h2><p><b>Open Platine</b> · La Mer Veilleuse, Cours Julien — jeudi.</p><p><b>Dancehall Nation</b> · Le Makeda, la Plaine — vendredi.</p><p><b>Closing party ROOT.S × Underwave</b> · lieu underground à Marseille, sept DJs parisien·ne·s et marseillais·es — samedi.</p></section>
+        <section><h2>Les collectifs</h2><p><b>ROOT.S</b> · média et créateur d’événements à Paris, incubateur de la scène DJ et rap, à l’origine du concept Le Relais.</p><p><b>Underwave</b> · association culturelle et sociale à Marseille.</p></section>
+      </div>
+    </div>
+
+    <section class="names">
+      <h2>Les DJ &amp; Le Relais</h2>
+      <p class="s" style="margin-top:.6em">Pendant la résidence, chaque DJ a posé pour un shooting et enregistré un set pour la saison 2 du Relais, le concept de ROOT.S qui présente des artistes DJ émergent·e·s.</p>
+      <div class="dj-grid">
+        <article class="dj">
+          <img src="img/roots/shoot-mama-ace.jpg" alt="Shooting de Mama Ace pendant la résidence" loading="lazy">
+          <div class="dj-t"><span class="kicker">EP 1 · Le Relais</span><h3>Mama Ace</h3><p class="s">Naviguant entre Paris et Marseille, MAMA ACE allie tradition et modernité dans ses compositions musicales, qui sont de véritables voyages sensoriels et humains.</p><p class="s cred">Photo : Romane Kouo · Stylisme : Kaoutar · Tenue vidéo : YNKY LAB</p>
+            <div class="pill"><a href="https://www.youtube.com/watch?v=t8oOidAHpLs" target="_blank" rel="noopener">Voir le set ↗</a><a href="https://www.instagram.com/p/C8Zxa3rt_XV/" target="_blank" rel="noopener">Le post ↗</a></div></div>
+        </article>
+        <article class="dj">
+          <img src="img/roots/shoot-slo.jpg" alt="Shooting de SLO pendant la résidence" loading="lazy">
+          <div class="dj-t"><span class="kicker">EP 2 · Le Relais</span><h3>SLO</h3><p class="s">Né en Guadeloupe, Slo a été formé au son du reggae et du dancehall. Sa détermination et sa passion pour la musique l’ont rapidement propulsé sur les devants de la scène marseillaise.</p><p class="s cred">Photo : Romane Kouo · Création mode sur mesure : YNKY LAB</p>
+            <div class="pill"><a href="https://www.youtube.com/watch?v=cI_wwTRwxCU" target="_blank" rel="noopener">Voir le set ↗</a><a href="https://www.instagram.com/p/C8ppTLHN8vE/" target="_blank" rel="noopener">Le post ↗</a></div></div>
+        </article>
+        <article class="dj">
+          <img src="img/roots/shoot-crams.jpg" alt="Shooting de Crams pendant la résidence" loading="lazy">
+          <div class="dj-t"><span class="kicker">EP 3 · Le Relais</span><h3>Crams</h3><p class="s">La scène Rap et les rues de Marseille n’ont plus de secret pour CRAMS : jeune DJ marseillaise et figure montante du hip-hop en local.</p><p class="s cred">Photo : Romane Kouo · Stylisme : Kaoutar · Tenue vidéo : YNKY LAB</p>
+            <div class="pill"><a href="https://www.youtube.com/watch?v=lWs5lSNLjxA" target="_blank" rel="noopener">Voir le set ↗</a><a href="https://www.instagram.com/p/C82YMN6NENE/" target="_blank" rel="noopener">Le post ↗</a></div></div>
+        </article>
+        <article class="dj">
+          <img src="img/roots/shoot-pipa-wave.jpg" alt="Shooting de Pipa Wave (Blue Lyra) pendant la résidence" loading="lazy">
+          <div class="dj-t"><span class="kicker">EP 4 · Le Relais</span><h3>Pipa Wave (Blue Lyra)</h3><p class="s">Artiste pluridisciplinaire, militante du son et de la culture : entre Marseille, Paris et Bruxelles, Pipa Wave excelle dans la fusion des genres, des rythmes et des générations.</p><p class="s cred">Photo : Romane Kouo · Stylisme : Kaoutar · Tenue vidéo : YNKY LAB</p>
+            <div class="pill"><a href="https://www.youtube.com/watch?v=TQYDTFYvZG8" target="_blank" rel="noopener">Voir le set ↗</a><a href="https://www.instagram.com/p/C9A0-ljNZLZ/" target="_blank" rel="noopener">Le post ↗</a></div></div>
+        </article>
+        <article class="dj">
+          <img src="img/roots/shoot-bodji.jpg" alt="Shooting de Bodji pendant la résidence" loading="lazy">
+          <div class="dj-t"><span class="kicker">EP 5 · Le Relais</span><h3>Bodji</h3><p class="s">Bodji, jeune DJ et producteur basé à Paris, se distingue par une musicalité singulière inspirée de la musique électronique, aux sonorités africaines, caribéennes et lusophones.</p><p class="s cred">Photo : Romane Kouo · Stylisme : Kaoutar</p>
+            <div class="pill"><a href="https://www.youtube.com/watch?v=avmTZFc_xUk" target="_blank" rel="noopener">Voir le set ↗</a><a href="https://www.instagram.com/p/C9c2AVMtqCN/" target="_blank" rel="noopener">Le post ↗</a></div></div>
+        </article>
+        <article class="dj">
+          <img src="img/roots/shoot-ski-carl.jpg" alt="Shooting de Ski Carl pendant la résidence" loading="lazy">
+          <div class="dj-t"><span class="kicker">EP 6 · Le Relais</span><h3>Ski Carl</h3><p class="s">Ski Carl a notamment performé pour Rinse, Hotel Radio Paris, Spotify et Kiosk Radio. Ses sets mélangent rap, amapiano, house, afro house, bossa, baile, RnB et alté.</p><p class="s cred">Photo : Romane Kouo · Stylisme : Kaoutar</p>
+            <div class="pill"><a href="https://www.youtube.com/watch?v=yJpvdxPLgKw" target="_blank" rel="noopener">Voir le set ↗</a><a href="https://www.instagram.com/p/C9xcX_ttQrm/" target="_blank" rel="noopener">Le post ↗</a></div></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="names">
+      <h2>Le lieu</h2>
+      <div class="lieu-grid"><img src="img/roots/lieu-1.jpg" alt="Le corps de ferme" loading="lazy"><img src="img/roots/lieu-3.jpg" alt="Le lieu de la résidence" loading="lazy"><img src="img/roots/lieu-4.jpg" alt="La terrasse" loading="lazy"></div>
+    </section>
+
+    <section class="names">
+      <h2>L’organisation</h2>
+      <div class="list part-list">
+        <a class="row" href="https://www.instagram.com/bluelyra__/" target="_blank" rel="noopener"><span>Lou B. (alias Blue Lyra)</span><span>Co-organisatrice · Underwave</span><span>@bluelyra__ ↗</span></a>
+        <a class="row" href="https://www.instagram.com/fta.youngboy/" target="_blank" rel="noopener"><span>Flo (FTA)</span><span>Co-organisateur · ROOT.S · <span class="s">a aussi enregistré un épisode bonus du Relais</span></span><span>@fta.youngboy ↗</span></a>
+        <div class="row"><span>Adrien</span><span>Organisation · ROOT.S</span><span></span></div>
+      </div>
+      <div class="pill" style="margin-top:1em"><a href="https://www.youtube.com/watch?v=iAkhQOGBylM" target="_blank" rel="noopener">Épisode bonus du Relais : FTA ↗</a></div>
+    </section>
+
+    <section class="names">
+      <h2>Les participant·e·s</h2>
+      <div class="list part-list">
+        <div class="row"><span>Mama Ace</span><span>DJ · Marseille</span><span></span></div>
+        <a class="row" href="https://www.instagram.com/slo_off/" target="_blank" rel="noopener"><span>SLO</span><span>DJ · Marseille</span><span>@slo_off ↗</span></a>
+        <a class="row" href="https://www.instagram.com/craaaaaaaaaams/" target="_blank" rel="noopener"><span>Crams</span><span>DJ · Marseille</span><span>@craaaaaaaaaams ↗</span></a>
+        <a class="row" href="https://www.instagram.com/bluelyra__/" target="_blank" rel="noopener"><span>Blue Lyra (ex-Pipa Wave)</span><span>DJ · Marseille</span><span>@bluelyra__ ↗</span></a>
+        <a class="row" href="https://www.instagram.com/bodjibodjibodji/" target="_blank" rel="noopener"><span>Bodji (ex-Sitam)</span><span>DJ, producteur · Paris</span><span>@bodjibodjibodji ↗</span></a>
+        <a class="row" href="https://www.instagram.com/ski_carl/" target="_blank" rel="noopener"><span>Ski Carl</span><span>DJ · Paris</span><span>@ski_carl ↗</span></a>
+        <a class="row" href="https://www.instagram.com/iamhipno/" target="_blank" rel="noopener"><span>Hipno</span><span>Beatmaker</span><span>@iamhipno ↗</span></a>
+        <a class="row" href="https://www.instagram.com/romaneskn/" target="_blank" rel="noopener"><span>Romane Kouo</span><span>Photographe</span><span>@romaneskn ↗</span></a>
+        <a class="row" href="https://www.instagram.com/kingkenav/" target="_blank" rel="noopener"><span>Kenav</span><span>Vidéaste reporter · vidéos de présentation des artistes</span><span>@kingkenav ↗</span></a>
+        <a class="row" href="https://www.instagram.com/latinanrv/" target="_blank" rel="noopener"><span>Bettina</span><span>Vidéaste · captations des sets DJ</span><span>@latinanrv ↗</span></a>
+        <a class="row" href="https://www.instagram.com/ynkylab/" target="_blank" rel="noopener"><span>YNKY LAB</span><span>Créatrice, tenues upcyclées</span><span>@ynkylab ↗</span></a>
+        <a class="row" href="https://www.instagram.com/kdwinitall_/" target="_blank" rel="noopener"><span>Kaoutar</span><span>Styliste</span><span>@kdwinitall_ ↗</span></a>
+        <a class="row" href="https://www.instagram.com/roots.paris/" target="_blank" rel="noopener"><span>ROOT.S</span><span>Collectif, Paris</span><span>@roots.paris ↗</span></a>
+      </div>
+    </section>
+
+    <nav class="next" aria-label="Projets"><a class="flip" href="#espaces-partages">Projet suivant : Espaces Partagés</a><a class="flip" href="#projets">Tous les projets</a></nav>
+  </div>
+</article>
 
 <!-- ================= OPN ================= -->
 <article data-page="opn" class="page" hidden>
