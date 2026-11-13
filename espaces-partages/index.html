@@ -4,7 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Espaces Partagés · Répertoire culturel marseillais</title>
-<meta name="description" content="Espaces Partagés, répertoire culturel marseillais collaboratif porté par l'association Underwave.">
+<meta name="description" content="Trouvez un lieu pour votre projet partout dans Marseille, ou référencez le vôtre. Répertoire gratuit et collaboratif porté par l'association Underwave : bars, ateliers, galeries, centres sociaux, tiers-lieux.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Espaces Partagés · Répertoire culturel marseillais">
+<meta property="og:description" content="Trouvez un lieu pour votre projet partout dans Marseille, ou référencez le vôtre. Gratuit, sans intermédiaire, sans commission.">
+<meta property="og:image" content="https://underwaveasso.github.io/underwave-site/img/espaces-partages-story.png">
+<meta property="og:locale" content="fr_FR">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23defe52'/%3E%3Ccircle cx='11' cy='20' r='4' fill='%23ea33d2'/%3E%3Ccircle cx='22' cy='11' r='4' fill='%23ea33d2'/%3E%3Cpath d='M11 20 Q12 9 22 11' stroke='%23000' stroke-width='2' fill='none'/%3E%3C/svg%3E">
 <style>@font-face{font-family:"Inter Tight";font-style:normal;font-weight:400;font-display:swap;src:url(vendor/fonts/inter-tight-latin-ext-400-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
 @font-face{font-family:"Inter Tight";font-style:normal;font-weight:400;font-display:swap;src:url(vendor/fonts/inter-tight-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
 @font-face{font-family:"Inter Tight";font-style:normal;font-weight:500;font-display:swap;src:url(vendor/fonts/inter-tight-latin-ext-500-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
@@ -1039,6 +1045,36 @@ details.mail pre{white-space:pre-wrap;font:inherit;font-size:14px;padding:0 14px
 .hero2-more{color:#fff;font-size:var(--small);text-decoration:underline;text-underline-offset:4px;justify-self:start}
 .hero2-more:hover{color:var(--lime)}
 .hero2.th-blanc .hero2-more,.hero2.th-lime .hero2-more{color:#000}
+.menu-btn{display:none;font:inherit;border:1px solid var(--black);border-radius:99px;background:var(--white);padding:7px 14px}
+@media (max-width:760px){
+  .bar{flex-wrap:nowrap;padding-block:10px}
+  .brand b{font-size:24px}
+  .brand span{font-size:12px}
+  .menu-btn{display:inline-flex;align-items:center;gap:4px;flex:none}
+  nav.main{display:none}
+  body.menu-open nav.main{display:flex;position:absolute;left:0;right:0;top:100%;background:var(--white);border-bottom:1px solid var(--line);padding:12px var(--pad) 16px;flex-direction:column;align-items:stretch;gap:12px}
+  body.menu-open nav.main .nav-links{flex-direction:column;align-items:flex-start;margin:0;width:auto}
+  body.menu-open nav.main .nav-links a{font-size:20px;padding:6px 0}
+  body.menu-open nav.main .nav-acts{gap:8px}
+  header.top{position:sticky}
+}
+.launch{padding-block:clamp(40px,7vw,90px);display:grid;gap:14px;justify-items:start;max-width:46em}
+.launch h2{font-size:var(--big);letter-spacing:-.03em;line-height:1.02}
+.launch p{font-size:var(--mid);line-height:1.3}
+.launch .kicker{margin:0}
+.hero2-stats a{color:var(--lime)}
+.avant{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,60px);padding-block:clamp(28px,5vw,56px);border-bottom:1px solid var(--line)}
+@media (max-width:860px){.avant{grid-template-columns:1fr}}
+.avant .kicker{margin-bottom:12px}
+.avant-list{margin:0 0 14px;padding-left:1.3em;display:grid;gap:10px;font-size:var(--small)}
+.avant-list b{font-weight:500}
+.exfiche{border:1px solid var(--black);border-radius:16px;padding:18px;display:grid;gap:12px;background:var(--white)}
+.exhead{display:flex;gap:12px;align-items:center}
+.exhead b{font-weight:500;font-size:var(--mid)}
+.exrow{display:grid;grid-template-columns:120px minmax(0,1fr);gap:10px;align-items:start;font-size:15px}
+.exl{font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding-top:5px}
+@media (max-width:500px){.exrow{grid-template-columns:1fr;gap:4px}}
+.note-msg{font-size:var(--small)!important;color:#444;margin-top:8px!important}
 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--black);color:var(--white);padding:12px 18px;border-radius:99px;z-index:3000;font-size:15px;max-width:90vw}
 table.adm{width:100%;border-collapse:collapse}
 table.adm td,table.adm th{border-bottom:1px solid var(--line);padding:10px 8px;text-align:left;vertical-align:top}
@@ -1055,11 +1091,12 @@ table.adm th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-w
 <header class="top">
   <div class="bar g">
     <a class="brand" href="#accueil"><b>Espaces Partagés</b><span>Répertoire culturel marseillais · collaboratif</span></a>
-    <nav class="main" id="nav"></nav>
+    <button class="menu-btn" id="menuBtn" type="button" aria-controls="nav" aria-expanded="false">Menu</button>
+    <nav class="main" id="nav" aria-label="Menu principal"></nav>
   </div>
 </header>
 
-<main id="app"></main>
+<main id="app"><noscript><div style="padding:24px"><h1>Espaces Partagés</h1><p>Répertoire culturel marseillais, gratuit et collaboratif, porté par l’association Underwave. Il met en relation les lieux qui souhaitent accueillir des initiatives culturelles, sociales et associatives (bars, ateliers, galeries, centres sociaux, tiers-lieux) et les artistes, collectifs, associations et habitant·es qui cherchent un espace, partout dans Marseille.</p><p>Ce site a besoin de JavaScript pour afficher les lieux et les annonces. Contact : underwave.asso@gmail.com</p></div></noscript></main>
 
 <footer>
   <div>
@@ -3394,12 +3431,12 @@ const EVT_GROUPES = {
   "Savoirs et rencontres":["Ateliers","Cours / formations","Conférences / talks","Débats / rencontres","Réunions / assemblées","Permanences / accueil"],
   "Vente et échange":["Marché / pop-up / stand","Vente de créateur·ices","Friperie / troc / gratuiterie"],
   "Solidaire et quartier":["Soirées de soutien","Repas / cantine solidaire","Activités enfants / familles","Fêtes de quartier","Sport / bien-être","Jeux / tournois"],
-  "Privé et autres":["Fêtes privées / anniversaires","Événements hybrides","Autre"],
+  "Autres":["Événements hybrides","Autre"],
 };
 const TYPES_EVT = Object.values(EVT_GROUPES).flat();
 const EQUIPEMENTS = ["Accessibilité PMR","Bar","Cuisine","Piano","Régie","DJ","Scène","Système son","Micros","Vidéoprojecteur","Écran","Éclairage scénique","Tables et chaises","Cimaises / accrochage","Vestiaire","Toilettes","Wifi","Parking"];
 const FREQUENCES = ["Jamais","Rarement","Quelques fois par an","Une fois par mois","Plusieurs fois par mois","Toutes les semaines","Tous les jours"];
-const CONDITIONS = ["Mise à disposition gratuite","Événement sans contrepartie financière","Partage des recettes de billetterie","Recettes bar pour le lieu","Participation aux frais","Location de l’espace","À discuter selon le projet"];
+const CONDITIONS = ["Mise à disposition gratuite","Événement sans contrepartie financière","Partage des recettes de billetterie","Recettes bar pour le lieu","Participation aux frais","Location à tarif solidaire","À discuter selon le projet"];
 const ARR = ["1er","2e","3e","4e","5e","6e","7e","8e","9e","10e","11e","12e","13e","14e","15e","16e","Hors Marseille"];
 const SECTEURS = {
   "Centre-ville":["1er","2e","6e","7e"],
@@ -3441,7 +3478,7 @@ function safeUrl(u){ u=String(u||"").trim(); return /^https?:\/\//i.test(u)?u:"h
 function seeded(str){ let h=2166136261; for(const c of str){ h^=c.charCodeAt(0); h=Math.imul(h,16777619);} return ()=>{ h^=h<<13; h^=h>>>17; h^=h<<5; return ((h>>>0)%100000)/100000; }; }
 
 /* ---------- Couche de données : mode démo ---------- */
-const KEY="ep-demo-v8";
+const KEY="ep-demo-v9";
 const mem = { data:null };
 function store(){ try{ return window.localStorage; }catch(e){ return null; } }
 function load(){
@@ -3572,14 +3609,14 @@ function seed(){
     L({nom:"Atelier Belle Fabrique",type:"Atelier",arr:"3e",adresse:"Boulevard exemple, 13003 Marseille",espace:"Intérieur",capacite:35,evts:["Ateliers","Résidence / répétition","Shooting / Tournage","Cours / formations"],equip:["Wifi","Accessibilité PMR","Tables et chaises"],frequence:"Une fois par mois",conditions:["Participation aux frais","À discuter selon le projet"],description:"Atelier partagé de 120 m² avec grandes tables et lumière naturelle. Idéal pour des ateliers, des résidences courtes ou des shootings.",dispo:"En semaine, en journée.",transports:"Bus 49 · Métro 1 Saint-Charles (10 min)",lat:43.3128,lng:5.3905}),
     L({nom:"La Cour Ouverte",type:"Lieu associatif",arr:"5e",adresse:"Rue exemple, 13005 Marseille",espace:"Les deux",capacite:150,evts:["Concerts","Marché / pop-up / stand","Projections","Soirées de soutien","Repas / cantine solidaire"],equip:["Scène","Système son","Vidéoprojecteur","Cuisine","Accessibilité PMR","Toilettes"],frequence:"Toutes les semaines",conditions:["Mise à disposition gratuite","Partage des recettes de billetterie"],description:"Lieu associatif avec cour intérieure. Priorité aux projets solidaires et aux initiatives du quartier.",dispo:"Week-ends et soirées.",transports:"Métro 1 Baille (5 min)",lat:43.2928,lng:5.3968}),
     L({nom:"Galerie Vitrine Sud",type:"Galerie",arr:"6e",adresse:"Rue exemple, 13006 Marseille",espace:"Intérieur",capacite:40,evts:["Expositions","Vernissages","Performances","Conférences / talks"],equip:["Éclairage scénique","Cimaises / accrochage","Wifi"],frequence:"Quelques fois par an",conditions:["À discuter selon le projet"],description:"Galerie en rez-de-chaussée avec grande vitrine. Ouverte aux expositions collectives et aux vernissages.",dispo:"Créneaux d’une à deux semaines.",transports:"Métro 2 Notre-Dame-du-Mont",lat:43.2921,lng:5.3858}),
-    L({nom:"Le Hangar des Docks",type:"Salle polyvalente",arr:"2e",adresse:"Quai exemple, 13002 Marseille",espace:"Intérieur",capacite:300,evts:["Concerts","DJ sets","Soirées / clubbing","Performances","Événements hybrides"],equip:["Scène","Système son","Régie","Éclairage scénique","Bar","Accessibilité PMR","Vestiaire"],frequence:"Une fois par mois",conditions:["Location de l’espace","Partage des recettes de billetterie"],description:"Grand volume brut, équipé son et lumière. Tarif solidaire possible pour les associations.",dispo:"Vendredis et samedis soir.",transports:"Tram T2/T3 Joliette · Métro 2",lat:43.3062,lng:5.3658}),
+    L({nom:"Le Hangar des Docks",type:"Salle polyvalente",arr:"2e",adresse:"Quai exemple, 13002 Marseille",espace:"Intérieur",capacite:300,evts:["Concerts","DJ sets","Soirées / clubbing","Performances","Événements hybrides"],equip:["Scène","Système son","Régie","Éclairage scénique","Bar","Accessibilité PMR","Vestiaire"],frequence:"Une fois par mois",conditions:["Location à tarif solidaire","Partage des recettes de billetterie"],description:"Grand volume brut, équipé son et lumière. Tarif solidaire possible pour les associations.",dispo:"Vendredis et samedis soir.",transports:"Tram T2/T3 Joliette · Métro 2",lat:43.3062,lng:5.3658}),
     L({nom:"Jardin Partagé des Collines",type:"Jardins / Terrains",arr:"13e",adresse:"Chemin exemple, 13013 Marseille",espace:"Extérieur",capacite:120,evts:["Ateliers","Concerts","Marché / pop-up / stand","Activités enfants / familles","Fêtes de quartier"],equip:["Accessibilité PMR","Tables et chaises","Parking"],frequence:"Quelques fois par an",conditions:["Mise à disposition gratuite"],description:"Jardin collectif ouvert aux ateliers, aux pique-niques musicaux et aux marchés de créateur·ices, d’avril à octobre.",dispo:"Week-ends, d’avril à octobre.",transports:"Métro 1 La Rose puis bus 5 · parking sur place",lat:43.3488,lng:5.4335}),
     L({nom:"Boutique Le Pli",type:"Commerce",arr:"4e",adresse:"Rue exemple, 13004 Marseille",espace:"Intérieur",capacite:25,evts:["Marché / pop-up / stand","Vente de créateur·ices","Expositions"],equip:["Wifi"],frequence:"Plusieurs fois par mois",conditions:["Événement sans contrepartie financière","À discuter selon le projet"],description:"Concept store qui prête son espace à des créateur·ices pour des pop-up et des ventes éphémères.",dispo:"Du mardi au samedi.",transports:"Métro 1 Chartreux · Tram T2",lat:43.3058,lng:5.4012}),
     L({nom:"Le Quai Hybride",type:"Lieu hybride / tiers-lieu",arr:"16e",adresse:"Avenue exemple, 13016 Marseille",espace:"Les deux",capacite:200,evts:["DJ sets","Projections","Ateliers","Résidence / répétition","Débats / rencontres"],equip:["Système son","DJ","Vidéoprojecteur","Cuisine","Bar","Wifi","Parking"],frequence:"Toutes les semaines",conditions:["Recettes bar pour le lieu","Participation aux frais"],description:"Tiers-lieu face à la mer : salle, terrasse et cuisine. Ouvert aux collectifs pour des formats mêlant musique et rencontres.",dispo:"Tous les jours sauf lundi.",transports:"TER L’Estaque · bus 35 · parking",lat:43.3612,lng:5.3142}),
-    L({nom:"Studio Tempo",type:"Studio (son, photo, danse)",arr:"12e",adresse:"Rue exemple, 13012 Marseille",espace:"Intérieur",capacite:15,evts:["Résidence / répétition","Enregistrement / podcast / radio","Shooting / Tournage"],equip:["Système son","Piano","Micros","Wifi"],frequence:"Toutes les semaines",conditions:["Location de l’espace"],description:"Petit studio de répétition insonorisé avec piano droit. Tarif réduit pour les projets émergents.",dispo:"Sur réservation.",transports:"Bus 7 · Métro 1 Saint-Barnabé (10 min)",lat:43.3071,lng:5.4371}),
+    L({nom:"Studio Tempo",type:"Studio (son, photo, danse)",arr:"12e",adresse:"Rue exemple, 13012 Marseille",espace:"Intérieur",capacite:15,evts:["Résidence / répétition","Enregistrement / podcast / radio","Shooting / Tournage"],equip:["Système son","Piano","Micros","Wifi"],frequence:"Toutes les semaines",conditions:["Location à tarif solidaire"],description:"Petit studio de répétition insonorisé avec piano droit. Tarif réduit pour les projets émergents.",dispo:"Sur réservation.",transports:"Bus 7 · Métro 1 Saint-Barnabé (10 min)",lat:43.3071,lng:5.4371}),
     L({nom:"Café Lecture des Pins",type:"Café / salon de thé",arr:"8e",adresse:"Avenue exemple, 13008 Marseille",espace:"Les deux",capacite:70,evts:["Lectures / poésie / slam","Concerts","Expositions","Débats / rencontres"],equip:["Cuisine","Bar","Piano","Accessibilité PMR"],frequence:"Une fois par mois",conditions:["Recettes bar pour le lieu","À discuter selon le projet"],description:"Café avec terrasse ombragée. Accueille des lectures, des concerts acoustiques et des petites expositions.",dispo:"Mercredis et dimanches.",transports:"Bus 19 · Métro 2 Rond-Point du Prado (12 min)",lat:43.2588,lng:5.3893}),
     L({nom:"Maison pour tous des Arnavaux",type:"Centre social / MJC / Maison pour tous",arr:"14e",adresse:"Rue exemple, 13014 Marseille",espace:"Les deux",capacite:90,evts:["Ateliers","Activités enfants / familles","Réunions / assemblées","Fêtes de quartier","Projections","Danse"],equip:["Tables et chaises","Vidéoprojecteur","Écran","Toilettes","Accessibilité PMR","Parking","Cuisine"],frequence:"Plusieurs fois par mois",conditions:["Mise à disposition gratuite","À discuter selon le projet"],description:"Grande salle polyvalente et cour. Très ouverts aux projets qui impliquent les habitant·es du quartier.",dispo:"En semaine après 17 h et le samedi.",transports:"Métro 2 Bougainville puis bus 32 · parking",lat:43.3335,lng:5.3955}),
-    L({nom:"Salle paroissiale Saint-Exemple",type:"Salle paroissiale / lieu de culte",arr:"11e",adresse:"Place exemple, 13011 Marseille",espace:"Intérieur",capacite:80,evts:["Concerts","Repas / cantine solidaire","Cours / formations","Fêtes privées / anniversaires"],equip:["Tables et chaises","Cuisine","Toilettes","Piano","Parking"],frequence:"Quelques fois par an",conditions:["Participation aux frais"],description:"Salle lumineuse avec cuisine équipée, louée à petit prix aux associations et aux familles du quartier.",dispo:"Week-ends sur demande.",transports:"Bus 15 · parking devant la salle",lat:43.2895,lng:5.4815}),
+    L({nom:"Salle paroissiale Saint-Exemple",type:"Salle paroissiale / lieu de culte",arr:"11e",adresse:"Place exemple, 13011 Marseille",espace:"Intérieur",capacite:80,evts:["Concerts","Repas / cantine solidaire","Cours / formations","Fêtes de quartier"],equip:["Tables et chaises","Cuisine","Toilettes","Piano","Parking"],frequence:"Quelques fois par an",conditions:["Participation aux frais"],description:"Salle lumineuse avec cuisine équipée, louée à petit prix aux associations et aux familles du quartier.",dispo:"Week-ends sur demande.",transports:"Bus 15 · parking devant la salle",lat:43.2895,lng:5.4815}),
     L({nom:"Le Snack des Aygalades",type:"Restaurant",arr:"15e",adresse:"Boulevard exemple, 13015 Marseille",espace:"Les deux",capacite:50,evts:["DJ sets","Open mic / jam","Expositions","Repas / cantine solidaire"],equip:["Cuisine","Bar","Système son","Toilettes"],frequence:"Une fois par mois",conditions:["Recettes bar pour le lieu","Événement sans contrepartie financière"],description:"Snack familial avec terrasse. Le patron aimerait faire venir des DJ et des artistes du quartier le week-end.",dispo:"Samedis en fin d’après-midi.",transports:"Bus 25 · Gare de Saint-Antoine (TER)",lat:43.3495,lng:5.3640}),
   ];
   const annonces=[
@@ -3606,20 +3643,24 @@ let map=null;
 
 function renderNav(route){
   const me=DB.me(); const n=DB.lieux().length; const un=DB.unread();
-  const links=[["lieux",`Lieux<span class="n">${n}</span>`],["annonces","Annonces"],["alt","ALT"],["a-propos","À propos"]];
+  const links=[["lieux",`Lieux<span class="n">${n}</span>`],["annonces","Annonces"],["a-propos","À propos"]];
   const acts=[["proposer","Proposer un lieu +","cta"]];
   if(me){ acts.push(["messages",`Messages${un?`<span class="badge-dot">${un}</span>`:""}`]); acts.push(["compte",esc(shortName(me))]); if(me.admin) acts.push(["admin","Gestion"]); }
   else acts.push(["connexion","Connexion"]);
   const a=([h,l,c])=>`<a href="#${h}" class="${c||""} ${route===h?"on":""}" ${route===h?'aria-current="page"':""}>${l}</a>`;
   $("#nav").innerHTML=`<span class="nav-links">${links.map(a).join("")}</span><span class="nav-acts">${acts.map(a).join("")}</span>`;
+  const mb=$("#menuBtn"); if(mb) mb.innerHTML=`Menu${un?`<span class="badge-dot">${un}</span>`:""}`;
 }
+function closeMenu(){ document.body.classList.remove("menu-open"); const b=$("#menuBtn"); if(b) b.setAttribute("aria-expanded","false"); }
 function route(){
   const h=(location.hash||"#accueil").slice(1);
+  closeMenu();
   if(map){ map.remove(); map=null; }
   if(stopPlan){ stopPlan(); stopPlan=null; }
   closeModal();
   let r=h;
   if(h.startsWith("lieu-")) { viewLieu(h.slice(5)); r="lieux"; }
+  else if(h.startsWith("regles-")) { viewRegles(); r="regles"; renderNav(r); const el=document.getElementById(h.slice(7)); if(el) setTimeout(()=>el.scrollIntoView({block:"start"}),0); closeMenu(); return; }
   else if(h.startsWith("modifier-")) { viewProposer(h.slice(9)); r="proposer"; }
   else switch(h){
     case "accueil": viewAccueil(); break;
@@ -3740,7 +3781,7 @@ function viewAccueil(){
       <div class="row-btns"><a class="btn lime" href="#recherche" data-scroll="recherche">Je cherche un lieu</a><a class="btn pink" href="#proposer">J’ai un lieu</a></div>
       <a class="hero2-more" href="#a-propos">Découvrir le projet →</a>
     </div>
-    <div class="hero2-stats g"><span><b>${lieux.length}</b> lieux</span><span><b>${hc}</b> hors du centre-ville</span><span><b>${ann.length}</b> annonces en cours</span></div>
+    ${lieux.length>=5?`<div class="hero2-stats g"><span><b>${lieux.length}</b> lieux</span><span><b>${hc}</b> hors du centre-ville</span><span><b>${ann.length}</b> annonces en cours</span></div>`:`<div class="hero2-stats g"><span><b>Lancement</b> · les premiers lieux rejoignent le répertoire. <a href="#proposer">Référencez le vôtre parmi les premiers →</a></span></div>`}
   </section>
 
   <section class="recherche g" id="recherche">
@@ -3768,7 +3809,6 @@ function viewAccueil(){
 
   ${ne.length?`<section class="g" style="padding-top:clamp(32px,5vw,56px)"><div class="etapes-head" style="padding:0 0 14px"><span class="kicker" style="margin:0">Né ici</span><a class="btn small" href="#ne-ici">Tout voir</a></div></section><div class="cards">${ne.map(neIciCard).join("")}</div>`:""}
 
-  <section class="altband g"><div><span class="kicker">ALT</span><p>Votre projet a trouvé son lieu ? ALT, le média d’Underwave, peut en parler.</p></div><a class="btn dark" href="#alt">Faire parler de mon projet</a></section>
   <section class="ep-share" id="partager">
     <div class="g ep-share-in">
       <img src="${IMG_STORY}" alt="Image Espaces Partagés au format 1080 × 1920, avec un QR code vers le site du projet" width="1080" height="1920">
@@ -3883,6 +3923,7 @@ function renderResults(){
     if(!res.length) box.insertAdjacentHTML("beforeend",`<div class="empty g">Aucun lieu ne correspond. <a href="#annonces">Publiez une annonce</a> : les lieux pourront vous répondre.</div>`);
     return;
   }
+  if(!res.length && !DB.lieux().length){ box.innerHTML=`<div class="launch g"><span class="kicker">Lancement</span><h2>Le répertoire ouvre ses portes.</h2><p>Les premiers lieux sont en cours de référencement. Vous avez un lieu ? Faites partie des premiers. Vous cherchez un espace ? Publiez une annonce : les lieux pourront vous répondre dès leur arrivée.</p><div class="row-btns"><a class="btn pink" href="#proposer">Référencer mon lieu</a><a class="btn" href="#annonces">Publier une annonce</a></div></div>`; return; }
   if(!res.length){ box.innerHTML=`<div class="empty g">Aucun lieu ne correspond à ces critères. <button class="btn pink" id="emptyAnn">Publier une annonce « Je cherche un lieu »</button><br><span class="muted" style="font-size:var(--small)">Les lieux, y compris ceux qui ne sont pas encore dans le répertoire, pourront vous répondre.</span></div>`;
     $("#emptyAnn").onclick=()=>{ if(!DB.me()) return needLogin("Il faut un compte pour publier une annonce."); annonceModal("recherche",state.besoin||{}); }; return; }
   const per=12, pages=Math.ceil(res.length/per); state.page=Math.min(state.page,pages);
@@ -3970,6 +4011,7 @@ function contactModal(l,prefill={}){
     <div class="two"><div><label class="l">Date ou période</label><input type="text" name="periode" placeholder="Ex. un samedi de mars" value="${esc(prefill.periode||"")}"></div>
       <div><label class="l">Conditions envisagées</label><select name="cond"><option value="">À discuter</option>${(l.conditions?.length?l.conditions:CONDITIONS).map(c=>`<option>${esc(c)}</option>`).join("")}</select></div></div>
     <div><label class="l">Message *</label><textarea name="text" required placeholder="Présentez-vous et décrivez votre projet, vos besoins (son, lumière, mobilier…)."></textarea></div>
+    <p class="hint">Le lieu reçoit votre demande dans sa messagerie sur le site. Sa réponse arrivera dans « Messages » : pensez à y revenir.</p>
     <div class="row-btns"><button class="btn pink" type="submit">Envoyer la demande</button><button class="btn" type="button" data-close>Annuler</button></div>
   </form>`);
   $("#reqf").onsubmit=e=>{ e.preventDefault(); const fd=Object.fromEntries(new FormData(e.target));
@@ -3992,8 +4034,34 @@ function reportGeneric(target,id,label,ph,threadId=null){
 function viewProposer(editId){
   const me=DB.me();
   if(!me){
-    $("#app").innerHTML=`<div class="page-head g"><span class="kicker">Référencer un lieu</span><h1>Proposez un lieu</h1><p>Créez un compte pour publier la fiche de votre espace et recevoir les demandes directement. Chaque fiche est vérifiée par Underwave avant d’apparaître dans le répertoire.</p>
-    <div class="row-btns" style="margin-top:20px"><a class="btn pink" href="#inscription">Créer un compte</a><a class="btn" href="#connexion">J’ai déjà un compte</a></div></div>
+    const ex={id:"exemple",nom:"Le Comptoir du Coin",type:"Bar",arr:"1er",espace:"Intérieur",capacite:60,evts:["DJ sets","Concerts","Expositions","Open mic / jam"],equip:["Bar","Système son","DJ","Wifi"],frequence:"Plusieurs fois par mois",conditions:["Recettes bar pour le lieu","Événement sans contrepartie financière"],description:"Petit bar de quartier qui accueille volontiers DJ sets et expos de jeunes artistes. Platines sur place, prévenir trois semaines avant.",dispo:"Du jeudi au samedi, à partir de 19 h.",transports:"Métro 2 Noailles · Tram T2"};
+    $("#app").innerHTML=`<div class="page-head g"><span class="kicker">Référencer un lieu</span><h1>Proposez votre lieu</h1><p>Gratuit, environ 5 minutes. Votre fiche est vérifiée par Underwave avant d’apparaître dans le répertoire, et les demandes arrivent ensuite dans votre messagerie.</p>
+    <div class="row-btns" style="margin-top:20px"><a class="btn pink" href="#inscription">Créer mon compte et ma fiche</a><a class="btn" href="#connexion">J’ai déjà un compte</a></div></div>
+    <section class="g avant">
+      <div>
+        <span class="kicker">Ce qu’on vous demandera</span>
+        <ol class="avant-list">
+          <li><b>Le lieu</b> : nom, type, arrondissement, adresse (elle peut rester masquée), comment y venir, quelques mots de présentation, jusqu’à 4 photos.</li>
+          <li><b>L’espace</b> : capacité, intérieur ou extérieur, équipements (son, scène, cuisine, accessibilité…).</li>
+          <li><b>Ce que vous accueillez</b> : formats possibles, fréquence, conditions d’accueil, disponibilités.</li>
+          <li><b>Vos liens</b>, si vous le souhaitez : site, Instagram.</li>
+        </ol>
+        <p class="muted">Vous pouvez modifier ou retirer votre fiche à tout moment. Votre e-mail n’est jamais affiché.</p>
+      </div>
+      <div>
+        <span class="kicker">Exemple de fiche (fictive)</span>
+        <article class="exfiche">
+          <div class="exhead"><span class="av">L</span><div><b>${ex.nom}</b><br><span class="muted">${ex.type} · ${ex.arr} · ${ex.capacite} pers. · ${ex.espace}</span></div></div>
+          <p>${ex.description}</p>
+          <div class="exrow"><span class="exl">Formats</span><div class="chips">${ex.evts.map(e=>`<span class="chip static">${e}</span>`).join("")}</div></div>
+          <div class="exrow"><span class="exl">Équipements</span><div class="chips">${ex.equip.map(e=>`<span class="chip static">${e}</span>`).join("")}</div></div>
+          <div class="exrow"><span class="exl">Conditions</span><div class="chips">${ex.conditions.map(e=>`<span class="chip static" style="background:var(--lime)">${e}</span>`).join("")}</div></div>
+          <div class="exrow"><span class="exl">Disponibilités</span><span>${ex.dispo}</span></div>
+          <div class="exrow"><span class="exl">Y aller</span><span>${ex.transports}</span></div>
+          <div class="row-btns" style="margin-top:6px"><span class="btn small pink" aria-disabled="true">Contacter ce lieu</span></div>
+        </article>
+      </div>
+    </section>
     ${shareBlock()}`;
     bindShare();
     return;
@@ -4107,7 +4175,7 @@ function viewAnnonces(){
       ${(a.conditions||[]).length?`<div>${a.conditions.map(c=>`<span class="tag" style="background:var(--lime)">${esc(c)}</span>`).join("")}</div>`:""}
       <div class="foot"><span class="muted">${esc(shortName(o))}${o?.profil?` · ${esc(o.profil)}`:""} · ${fmtDate(a.created)}</span>
       ${mineA?`<span class="row-btns">${!cr?`<button class="btn small lime" data-found="${a.id}">Lieu trouvé</button>`:""}<button class="btn small" data-close-a="${a.id}">Clore</button></span>`:`<span class="row-btns"><button class="linkbtn small-link" data-sig-a="${a.id}">Signaler</button><button class="btn small dark" data-rep="${a.id}">${cr?"Proposer mon projet":"Répondre"}</button></span>`}</div>
-    </article>`;}).join("")}</div>`:`<div class="empty g">Aucune annonce ici pour l’instant.</div>`}`;
+    </article>`;}).join("")}</div>`:`<div class="launch g"><span class="kicker">Lancement</span><h2>Aucune annonce pour l’instant.</h2><p>Soyez parmi les premier·es : publiez ce que vous cherchez, ou proposez un créneau libre dans votre lieu.</p></div>`}`;
   $$("[data-tab]").forEach(x=>x.onclick=()=>{ state.annTab=x.dataset.tab; viewAnnonces(); });
   $("#newR").onclick=()=>{ if(!DB.me()) return needLogin("Il faut un compte pour publier une annonce, afin que les lieux puissent vous répondre."); annonceModal("recherche"); };
   $("#newC").onclick=()=>{ if(!DB.me()) return needLogin("Il faut un compte et un lieu référencé pour proposer un créneau."); if(!hasLieu) return openModal(`<h2>Il vous faut un lieu publié</h2><p>Pour proposer un créneau, référencez d’abord votre lieu. Une fois validé par Underwave, vous pourrez publier vos créneaux libres.</p><div class="row-btns" style="margin-top:16px"><a class="btn pink" href="#proposer">Référencer mon lieu</a></div>`); annonceModal("creneau"); };
@@ -4169,7 +4237,7 @@ function viewMessages(){
   const t=DB.thread(state.thread); DB.markRead(t.id); const {other,l,about}=threadInfo(t);
   const iAmHost=t.request&&t.to===me.id; const ok=t.status==="acceptee";
   $("#app").innerHTML=`
-  <div class="page-head g" style="padding-bottom:14px"><span class="kicker">Messages</span><h1>Vos échanges</h1></div>
+  <div class="page-head g" style="padding-bottom:14px"><span class="kicker">Messages</span><h1>Vos échanges</h1><p class="note-msg">Les nouveaux messages ne sont pas encore signalés par e-mail : pensez à revenir consulter vos échanges.</p></div>
   <div class="inbox">
     <div class="threads">${ts.map(x=>{ const tt=threadInfo(x); const last=x.messages[x.messages.length-1]; const unread=last&&last.from!==me.id&&(!x.read[me.id]||x.read[me.id]<last.at);
       return `<button class="thread ${x.id===t.id?"on":""}" data-t="${x.id}"><b>${esc(shortName(tt.other)||"Compte supprimé")}${unread?'<span class="badge-dot">•</span>':""} ${statusPill(x)}</b><small>${esc(tt.about)}</small><br><small>${esc((last?.text||"").slice(0,60))}</small></button>`; }).join("")}</div>
@@ -4489,7 +4557,7 @@ const MOTIFS = ["Contraire aux valeurs et à la charte","Signalements concordant
 function reglesHTML(){ return `
   <div class="page-head g"><span class="kicker">Espaces Partagés</span><h1>Valeurs, fonctionnement et règles</h1><p>Ce que défend le répertoire, ce qu’il fait et ne fait pas, et les règles que chacun·e accepte en créant un compte.</p></div>
   <div class="wrap g regles">
-    <nav class="toc">${[["r1","1. Le principe"],["r2","2. Nos valeurs"],["r3","3. Comment ça marche"],["r4","4. Le rôle d’Underwave"],["r5","5. Les règles"],["r6","6. Signalements, retraits et suspensions"],["r7","7. Organiser dans les règles"],["r8","8. Vos données"],["r9","9. Contact"]].map(([k,t])=>`<a href="#regles" data-to="${k}">${t}</a>`).join("")}<a href="#mentions-legales">Mentions légales</a><a href="#confidentialite">Politique de confidentialité</a></nav>
+    <nav class="toc">${[["r1","1. Le principe"],["r2","2. Nos valeurs"],["r3","3. Comment ça marche"],["r4","4. Le rôle d’Underwave"],["r5","5. Les règles"],["r6","6. Signalements, retraits et suspensions"],["r7","7. Organiser dans les règles"],["r8","8. Vos données"],["r9","9. Contact"]].map(([k,t])=>`<a href="#regles-${k}">${t}</a>`).join("")}<a href="#mentions-legales">Mentions légales</a><a href="#confidentialite">Politique de confidentialité</a></nav>
     <div>
     <section id="r1"><h2>1. Le principe</h2>
       <p>Espaces Partagés est un outil associatif, gratuit et collaboratif, pensé pour le bien commun. Porté par l’association Underwave, il met en relation directe les lieux marseillais qui veulent accueillir des initiatives culturelles, sociales et associatives, et les personnes qui cherchent un espace pour les faire exister : artistes, collectifs, associations, créateur·ices, habitant·es.</p>
@@ -4533,6 +4601,7 @@ function reglesHTML(){ return `
         <li>échanger avec respect, sans harcèlement ni pression ;</li>
         <li>tenir ses engagements, et prévenir le plus tôt possible en cas d’annulation ;</li>
         <li>respecter les lieux, leurs équipes, leurs voisin·es, leur matériel et leurs règles de fonctionnement ;</li>
+        <li>pour les lieux qui proposent une location : pratiquer des tarifs solidaires, accessibles aux associations et aux projets indépendants ;</li>
         <li>ne pas utiliser le répertoire pour de la publicité, du démarchage ou la collecte de contacts ;</li>
         <li>ne publier que des photos et contenus dont on a les droits, et avec l’accord des personnes qui y apparaissent ;</li>
         <li>ne publier l’adresse d’un lieu privé (appartement, maison) qu’avec l’accord de ses occupant·es. Pour ces lieux, seul l’arrondissement est affiché.</li>
@@ -4565,7 +4634,7 @@ function reglesHTML(){ return `
   </div>`; }
 function viewRegles(){
   $("#app").innerHTML=reglesHTML();
-  $$(".toc a[data-to]").forEach(a=>a.onclick=e=>{ e.preventDefault(); document.getElementById(a.dataset.to).scrollIntoView({behavior:"smooth",block:"start"}); });
+
 }
 
 function viewNewPassword(){
@@ -4634,6 +4703,7 @@ document.addEventListener("click",e=>{ const a=e.target.closest("[data-regles],[
   const layer=document.createElement("div"); layer.className="modal top"; layer.innerHTML=`<div class="box" role="dialog" aria-modal="true"><div class="regles-modal">${html}</div><div class="row-btns" style="margin-top:20px"><button class="btn dark" data-x>Fermer</button></div></div>`;
   document.body.appendChild(layer); layer.addEventListener("click",ev=>{ if(ev.target===layer||ev.target.hasAttribute("data-x")) layer.remove(); }); });
 
+$("#menuBtn").onclick=()=>{ const o=document.body.classList.toggle("menu-open"); $("#menuBtn").setAttribute("aria-expanded",String(o)); };
 /* =========================================================
    Mode en ligne : la même interface DB, branchée sur Supabase.
    Les données visibles sont gardées en mémoire (mem.data) ;
