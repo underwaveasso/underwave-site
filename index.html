@@ -120,7 +120,9 @@ nav .c{margin-right:.22em}
 
 footer{background:var(--black);color:var(--white)}
 footer .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px 1em;padding-block:48px 28px;align-items:end}
-footer .mark{width:min(40vw,360px);color:var(--lime)}
+footer .mark{width:min(40vw,360px);color:var(--lime);animation:logo-pied 18s steps(1,end) infinite}
+@keyframes logo-pied{0%{color:var(--lime)}33.333%{color:var(--magenta)}66.666%{color:var(--white)}}
+@media (prefers-reduced-motion:reduce){footer .mark{animation:none}}
 footer .links{display:grid;justify-items:end;text-align:right}
 footer .base{grid-column:1/-1;color:var(--grey)}
 @media (max-width:640px){footer .wrap{grid-template-columns:1fr}footer .links{justify-items:start;text-align:left}}
