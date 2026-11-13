@@ -104,13 +104,15 @@ nav .c{margin-right:.22em}
 .proj.shade::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,0) 30%,rgba(0,0,0,0) 65%,rgba(0,0,0,.55));pointer-events:none;z-index:1}
 
 /* Actions */
-.actions{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:40px var(--pad);margin-top:.8em}
-.actions figure{margin:0;display:grid;gap:12px;align-content:start}
-.actions img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
-.actions figcaption{display:grid;gap:8px}
-.actions h3{font-size:var(--small);font-weight:500;letter-spacing:.06em;text-transform:uppercase;line-height:1.3}
-@media (max-width:900px){.actions{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:520px){.actions{grid-template-columns:1fr}}
+/* Nos actions : liste façon index (page Projets), image au survol */
+.act-list{margin-top:.8em}
+.act-row{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:.4em 1.2em;padding-block:.35em .6em;border-bottom:1px solid currentColor;align-items:baseline}
+.act-row h3{font-size:var(--big);font-weight:400;line-height:1.02;letter-spacing:-.03em;text-wrap:balance}
+.act-row p{max-width:30em}
+.act-row img{display:none}
+@media (hover:hover){.act-row:hover{background:var(--lime)}}
+@media (max-width:700px){.act-row{grid-template-columns:minmax(0,1fr) 76px;padding-block:.5em .8em}.act-row h3{grid-column:1}.act-row p{grid-column:1 / -1}
+  .act-row img{display:block;grid-column:2;grid-row:1;width:76px;aspect-ratio:1;object-fit:cover;align-self:start}}
 
 .ask{background:var(--lime);color:var(--black);margin-top:clamp(56px,9vw,120px);padding-block:clamp(48px,7vw,96px)}
 .ask p+p{margin-top:.2em}
@@ -203,7 +205,7 @@ body{letter-spacing:-.03em}
 .p-head .title{font-size:clamp(59px,11.5vw,189px);line-height:.95;letter-spacing:-.03em;filter:blur(.008em)}
 .ep-card-t{font-size:clamp(76px,21.6vw,324px);line-height:.92;letter-spacing:-.04em;transform:scaleX(.65);filter:blur(.007em)}
 /* Palette : sur les écrans larges gamme (Mac, iPhone…), le jaune-vert et le rose sont affichés avec les mêmes valeurs que les fichiers du logo (espace Display P3), sinon ils paraissent délavés */
-@supports (color:color(display-p3 1 1 1)){:root{--lime:color(display-p3 .8706 .9961 .3216);--magenta:color(display-p3 .9176 .2 .8235)}}
+@media (color-gamut:p3){:root{--lime:color(display-p3 .8706 .9961 .3216);--magenta:color(display-p3 .9176 .2 .8235)}}
 </style>
 </head>
 <body>
@@ -261,11 +263,11 @@ body{letter-spacing:-.03em}
 
   <section class="block g">
     <h2 class="kicker">Nos actions</h2>
-    <div class="actions">
-      <figure><img src="img/action-evenements.jpg" alt="Public qui danse pendant une soirée"><figcaption><h3>Évènements &amp; programmation</h3><p class="s">Organisation de soirées et d’événements culturels, programmation d’artistes et création de projets collectifs réunissant plusieurs acteurs locaux.</p></figcaption></figure>
-      <figure><img src="img/action-pratiques.jpg" alt="DJ set dans un espace de pratique"><figcaption><h3>Créations d'espaces de pratiques &amp; de partage</h3><p class="s">Création d’espaces ouverts pour pratiquer, expérimenter et partager des connaissances. Ateliers, mise à disposition de matériel et formats favorisant la rencontre et la transmission.</p></figcaption></figure>
-      <figure><img src="img/action-reseau.jpg" alt="Personnes réunies en cercle lors d'une rencontre"><figcaption><h3>Réseau, collab &amp; solidarités</h3><p class="s">Mise en relation d’artistes, collectifs, lieux et initiatives afin de favoriser les collaborations, le partage de ressources et le développement de projets communs, y compris des événements associatifs et solidaires.</p></figcaption></figure>
-      <figure><img src="img/action-productions.jpg" alt="Shooting photo d'un saxophoniste"><figcaption><h3>Productions &amp; contenus</h3><p class="s">Développement de projets artistiques et création de contenus : shootings, résidences, formats collaboratifs, reportages, interviews et productions photo ou vidéo.</p></figcaption></figure>
+    <div class="act-list">
+      <div class="act-row" data-peek="img/action-evenements.jpg"><img src="img/action-evenements.jpg" alt="Public qui danse pendant une soirée" loading="lazy"><h3>Évènements &amp; programmation</h3><p class="s">Organisation de soirées et d’événements culturels, programmation d’artistes et création de projets collectifs réunissant plusieurs acteurs locaux.</p></div>
+      <div class="act-row" data-peek="img/action-pratiques.jpg"><img src="img/action-pratiques.jpg" alt="DJ set dans un espace de pratique" loading="lazy"><h3>Créations d'espaces de pratiques &amp; de partage</h3><p class="s">Création d’espaces ouverts pour pratiquer, expérimenter et partager des connaissances. Ateliers, mise à disposition de matériel et formats favorisant la rencontre et la transmission.</p></div>
+      <div class="act-row" data-peek="img/action-reseau.jpg"><img src="img/action-reseau.jpg" alt="Personnes réunies en cercle lors d'une rencontre" loading="lazy"><h3>Réseau, collab &amp; solidarités</h3><p class="s">Mise en relation d’artistes, collectifs, lieux et initiatives afin de favoriser les collaborations, le partage de ressources et le développement de projets communs, y compris des événements associatifs et solidaires.</p></div>
+      <div class="act-row" data-peek="img/action-productions.jpg"><img src="img/action-productions.jpg" alt="Shooting photo d'un saxophoniste" loading="lazy"><h3>Productions &amp; contenus</h3><p class="s">Développement de projets artistiques et création de contenus : shootings, résidences, formats collaboratifs, reportages, interviews et productions photo ou vidéo.</p></div>
     </div>
   </section>
 
@@ -285,7 +287,6 @@ body{letter-spacing:-.03em}
     <a class="row" href="#actions-solidaires" data-peek="img/solidaire-1.jpg"><span>Soirée de soutien aux grévistes d’ID Logistics</span><span>Action solidaire</span><span>16.11.2024</span></a>
   </div>
   <div class="note s"><p><b style="font-weight:500">Séminaires et rencontres.</b> Formats collectifs permettant à des artistes, collectifs ou acteurs culturels de se réunir pour échanger, expérimenter et développer des projets dans un cadre dédié.</p></div>
-  <div class="peek" id="peek" aria-hidden="true"><img alt=""></div>
 </div>
 
 <!-- ================= OPN ================= -->
@@ -422,6 +423,8 @@ body{letter-spacing:-.03em}
 
 </main>
 
+<div class="peek" id="peek" aria-hidden="true"><img alt=""></div>
+
 <footer>
   <div class="wrap g">
     <span class="mark" role="img" aria-label="Logo Underwave"></span>
@@ -457,7 +460,7 @@ body{letter-spacing:-.03em}
      Le plan change de couleur, dans la palette Underwave : fond noir (rues jaune-vert), blanc, jaune-vert ou rose (rues en noir transparent). Sur ses rues, deux points s'écrivent
      (bulles « … » puis messages), puis un petit événement s'allume au lieu : fête, stand-up ou expo.
      Une à deux scènes à la fois, réparties sur la carte et placées à l'écart des textes. */
-  const P3OK = window.CSS && CSS.supports("color","color(display-p3 1 1 1)");
+  const P3OK = window.CSS && CSS.supports("color","color(display-p3 1 1 1)") && matchMedia("(color-gamut: p3)").matches;   // seulement sur les écrans larges gamme
   function cP3(v,a){   // "#RRGGBB", "#RGB" ou "r,g,b" -> couleur Display P3 (mêmes valeurs que le logo)
     let r,g,b; if(v[0]==="#"){ let h=v.slice(1); if(h.length===3) h=h.replace(/./g,"$&$&"); r=parseInt(h.slice(0,2),16); g=parseInt(h.slice(2,4),16); b=parseInt(h.slice(4,6),16); } else [r,g,b]=v.split(",").map(Number);
     if(!P3OK) return a==null?"rgb("+r+","+g+","+b+")":"rgba("+r+","+g+","+b+","+a+")";
