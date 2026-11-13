@@ -413,18 +413,39 @@ a.row:hover{background:var(--lime)}
   }
   addEventListener('hashchange',show);show();
 
-  // Accueil : plan de Marseille en fond de la carte « Espaces Partagés ».
-  // Sur les rues, deux points s'écrivent puis un petit événement s'allume au lieu.
-  /* Rencontres sur le plan : deux points s'écrivent (bulles « … » puis messages),
-     puis un petit événement s'allume au lieu : fête, stand-up ou expo.
+  // Accueil : plan de Marseille animé en fond de la carte « Espaces Partagés »
+  /* ---------- Plan de Marseille animé (Espaces Partagés) ----------
+     Le plan change de couleur (fond noir, blanc, jaune-vert, rose). Sur ses rues, deux points s'écrivent
+     (bulles « … » puis messages), puis un petit événement s'allume au lieu : fête, stand-up ou expo.
      Une à deux scènes à la fois, réparties sur la carte et placées à l'écart des textes. */
+  const PLAN_COULEURS = {
+    noir:  { mer:[0,0,0],       ville:[16,16,16],    rue:[222,254,82], voile:"0,0,0", texte:"#fff",
+             sc:{ dot:"#EA33D2", halo:"#000", bulleA:"#fff", encreA:"#000", trait:0, bulleB:"#EA33D2", encreB:"#fff", ink:"#fff", acc:"#EA33D2", spark:"#DEFE52", fond:"#000", onde:"234,51,210", confetti:["#DEFE52","#EA33D2","#fff"] } },
+    blanc: { mer:[255,255,255], ville:[238,238,234], rue:[130,130,130], voile:"255,255,255", texte:"#000",
+             sc:{ dot:"#EA33D2", halo:"#fff", bulleA:"#fff", encreA:"#000", trait:"#000", bulleB:"#EA33D2", encreB:"#fff", ink:"#000", acc:"#EA33D2", spark:"#EA33D2", fond:"#fff", onde:"234,51,210", confetti:["#EA33D2","#000","#DEFE52"] } },
+    lime:  { mer:[255,255,255], ville:[222,254,82],  rue:[150,170,40], voile:"222,254,82", texte:"#000",
+             sc:{ dot:"#EA33D2", halo:"#fff", bulleA:"#fff", encreA:"#000", trait:"#000", bulleB:"#EA33D2", encreB:"#fff", ink:"#000", acc:"#EA33D2", spark:"#EA33D2", fond:"#fff", onde:"234,51,210", confetti:["#EA33D2","#000","#fff"] } },
+    rose:  { mer:[255,255,255], ville:[234,51,210],  rue:[150,20,135], voile:"234,51,210", texte:"#000",
+             sc:{ dot:"#000", halo:"#fff", bulleA:"#fff", encreA:"#000", trait:"#000", bulleB:"#000", encreB:"#fff", ink:"#000", acc:"#fff", spark:"#DEFE52", fond:"#000", onde:"255,255,255", confetti:["#DEFE52","#000","#fff"] } },
+  };
+  function recolorPlan(img,th){
+    const c=document.createElement("canvas"); c.width=img.width; c.height=img.height; const g=c.getContext("2d"); g.drawImage(img,0,0);
+    const id=g.getImageData(0,0,c.width,c.height), d=id.data;
+    for(let i=0;i<d.length;i+=4){
+      const gg=d[i+1],b=d[i+2];
+      const sea=Math.max(0,Math.min(1,(b-90)/140));            // le bleu monte vers le blanc de la mer
+      const st=Math.max(0,Math.min(1,(250-gg)/90))*(1-sea);   // plus le vert baisse, plus c'est une rue
+      for(let k=0;k<3;k++){ const land=th.ville[k]*(1-st)+th.rue[k]*st; d[i+k]=Math.round(th.mer[k]*sea+land*(1-sea)); }
+    }
+    g.putImageData(id,0,0); return c;
+  }
   function Rencontres(col){
     const T=7200, cl=x=>x<0?0:x>1?1:x;
     const back=k=>{ k=cl(k)-1; return 1+2.7*k*k*k+1.7*k*k; };            // apparition avec léger rebond
     const win=(t,a,b,c,d)=>t<a||t>d?0:t<b?(t-a)/(b-a):t<=c?1:1-(t-c)/(d-c); // fondu entrée / sortie
     const fade=q=>q<.15?q/.15:q<.6?1:1-(q-.6)/.4;
     const KINDS=["fete","rire","expo"];
-    let list=[], next=0, bag=[], last="", recent=[];
+    let list=[], next=0, bag=[], last="", recent=[], count=0, hold=false;
     function pickKind(){ if(!bag.length){ bag=KINDS.slice().sort(()=>Math.random()-.5); if(bag[bag.length-1]===last) bag.unshift(bag.pop()); } return last=bag.pop(); }
     function rr(g,x,y,w,h,r){ g.beginPath(); g.moveTo(x+r,y); g.arcTo(x+w,y,x+w,y+h,r); g.arcTo(x+w,y+h,x,y+h,r); g.arcTo(x,y+h,x,y,r); g.arcTo(x,y,x+w,y,r); g.closePath(); }
     function bubble(g,x,y,s,a,sc,fill,ink,stroke,typing,u){
@@ -461,14 +482,15 @@ a.row:hover{background:var(--lime)}
       expo(g,S,x,y,s,p){ rings(g,x,y,s,p,[0]); icon(g,x,y,s,p,()=>{
         g.fillStyle=col.fond; g.fillRect(-16,-12,32,24); g.lineWidth=2.6; g.strokeStyle=col.ink; g.strokeRect(-16,-12,32,24);
         g.fillStyle=col.acc; g.beginPath(); g.moveTo(-12,9); g.lineTo(-3,-3); g.lineTo(5,9); g.closePath(); g.fill(); g.beginPath(); g.moveTo(1,9); g.lineTo(7,2); g.lineTo(13,9); g.closePath(); g.fill();
-        g.fillStyle=col.ink; g.beginPath(); g.arc(7,-5,2.6,0,7); g.fill();
+        g.fillStyle=col.spark; g.beginPath(); g.arc(7,-5,2.6,0,7); g.fill();
         sparkles(g,p,[[-22,-14,4,300],[22,-6,3.4,650],[-19,12,3,1000]]); }); },
     };
     function dot(g,x,y,s,r){ if(r<=0) return; g.beginPath(); g.arc(x,y,r*s+1.6,0,7); g.fillStyle=col.halo; g.fill(); g.beginPath(); g.arc(x,y,r*s,0,7); g.fillStyle=col.dot; g.fill(); }
     return {
       reset(){ list=[]; next=0; recent=[]; },
+      setColors(c){ col=c; }, pause(v){ hold=v; }, idle(){ return !list.length; }, get count(){ return count; }, resetCount(){ count=0; },
       spawn(t,places,P,W,H,s,avoid){
-        if(t<next||places.length<2) return; next=t+450;
+        if(hold||t<next||places.length<2) return; next=t+450;
         if(list.length>=2||(list.length&&t-list[list.length-1].t0<4600)) return;
         const box=(x,y,l,r,u,d)=>[x-l*s,y-u*s,x+r*s,y+d*s];
         const hit=(b,R)=>R.some(q=>b[0]<q[2]&&b[2]>q[0]&&b[1]<q[3]&&b[3]>q[1]);
@@ -488,7 +510,7 @@ a.row:hover{background:var(--lime)}
         if(!cands.length) return;
         const c=cands.sort((x,y)=>y.far-x.far)[0];
         const conf=[...Array(12)].map((_,j)=>{ const an=-Math.PI/2+(Math.random()-.5)*2.3, v=80+Math.random()*80; return {vx:Math.cos(an)*v,vy:Math.sin(an)*v,w:3+Math.random()*2.6,h:4.6+Math.random()*3,r:Math.random()*6,vr:(Math.random()-.5)*12,c:col.confetti[j%col.confetti.length]}; });
-        list.push({a:c.a,b:c.b,t0:t,conf,kind:pickKind(),boxes:c.boxes});
+        list.push({a:c.a,b:c.b,t0:t,conf,kind:pickKind(),boxes:c.boxes}); count++;
         recent.push(c.a,c.b); if(recent.length>10) recent.splice(0,recent.length-10);
       },
       draw(g,t,P,s){
@@ -509,48 +531,69 @@ a.row:hover{background:var(--lime)}
       }
     };
   }
-  (function(){
-    const cv=document.querySelector('.ep-map'); if(!cv)return;
-    const ctx=cv.getContext('2d'), img=new Image(), card=cv.closest('.proj')||cv.parentElement;
-    const C=[380,340]; // centre-ville sur le plan (838 × 860)
-    const Rn=Rencontres({ dot:'#EA33D2', halo:'#fff', bulleA:'#fff', encreA:'#000', trait:'#000', bulleB:'#EA33D2', encreB:'#fff', ink:'#000', acc:'#EA33D2', spark:'#EA33D2', fond:'#fff', onde:'234,51,210', confetti:['#EA33D2','#000','#fff'] });
-    let W=0,H=0,dpr=1,sc=1,s=1,ox=0,oy=0,places=[],raf=0,visible=false,ready=false,landPts=[];
+  /* o : src (image du plan), ordre (couleurs), eviter (textes à laisser libres), echelle(W,H), rayon,
+         voile (dégradé derrière le texte, à gauche), onTheme(nom) pour accorder les textes à la couleur */
+  function PlanAnime(cv,o){
+    const ctx=cv.getContext("2d"), img=new Image(), C=[380,340], order=o.ordre, root=o.racine||cv.parentElement;
+    const still=matchMedia("(prefers-reduced-motion: reduce)").matches, PER=2, FADE=1400;
+    const R=Rencontres(PLAN_COULEURS[order[0]].sc), pics={};
+    let ti=0, fadeT0=-1, W=0,H=0,sc=1,s=1,ox=0,oy=0,places=[],land=[],raf=0,visible=false,ready=false,alive=true;
     const P=([x,y])=>[ox+x*sc,oy+y*sc];
-    function avoid(){ // zones de texte posées sur la carte, à laisser libres
-      const c=cv.getBoundingClientRect(), out=[];
-      card.querySelectorAll('.ep-card-t, .top > *, .bot > *').forEach(e=>{const rg=document.createRange();rg.selectNodeContents(e);
-        [...rg.getClientRects()].forEach(r=>{if(r.width&&r.height)out.push([r.left-c.left-16,r.top-c.top-16,r.right-c.left+16,r.bottom-c.top+16]);});});
-      return out;
-    }
-    function readLand(){ // repère les rues (traits foncés sur le vert), pour que les points tombent toujours sur une rue
-      const c=document.createElement('canvas');c.width=img.width;c.height=img.height;const g=c.getContext('2d');g.drawImage(img,0,0);
-      const d=g.getImageData(0,0,c.width,c.height).data;
-      for(let y=2;y<c.height;y+=3)for(let x=2;x<c.width;x+=3){const i=(y*c.width+x)*4;if(d[i+1]<215&&d[i+2]<100)landPts.push([x,y]);}
-    }
+    const avoid=()=>{ const c=cv.getBoundingClientRect(), out=[];
+      root.querySelectorAll(o.eviter).forEach(e=>{ const rg=document.createRange(); rg.selectNodeContents(e);
+        [...rg.getClientRects()].forEach(r=>{ if(r.width&&r.height) out.push([r.left-c.left-16,r.top-c.top-16,r.right-c.left+16,r.bottom-c.top+16]); }); });
+      return out; };
+    if(o.onTheme) o.onTheme(order[0]);
     function size(){
-      const r=cv.getBoundingClientRect(); dpr=Math.min(2,devicePixelRatio||1); W=r.width;H=r.height;
-      cv.width=W*dpr;cv.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
-      s=Math.max(.7,Math.min(1.1,Math.min(W,H)/800));
-      if(!ready)return;
+      const r=cv.getBoundingClientRect(), dpr=Math.min(2,devicePixelRatio||1); W=r.width; H=r.height;
+      cv.width=W*dpr; cv.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0); s=o.echelle(W,H);
+      if(!ready) return;
       sc=Math.max(W/img.width,H/img.height); ox=W/2-C[0]*sc; oy=H/2-C[1]*sc;
       ox=Math.min(0,Math.max(W-img.width*sc,ox)); oy=Math.min(0,Math.max(H-img.height*sc,oy));
-      const vis=landPts.filter(([x,y])=>{const[a,b]=P([x,y]);return a>20&&a<W-20&&b>20&&b<H-20&&Math.hypot(x-C[0],y-C[1])<420;});
-      places=[];for(let i=0;i<500&&vis.length;i++)places.push(vis[Math.random()*vis.length|0]);
+      const v=land.filter(([x,y])=>{ const[a,b]=P([x,y]); return a>20&&a<W-20&&b>20&&b<H-20&&Math.hypot(x-C[0],y-C[1])<o.rayon; });
+      places=[]; for(let i=0;i<160&&v.length;i++) places.push(v[Math.random()*v.length|0]);
     }
+    function veil(nom,a){
+      if(!o.voile||a<=0) return; const v=PLAN_COULEURS[nom].voile, f=nom==="noir"?[.72,.25,.6]:[.85,.3,.75];
+      ctx.save(); ctx.globalAlpha=a;
+      if(W<760) ctx.fillStyle="rgba("+v+","+f[2]+")";
+      else { const gr=ctx.createLinearGradient(0,0,W,0); gr.addColorStop(0,"rgba("+v+","+f[0]+")"); gr.addColorStop(.55,"rgba("+v+","+f[1]+")"); gr.addColorStop(1,"rgba("+v+",0)"); ctx.fillStyle=gr; }
+      ctx.fillRect(0,0,W,H); ctx.restore();
+    }
+    function plan(nom,a){ ctx.globalAlpha=a; ctx.drawImage(pics[nom]||img,ox,oy,img.width*sc,img.height*sc); ctx.globalAlpha=1; veil(nom,a); }
     function draw(t){
-      ctx.clearRect(0,0,W,H); if(!ready)return;
-      ctx.drawImage(img,ox,oy,img.width*sc,img.height*sc);
-      Rn.draw(ctx,t,P,s);
+      ctx.clearRect(0,0,W,H); if(!ready) return;
+      const cur=order[ti], k=fadeT0<0?1:Math.min(1,(t-fadeT0)/FADE);
+      if(k<1) plan(order[(ti+order.length-1)%order.length],1); else fadeT0=-1;
+      plan(cur,k);
+      R.draw(ctx,t,P,s);
     }
     function loop(t){
-      Rn.spawn(t,places,P,W,H,s,avoid);
-      draw(t); raf=visible?requestAnimationFrame(loop):0;
+      if(order.length>1){
+        if(fadeT0<0&&R.count>=PER){ R.pause(true);
+          if(R.idle()){ ti=(ti+1)%order.length; fadeT0=t; R.setColors(PLAN_COULEURS[order[ti]].sc); R.resetCount(); if(o.onTheme) o.onTheme(order[ti]); } }
+        if(fadeT0>=0&&t-fadeT0>FADE*.7) R.pause(false);
+      }
+      R.spawn(t,places,P,W,H,s,avoid);
+      draw(t); raf=(visible&&alive)?requestAnimationFrame(loop):0;
     }
-    const still=matchMedia('(prefers-reduced-motion: reduce)').matches;
-    img.onload=()=>{ready=true;readLand();size();draw(performance.now());};
-    img.src='img/espaces-partages-plan.webp';
-    size(); addEventListener('resize',()=>{size();Rn.reset();if(!raf)draw(performance.now());});
-    new IntersectionObserver(e=>{visible=e[0].isIntersecting&&!still;if(visible&&!raf)raf=requestAnimationFrame(loop);}).observe(cv);
+    const onResize=()=>{ size(); R.reset(); if(!raf) draw(performance.now()); };
+    img.onload=()=>{ if(!alive) return; ready=true;
+      const c=document.createElement("canvas"); c.width=img.width; c.height=img.height; const g=c.getContext("2d"); g.drawImage(img,0,0);
+      const d=g.getImageData(0,0,c.width,c.height).data;
+      for(let y=2;y<c.height;y+=3) for(let x=2;x<c.width;x+=3){ const i=(y*c.width+x)*4; if(d[i+1]<215&&d[i+2]<100) land.push([x,y]); }
+      order.forEach(n=>{ try{ pics[n]=recolorPlan(img,PLAN_COULEURS[n]); }catch(e){} });
+      size(); draw(performance.now()); };
+    img.src=o.src;
+    size(); addEventListener("resize",onResize);
+    const io=new IntersectionObserver(e=>{ visible=e[0].isIntersecting&&!still; if(visible&&!raf&&alive) raf=requestAnimationFrame(loop); }); io.observe(cv);
+    return ()=>{ alive=false; io.disconnect(); removeEventListener("resize",onResize); if(raf) cancelAnimationFrame(raf); };
+  }
+  (function(){
+    const cv=document.querySelector('.ep-map'); if(!cv)return;
+    const card=cv.closest('.proj')||cv.parentElement; card.style.transition='color 1.2s';
+    PlanAnime(cv,{src:'img/espaces-partages-plan.webp', ordre:['lime','rose','noir','blanc'], racine:card, eviter:'.ep-card-t, .top > *, .bot > *', voile:false, rayon:420,
+      echelle:(W,H)=>Math.max(.7,Math.min(1.1,Math.min(W,H)/800)), onTheme:n=>{card.style.color=PLAN_COULEURS[n].texte;}});
   })();
 
   // Espaces Partagés : copier le lien du site
