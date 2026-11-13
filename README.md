@@ -22,10 +22,4 @@ Les textes reprennent mot pour mot ceux de l'association : ne pas les réécrire
 
 ## Espaces Partagés
 
-Le dossier `espaces-partages/` contient le répertoire culturel collaboratif Espaces Partagés, publié à l'adresse `/underwave-site/espaces-partages/`.
-
-- `index.html` : tout le site (pages, styles et code).
-- `vendor/` : bibliothèques hébergées sur le site (carte Leaflet, client Supabase, police Inter Tight), pour qu'aucun service tiers ne reçoive l'adresse des visiteurs.
-- `supabase/` : structure de la base de données (comptes, lieux, annonces, messages, signalements). À exécuter dans l'éditeur SQL de Supabase : `schema.sql`, puis `02-complements.sql`.
-
-Les comptes et les données sont gérés par Supabase (région Paris). La clé présente dans `index.html` est la clé publique : les règles d'accès sont appliquées par la base elle-même.
+Le répertoire Espaces Partagés a son propre dépôt (underwaveasso/espaces-partages) et sa propre adresse : https://espaces-partages.underwave.fr. Le dossier `espaces-partages/` de ce dépôt ne contient plus qu'une page de redirection, pour que les anciens liens et QR codes continuent de fonctionner.
