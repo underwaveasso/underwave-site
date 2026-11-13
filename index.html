@@ -93,6 +93,13 @@ nav .c{margin-right:.22em}
 .proj .sub{max-width:30em}
 .proj .num,.proj .count{white-space:nowrap;font-variant-numeric:tabular-nums}
 .proj .go{white-space:nowrap}
+.ev-card .sub{display:grid;gap:.25em;max-width:24em}
+.ev-card .ev-titre,.ev-card .ev-infos{transition:opacity .35s ease}
+.ev-card.change .ev-titre,.ev-card.change .ev-infos{opacity:0}
+/* toutes les affiches ont la même hauteur, quel que soit leur format (centrées entre le titre du bloc et le texte du bas) */
+.ev-card .media{display:grid;grid-template:minmax(0,1fr)/minmax(0,1fr);place-items:center;padding:calc(var(--big)*2 + 60px) 0 calc(var(--big)*2 + 70px)}
+.ev-card .media img.contain{position:static;grid-area:1/1;padding:0;width:auto;max-width:none;height:min(100%,calc(100vw - 2*var(--pad)));object-fit:cover}
+@media (max-width:640px){.ev-card .media{padding:calc(var(--big) + 56px) 0 calc(var(--big)*3 + 80px)}}
 
 .proj.shade::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,0) 30%,rgba(0,0,0,0) 65%,rgba(0,0,0,.55));pointer-events:none;z-index:1}
 
@@ -245,10 +252,11 @@ body{letter-spacing:-.03em}
     <div class="top g"><span class="tag">ALT MEDIA</span></div>
     <div class="bot g"><span class="sub s">Média indépendant musique &amp; culture. En préparation.</span><span class="go flip">Voir le projet</span></div>
   </a>
-  <a class="proj" href="#actions-solidaires" style="--bg:var(--magenta);--fg:var(--white)" data-slides>
-    <div class="media"><img src="img/solidaire-1.jpg" alt="Affiche : soirée de soutien aux grévistes ID Logistics, Atelier Jeanne Barret, samedi 16 novembre" class="contain on"><img src="img/solidaire-2.jpg" alt="Affiche de la programmation DJ set et concerts" class="contain"><img src="img/solidaire-3.jpg" alt="4000 euros pour la caisse de grève" class="contain"><img src="img/solidaire-4.jpg" alt="Merci, 500 personnes en solidarité" class="contain"></div>
-    <div class="top g"><span class="tag">Soirée de soutien aux grévistes d’ID Logistics</span></div>
-    <div class="bot g"><span class="sub s">Action solidaire · 16.11.2024 · Ateliers Jeanne Barret</span><span class="go flip">Voir l’action</span></div>
+  <!-- Actions solidaires : rempli automatiquement depuis la page Actions solidaires (image data-accueil de chaque action) -->
+  <a class="proj ev-card" href="#actions-solidaires" style="--bg:var(--black);--fg:var(--white)" data-events>
+    <div class="media"></div>
+    <div class="top g"><span class="tag">Actions solidaires</span></div>
+    <div class="bot g"><span class="sub"><span class="ev-titre">Soirée de soutien aux grévistes d’ID Logistics</span><span class="ev-infos s">16.11.2024 · Ateliers Jeanne Barret</span></span><span class="go flip">Voir les actions</span></div>
   </a>
 
   <section class="block g">
@@ -358,27 +366,33 @@ body{letter-spacing:-.03em}
 
 <!-- ================= ACTIONS SOLIDAIRES ================= -->
 <article data-page="actions-solidaires" class="page" hidden>
-  <div class="p-head g"><span class="kicker">Actions et évènements solidaires</span><h1 class="title">Soirée de soutien aux grévistes d’ID Logistics</h1>
-    <div class="figs"><span><b>16.11.2024</b><span class="s">Ateliers Jeanne Barret, Marseille</span></span><span><b>4 000 €</b><span class="s">reversés à la caisse de grève</span></span><span><b>500+</b><span class="s">personnes rassemblées</span></span></div>
-  </div>
+  <!-- Une action = une <section class="action">. Pour en ajouter une : copier la section entière en haut de la liste (la plus récente en premier),
+       changer data-titre / data-infos, et mettre data-accueil sur l'image à montrer sur l'accueil. L'accueil se met à jour tout seul. -->
+  <section class="action" id="action-id-logistics" data-titre="Soirée de soutien aux grévistes d’ID Logistics" data-infos="16.11.2024 · Ateliers Jeanne Barret">
+    <div class="p-head g"><span class="kicker">Actions et évènements solidaires</span><h1 class="title">Soirée de soutien aux grévistes d’ID Logistics</h1>
+      <div class="figs"><span><b>16.11.2024</b><span class="s">Ateliers Jeanne Barret, Marseille</span></span><span><b>4 000 €</b><span class="s">reversés à la caisse de grève</span></span><span><b>500+</b><span class="s">personnes rassemblées</span></span></div>
+    </div>
+    <div class="g">
+      <div class="posters">
+        <img data-accueil src="img/solidaire-1.jpg" alt="Affiche : soirée de soutien aux grévistes ID Logistics, Atelier Jeanne Barret, samedi 16 novembre">
+        <img src="img/solidaire-2.jpg" alt="Affiche de la programmation DJ set et concerts">
+        <img src="img/solidaire-3.jpg" alt="4000 euros pour la caisse de grève">
+        <img src="img/solidaire-4.jpg" alt="Merci, 500 personnes en solidarité">
+      </div>
+      <div class="p-body">
+        <div class="lead">
+          <p>Le 16 novembre 2024, Underwave a co-organisé avec Révolution Permanente une soirée de soutien aux salariés d’ID Logistics à Marseille, mobilisés contre la fermeture de leur site de la Madrague-Ville et contre ce qu’ils dénonçaient comme un licenciement économique déguisé.</p>
+          <p>Elle a permis de récolter 4 000 €, reversés à la caisse de grève, et de rassembler plus de 500 personnes.</p>
+          <div class="pill" style="margin-top:.4em"><a href="https://www.instagram.com/p/DCyqSCFN1hT/" target="_blank" rel="noopener">Voir le récap vidéo de la soirée ↗</a></div>
+        </div>
+        <div class="side s">
+          <section><p>Sous-traitants d’Amazon, les travailleurs se voyaient proposer une mutation à plus de 130 km de Marseille ; en cas de refus, ils risquaient un licenciement pour faute grave, sans les garanties d’un véritable plan social.</p><p>Cette soirée avait pour objectif de soutenir les grévistes et de faire connaître leur situation, tout en dénonçant les pratiques de licenciements déguisés dans la sous-traitance.</p><p>À travers cette action, Underwave mobilise son réseau local pour créer des espaces où engagement social et expression culturelle se rencontrent.</p><p>Aux Ateliers Jeanne Barret, la soirée a mêlé table ronde, moments d’échange et une véritable scène musicale, avec concerts live et DJ sets portés par des artistes locaux.</p></section>
+          <section><p>La programmation artistique d’Underwave s’est appuyée sur des artistes engagés dans différentes dynamiques locales et sociales. Leur participation a donné à la soirée une véritable dimension collective, en lien direct avec le soutien aux grévistes.</p><p>Concerts live et DJ sets se sont enchaînés avec Tosma, Detox, S.Low, Acidturbozen, El Badra, Melaninn, Nyebra, Santiagzz, 3600 BPM, Kiks et Pipa Wave (renommée Blue Lyra).</p><p>Autour de cette scène, l’organisation a également reposé sur l’implication de contributeurs extérieurs à Underwave, notamment l'artiste Kiks, l’appui technique de Maati, ainsi que l’aide de Sαɾαԋ Mỹ et Trae Joly, contribuant à faire de l’événement un moment à la fois solidaire, musical et collectif.</p></section>
+        </div>
+      </div>
+    </div>
+  </section>
   <div class="g">
-    <div class="posters">
-      <img src="img/solidaire-1.jpg" alt="Affiche : soirée de soutien aux grévistes ID Logistics, Atelier Jeanne Barret, samedi 16 novembre">
-      <img src="img/solidaire-2.jpg" alt="Affiche de la programmation DJ set et concerts">
-      <img src="img/solidaire-3.jpg" alt="4000 euros pour la caisse de grève">
-      <img src="img/solidaire-4.jpg" alt="Merci, 500 personnes en solidarité">
-    </div>
-    <div class="p-body">
-      <div class="lead">
-        <p>Le 16 novembre 2024, Underwave a co-organisé avec Révolution Permanente une soirée de soutien aux salariés d’ID Logistics à Marseille, mobilisés contre la fermeture de leur site de la Madrague-Ville et contre ce qu’ils dénonçaient comme un licenciement économique déguisé.</p>
-        <p>Elle a permis de récolter 4 000 €, reversés à la caisse de grève, et de rassembler plus de 500 personnes.</p>
-        <div class="pill" style="margin-top:.4em"><a href="https://www.instagram.com/p/DCyqSCFN1hT/" target="_blank" rel="noopener">Voir le récap vidéo de la soirée ↗</a></div>
-      </div>
-      <div class="side s">
-        <section><p>Sous-traitants d’Amazon, les travailleurs se voyaient proposer une mutation à plus de 130 km de Marseille ; en cas de refus, ils risquaient un licenciement pour faute grave, sans les garanties d’un véritable plan social.</p><p>Cette soirée avait pour objectif de soutenir les grévistes et de faire connaître leur situation, tout en dénonçant les pratiques de licenciements déguisés dans la sous-traitance.</p><p>À travers cette action, Underwave mobilise son réseau local pour créer des espaces où engagement social et expression culturelle se rencontrent.</p><p>Aux Ateliers Jeanne Barret, la soirée a mêlé table ronde, moments d’échange et une véritable scène musicale, avec concerts live et DJ sets portés par des artistes locaux.</p></section>
-        <section><p>La programmation artistique d’Underwave s’est appuyée sur des artistes engagés dans différentes dynamiques locales et sociales. Leur participation a donné à la soirée une véritable dimension collective, en lien direct avec le soutien aux grévistes.</p><p>Concerts live et DJ sets se sont enchaînés avec Tosma, Detox, S.Low, Acidturbozen, El Badra, Melaninn, Nyebra, Santiagzz, 3600 BPM, Kiks et Pipa Wave (renommée Blue Lyra).</p><p>Autour de cette scène, l’organisation a également reposé sur l’implication de contributeurs extérieurs à Underwave, notamment l'artiste Kiks, l’appui technique de Maati, ainsi que l’aide de Sαɾαԋ Mỹ et Trae Joly, contribuant à faire de l’événement un moment à la fois solidaire, musical et collectif.</p></section>
-      </div>
-    </div>
     <nav class="next" aria-label="Navigation"><a class="flip" href="#projets">Tous les projets</a><a class="flip" href="#contact-infos">Contact &amp; infos</a></nav>
   </div>
 </article>
@@ -639,10 +653,21 @@ body{letter-spacing:-.03em}
   // Flèche de l'accueil
   document.querySelectorAll('[data-scroll]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();document.getElementById(a.dataset.scroll).scrollIntoView({behavior:'smooth'});}));
 
-  // Diaporama de l'action solidaire sur l'accueil : clic sur l'image = affiche suivante
-  document.querySelectorAll('[data-slides]').forEach(card=>{
-    const imgs=[...card.querySelectorAll('img')];let i=0;const c=card.querySelector('.count');
-    card.querySelector('.media').addEventListener('click',e=>{e.preventDefault();imgs[i].classList.remove('on');i=(i+1)%imgs.length;imgs[i].classList.add('on');if(c)c.textContent=(i+1)+' de '+imgs.length;});
+  // Actions solidaires sur l'accueil : les affiches des événements défilent (toutes les 6 s et au clic), avec leur titre
+  document.querySelectorAll('[data-events]').forEach(card=>{
+    const media=card.querySelector('.media');
+    document.querySelectorAll('[data-page="actions-solidaires"] .action').forEach((act,n)=>{
+      const src=act.querySelector('img[data-accueil]')||act.querySelector('img'); if(!src) return;
+      const im=document.createElement('img'); im.src=src.getAttribute('src'); im.alt=src.alt; im.className='contain'+(n?'':' on'); im.loading=n?'lazy':'eager';
+      im.dataset.titre=act.dataset.titre||''; im.dataset.infos=act.dataset.infos||''; media.appendChild(im); });
+    const imgs=[...media.querySelectorAll('img')];
+    if(imgs[0]){ card.querySelector('.ev-titre').textContent=imgs[0].dataset.titre; card.querySelector('.ev-infos').textContent=imgs[0].dataset.infos; } if(imgs.length<2){ card.querySelector('.media').style.cursor='pointer'; return; }
+    const t=card.querySelector('.ev-titre'), inf=card.querySelector('.ev-infos'); let i=0, timer=null;
+    const show=n=>{ imgs[i].classList.remove('on'); i=(n+imgs.length)%imgs.length; imgs[i].classList.add('on');
+      card.classList.add('change'); setTimeout(()=>{ t.textContent=imgs[i].dataset.titre; inf.textContent=imgs[i].dataset.infos; card.classList.remove('change'); },350); };
+    const auto=()=>{ clearInterval(timer); if(!matchMedia('(prefers-reduced-motion: reduce)').matches) timer=setInterval(()=>show(i+1),6000); };
+    card.querySelector('.media').addEventListener('click',e=>{ e.preventDefault(); show(i+1); auto(); });
+    auto();
   });
 
   // Aperçu d'image au survol de l'index
