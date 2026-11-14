@@ -455,6 +455,16 @@ a.ul{text-decoration:underline;text-underline-offset:.15em}
 .rr-cl-foot a{text-decoration:underline;text-underline-offset:.15em}
 .rr-cl-btn{border:1.5px solid currentColor;border-radius:999px;padding:.45em 1em;font-size:var(--small)}
 a.rr-cl-btn:hover{background:var(--white);color:var(--magenta)}
+/* ROOT.S : Backstage (grille sobre, bord à bord) */
+.bs-wall{--cols:6;display:grid;grid-template-columns:repeat(var(--cols),minmax(0,1fr));grid-auto-rows:calc((100vw - (var(--cols) - 1) * 3px) / var(--cols) * .9);grid-auto-flow:dense;gap:3px;margin-top:var(--pad)}
+.bs-p{margin:0;overflow:hidden;background:var(--black)}
+.bs-p img,.bs-p video{display:block;width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.bs-p.bs-v{grid-column:span 2;grid-row:span 2}
+.bs-p.bs-w{grid-column:span 2}
+@media (hover:hover){.bs-p:hover img{transform:scale(1.04)}}
+@media (prefers-reduced-motion:reduce){.bs-p img{transition:none}}
+@media (max-width:860px){.bs-wall{--cols:3}}
+@media (max-width:520px){.bs-wall{--cols:2}}
 /* Style « brat » : typo type Arial, serrée ; grands titres étirés en hauteur (lettres compressées en largeur
    et agrandies d'autant, comme une Arial Narrow étirée) et contours légèrement flous */
 body{letter-spacing:-.03em}
@@ -672,6 +682,33 @@ body{letter-spacing:-.03em}
     <div class="g rr-sh"><h2 class="rr-sh-t">Closing party</h2><p class="rr-sh-c">Sam 09.03.2024 · DOUBLE JE, Voûtes de la Major, Marseille</p></div>
     <div class="strip rr-cl-strip"><div class="strip-in"><img src="img/roots/closing-12.jpg" alt="" loading="lazy"><img src="img/roots/closing-16.jpg" alt="" loading="lazy"><img src="img/roots/closing-38.jpg" alt="" loading="lazy"><img src="img/roots/closing-46.jpg" alt="" loading="lazy"><img src="img/roots/closing-48.jpg" alt="" loading="lazy"><img src="img/roots/closing-55.jpg" alt="" loading="lazy"><img src="img/roots/closing-62.jpg" alt="" loading="lazy"><img src="img/roots/closing-12.jpg" alt="" loading="lazy"><img src="img/roots/closing-16.jpg" alt="" loading="lazy"><img src="img/roots/closing-38.jpg" alt="" loading="lazy"><img src="img/roots/closing-46.jpg" alt="" loading="lazy"><img src="img/roots/closing-48.jpg" alt="" loading="lazy"><img src="img/roots/closing-55.jpg" alt="" loading="lazy"><img src="img/roots/closing-62.jpg" alt="" loading="lazy"></div></div>
     <div class="g rr-cl-foot"><span>ROOT.S × UNDERWAVE · soirée de clôture de la résidence · Photos <a href="https://www.instagram.com/lbshoot__/" target="_blank" rel="noopener">LOU B. (LB SHOOT)</a></span><span class="rr-cl-btn" aria-disabled="true">Page de la soirée bientôt</span></div>
+  </section>
+
+  <!-- Backstage : la vie de la résidence -->
+  <section class="rr-sec rr-bs" aria-label="Backstage">
+    <div class="g rr-sh"><h2 class="rr-sh-t">Backstage</h2><p class="rr-sh-c">Coulisses de la résidence</p></div>
+    <div>
+      <div class="bs-wall">
+        <figure class="bs-p bs-w"><img src="img/roots/bs/bs-19.jpg" alt="" loading="lazy"></figure>
+        <figure class="bs-p"><img src="img/roots/bs/bs-07.jpg" alt="" loading="lazy"></figure>
+        <figure class="bs-p"><img src="img/roots/bs/bs-01.jpg" alt="" loading="lazy"></figure>
+        <figure class="bs-p bs-v"><video src="img/roots/bs/backstage.mp4" poster="img/roots/bs/backstage-poster.jpg" autoplay muted loop playsinline preload="none" aria-label="Vidéo des coulisses de la résidence"></video></figure>
+        <figure class="bs-p"><img src="img/roots/bs/bs-08.jpg" alt="" loading="lazy"></figure>
+        <figure class="bs-p"><img src="img/roots/bs/bs-04.jpg" alt="" loading="lazy"></figure>
+        <figure class="bs-p"><img src="img/roots/bs/bs-12.jpg" alt="" loading="lazy"></figure>
+        <figure class="bs-p"><img src="img/roots/bs/bs-02.jpg" alt="" loading="lazy"></figure>
+        <figure class="bs-p"><img src="img/roots/bs/bs-09.jpg" alt="" loading="lazy"></figure>
+        <figure class="bs-p"><img src="img/roots/bs/bs-14.jpg" alt="" loading="lazy"></figure>
+        <figure class="bs-p"><img src="img/roots/bs/bs-05.jpg" alt="" loading="lazy"></figure>
+        <figure class="bs-p"><img src="img/roots/bs/bs-11.jpg" alt="" loading="lazy"></figure>
+        <figure class="bs-p bs-w"><img src="img/roots/bs/bs-03.jpg" alt="" loading="lazy"></figure>
+        <figure class="bs-p"><img src="img/roots/bs/bs-06.jpg" alt="" loading="lazy"></figure>
+        <figure class="bs-p bs-w"><img src="img/roots/bs/bs-13.jpg" alt="" loading="lazy"></figure>
+        <figure class="bs-p"><img src="img/roots/bs/bs-15.jpg" alt="" loading="lazy"></figure>
+        <figure class="bs-p"><img src="img/roots/bs/bs-18.jpg" alt="" loading="lazy"></figure>
+        <figure class="bs-p"><img src="img/roots/bs/bs-16.jpg" alt="" loading="lazy"></figure>
+      </div>
+    </div>
   </section>
 
   <!-- Participant·e·s -->
