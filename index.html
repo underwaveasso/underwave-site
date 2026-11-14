@@ -184,6 +184,28 @@ a.row:hover{background:var(--lime)}
 .names .list-names span{display:block}
 .posters{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--pad);margin-top:clamp(32px,5vw,64px)}
 .posters img{width:100%;display:block}
+.ev-feature{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(24px,3.5vw,56px);align-items:start;margin-top:clamp(28px,4vw,48px)}
+.ev-feature video{height:clamp(380px,36vw,560px);aspect-ratio:9/16;width:auto;max-width:100%;display:block;background:#000;object-fit:contain}
+.ev-vid{margin:0}
+.ev-vid figcaption{margin-top:.5em}
+.ev-vid figcaption a{text-decoration:underline;text-underline-offset:.15em}
+.ev-side{display:grid;gap:clamp(20px,2.5vw,36px);align-content:start}
+.ev-lineup ul{list-style:none;margin:.3em 0 0;padding:0;display:flex;flex-wrap:wrap;gap:0 .5em}
+.ev-lineup li{font-size:clamp(34px,4.4vw,72px);line-height:.95;letter-spacing:-.03em;text-transform:uppercase;white-space:nowrap}
+.ev-lineup li:not(:last-child)::after{content:" ·";opacity:.35}
+.ev-txt{display:grid;gap:.7em;max-width:34em;font-size:clamp(17px,1.5vw,22px);line-height:1.3;letter-spacing:-.01em}
+.ev-cta{letter-spacing:-.01em}
+.ev-cta{justify-self:start;margin-top:.4em;background:var(--magenta);color:var(--white);padding:.75em 1.3em;border-radius:999px;font-size:clamp(16px,1.4vw,20px);transition:background .2s,color .2s}
+.ev-cta:hover{background:var(--black);color:var(--lime)}
+.ev-strip{margin-top:clamp(32px,4vw,56px)}
+.ev-strip .strip-in{gap:0!important;animation-duration:55s}
+.ev-strip .strip-in img{height:clamp(200px,20vw,320px)!important;aspect-ratio:5/7!important;width:auto;object-fit:cover}
+.ev-credit{margin-top:.6em}
+.ev-credit a{text-decoration:underline;text-underline-offset:.15em}
+@media (max-width:860px){.ev-feature{grid-template-columns:1fr}.ev-feature video{width:100%;height:auto;max-height:70vh}.ev-lineup li{font-size:clamp(30px,9vw,52px)}}
+.posters video{width:100%;display:block;aspect-ratio:5/7;object-fit:contain;background:#000}
+.posters img[hidden]{display:none}
+.action+.action{margin-top:clamp(64px,10vw,140px);border-top:1px solid currentColor}
 @media (max-width:860px){.posters{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .next a{white-space:nowrap}
 @media (max-width:640px){.next a{white-space:normal}}
@@ -727,7 +749,7 @@ body{letter-spacing:-.03em}
   <section class="rr-sec rr-closing" aria-label="Closing party">
     <div class="g rr-sh"><h2 class="rr-sh-t">Closing party</h2><p class="rr-sh-c">Sam 09.03.2024 · DOUBLE JE, Voûtes de la Major, Marseille</p></div>
     <div class="strip rr-cl-strip"><div class="strip-in"><img src="img/roots/closing-12.jpg" alt="" loading="lazy"><img src="img/roots/closing-16.jpg" alt="" loading="lazy"><img src="img/roots/closing-38.jpg" alt="" loading="lazy"><img src="img/roots/closing-46.jpg" alt="" loading="lazy"><img src="img/roots/closing-48.jpg" alt="" loading="lazy"><img src="img/roots/closing-55.jpg" alt="" loading="lazy"><img src="img/roots/closing-62.jpg" alt="" loading="lazy"><img src="img/roots/closing-12.jpg" alt="" loading="lazy"><img src="img/roots/closing-16.jpg" alt="" loading="lazy"><img src="img/roots/closing-38.jpg" alt="" loading="lazy"><img src="img/roots/closing-46.jpg" alt="" loading="lazy"><img src="img/roots/closing-48.jpg" alt="" loading="lazy"><img src="img/roots/closing-55.jpg" alt="" loading="lazy"><img src="img/roots/closing-62.jpg" alt="" loading="lazy"></div></div>
-    <div class="g rr-cl-foot"><span>ROOT.S × UNDERWAVE · soirée de clôture de la résidence · Photos <a href="https://www.instagram.com/lbshoot__/" target="_blank" rel="noopener">LOU B. (LB SHOOT)</a></span><span class="rr-cl-btn" aria-disabled="true">Page de la soirée bientôt</span></div>
+    <div class="g rr-cl-foot"><span>ROOT.S × UNDERWAVE · soirée de clôture de la résidence · Photos <a href="https://www.instagram.com/lbshoot__/" target="_blank" rel="noopener">LOU B. (LB SHOOT)</a></span><a class="rr-cl-btn" href="#closing-roots">Page de la soirée</a></div>
   </section>
 
   <!-- Backstage : la vie de la résidence -->
@@ -899,6 +921,29 @@ body{letter-spacing:-.03em}
       </div>
     </div>
   </section>
+  <section class="action" id="closing-roots" data-type="Soirée" data-titre="Closing party ROOT.S × UNDERWAVE" data-infos="09.03.2024 · DOUBLE JE, Marseille">
+    <div class="p-head g"><span class="kicker">Soirée</span><h1 class="title">Closing party ROOT.S × UNDERWAVE</h1>
+      <div class="figs"><span><b>09.03.2024</b><span class="s">DOUBLE JE, Voûtes de la Major, Marseille</span></span><span><b>8 DJ</b><span class="s">au line-up</span></span><span><b>Clôture</b><span class="s">de la résidence artistique ROOT.S × UNDERWAVE</span></span></div>
+    </div>
+    <div class="g ev-feature">
+      <figure class="ev-vid"><video src="img/evenements/closing-roots-teaser.mp4" poster="img/evenements/closing-roots-affiche.jpg" controls playsinline preload="none" aria-label="Vidéo d’annonce de la soirée"></video><figcaption class="s">Vidéo d’annonce, diffusée avant la soirée<br>Track&nbsp;: <a href="https://www.instagram.com/mabradaa/" target="_blank" rel="noopener">MABRADAA</a> – Malvadão</figcaption></figure>
+      <img data-accueil src="img/evenements/closing-roots-affiche.jpg" alt="Annonce de la soirée : line-up DARLEAN, BODJI, SKI CARL, FTA, MAMA ACE, CRAMS, SLO, BLUE LYRA" hidden>
+      <div class="ev-side">
+        <div class="ev-lineup"><span class="kicker">Line-up</span>
+          <ul><li>DARLEAN</li><li>BODJI</li><li>SKI CARL</li><li>FTA</li><li>MAMA ACE</li><li>CRAMS</li><li>SLO</li><li>BLUE LYRA</li></ul>
+        </div>
+        <div class="ev-txt">
+          <p>Du 4 au 9 mars 2024, ROOT.S (Paris) et UNDERWAVE (Marseille) ont réuni des artistes des deux villes pour une résidence artistique autour du DJing et de la création.</p>
+          <p>La résidence s’est terminée le 9 mars par cette soirée à DOUBLE JE, sous les Voûtes de la Major, à Marseille.</p>
+          <p>Tous les participant·e·s de la résidence étaient réuni·e·s, avec tous les DJ au line-up. Une soirée collective, qui a aussi permis de soutenir le financement de la résidence.</p>
+          <a class="ev-cta" href="#residence-roots">Voir la résidence ROOT.S × UNDERWAVE →</a>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="strip ev-strip" aria-label="Photos de la soirée"><div class="strip-in"><img src="img/roots/closing-12.jpg" alt="" loading="lazy"><img src="img/roots/closing-16.jpg" alt="" loading="lazy"><img src="img/roots/closing-38.jpg" alt="" loading="lazy"><img src="img/roots/closing-46.jpg" alt="" loading="lazy"><img src="img/roots/closing-48.jpg" alt="" loading="lazy"><img src="img/roots/closing-55.jpg" alt="" loading="lazy"><img src="img/roots/closing-62.jpg" alt="" loading="lazy"><img src="img/roots/closing-12.jpg" alt="" loading="lazy"><img src="img/roots/closing-16.jpg" alt="" loading="lazy"><img src="img/roots/closing-38.jpg" alt="" loading="lazy"><img src="img/roots/closing-46.jpg" alt="" loading="lazy"><img src="img/roots/closing-48.jpg" alt="" loading="lazy"><img src="img/roots/closing-55.jpg" alt="" loading="lazy"><img src="img/roots/closing-62.jpg" alt="" loading="lazy"></div></div>
+    <div class="g ev-credit s">Photos&nbsp;: <a href="https://www.instagram.com/lbshoot__/" target="_blank" rel="noopener">LOU B. (LB SHOOT)</a></div>
+  </section>
   <div class="g">
     <nav class="next" aria-label="Navigation"><a class="flip" href="#projets">Tous les projets</a><a class="flip" href="#contact-infos">Contact &amp; infos</a></nav>
   </div>
@@ -953,12 +998,13 @@ body{letter-spacing:-.03em}
   function show(){
     let id=(location.hash||'#accueil').slice(1);
     if(id==='actions-solidaires'){id='evenements';history.replaceState(null,'','#evenements');}
-    if(!pages.some(p=>p.dataset.page===id))id='accueil';
+    let cible=null;
+    if(!pages.some(p=>p.dataset.page===id)){ const el=document.getElementById(id), pg=el&&el.closest('[data-page]'); if(pg&&pg.dataset.page!=='accueil'){cible=el;id=pg.dataset.page;} else id='accueil'; }
     pages.forEach(p=>p.hidden=p.dataset.page!==id);
     hdr.classList.toggle('on-lime',id==='accueil');
     const nav=navOf[id]||id;
     document.querySelectorAll('header nav a').forEach(a=>{if(a.dataset.nav===nav)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
-    scrollTo(0,0);
+    if(cible) requestAnimationFrame(()=>cible.scrollIntoView()); else scrollTo(0,0);
   }
   addEventListener('hashchange',show);show();
 
