@@ -17,7 +17,7 @@
 </style>
 <style>
 /* Layout : style noideas.website (grande typo unique, projets plein écran, index en liste, mot actif retourné).
-   Organisation reprise du site actuel : Accueil, Projets (OPN, Espaces Partagés, ALT MEDIA), Actions solidaires, Contact & infos. */
+   Organisation reprise du site actuel : Accueil, Projets (OPN, Espaces Partagés, ALT MEDIA), Événements (soirées, actions solidaires…), Contact & infos. */
 :root{
   --lime:#defe52; --magenta:#ea33d2; --black:#000000; --white:#ffffff; --grey:#7a7a7a;
   --sans:"Arimo",Arial,"Helvetica Neue",Helvetica,sans-serif;
@@ -543,7 +543,7 @@ body{letter-spacing:-.03em}
 <!-- En-tête commun -->
 <header class="g" id="hdr">
   <a class="brand flip" href="#accueil" aria-label="Underwave, accueil"><span class="mark" aria-hidden="true"></span>Underwave</a>
-  <nav aria-label="Navigation principale"><a class="flip" href="#projets" data-nav="projets">Projets</a><span class="c">,</span><a class="flip" href="#actions-solidaires" data-nav="actions-solidaires">Actions solidaires</a><span class="c">,</span><a class="flip" href="#contact-infos" data-nav="contact-infos">Contact &amp; infos</a></nav>
+  <nav aria-label="Navigation principale"><a class="flip" href="#projets" data-nav="projets">Projets</a><span class="c">,</span><a class="flip" href="#evenements" data-nav="evenements">Événements</a><span class="c">,</span><a class="flip" href="#contact-infos" data-nav="contact-infos">Contact &amp; infos</a></nav>
 </header>
 
 <main>
@@ -595,11 +595,11 @@ body{letter-spacing:-.03em}
     <div class="top g"><span class="tag">ALT MEDIA</span></div>
     <div class="bot g"><span class="sub s">Média indépendant musique &amp; culture. En préparation.</span><span class="go flip">Voir le projet</span></div>
   </a>
-  <!-- Actions solidaires : rempli automatiquement depuis la page Actions solidaires (image data-accueil de chaque action) -->
-  <a class="proj ev-card" href="#actions-solidaires" style="--bg:var(--black);--fg:var(--white)" data-events>
+  <!-- Événements : rempli automatiquement depuis la page Événements (image data-accueil de chaque action) -->
+  <a class="proj ev-card" href="#evenements" style="--bg:var(--black);--fg:var(--white)" data-events>
     <div class="media"></div>
-    <div class="top g"><span class="tag">Actions solidaires</span></div>
-    <div class="bot g"><span class="sub"><span class="ev-titre">Soirée de soutien aux grévistes d’ID Logistics</span><span class="ev-infos s">16.11.2024 · Ateliers Jeanne Barret</span></span><span class="go flip">Voir les actions</span></div>
+    <div class="top g"><span class="tag">Événements</span></div>
+    <div class="bot g"><span class="sub"><span class="ev-titre">Soirée de soutien aux grévistes d’ID Logistics</span><span class="ev-infos s">Action solidaire · 16.11.2024 · Ateliers Jeanne Barret</span></span><span class="go flip">Voir les événements</span></div>
   </a>
   <a class="proj rr-card" href="#residence-roots" style="--bg:var(--black);--fg:var(--white)" aria-label="Résidence artistique ROOT.S × UNDERWAVE, Provence et Marseille, 04 au 09.03.2024">
     <div class="media rr-card-m"><video class="rr-anim" muted loop playsinline autoplay preload="metadata" data-src="img/roots/rr-anim.mp4" data-src-m="img/roots/rr-anim-m.mp4" data-poster="img/roots/rr-anim-poster.jpg" data-poster-m="img/roots/rr-anim-m-poster.jpg" aria-hidden="true"></video></div>
@@ -871,12 +871,12 @@ body{letter-spacing:-.03em}
   </div>
 </article>
 
-<!-- ================= ACTIONS SOLIDAIRES ================= -->
-<article data-page="actions-solidaires" class="page" hidden>
-  <!-- Une action = une <section class="action">. Pour en ajouter une : copier la section entière en haut de la liste (la plus récente en premier),
-       changer data-titre / data-infos, et mettre data-accueil sur l'image à montrer sur l'accueil. L'accueil se met à jour tout seul. -->
-  <section class="action" id="action-id-logistics" data-titre="Soirée de soutien aux grévistes d’ID Logistics" data-infos="16.11.2024 · Ateliers Jeanne Barret">
-    <div class="p-head g"><span class="kicker">Actions et évènements solidaires</span><h1 class="title">Soirée de soutien aux grévistes d’ID Logistics</h1>
+<!-- ================= ÉVÉNEMENTS (soirées, actions solidaires…) ================= -->
+<article data-page="evenements" class="page" hidden>
+  <!-- Un événement = une <section class="action">. Pour en ajouter un : copier la section entière en haut de la liste (le plus récent en premier),
+       changer data-titre / data-infos / data-type (ex. « Action solidaire », « Soirée »), le kicker, et mettre data-accueil sur l'image à montrer sur l'accueil. L'accueil se met à jour tout seul. -->
+  <section class="action" id="action-id-logistics" data-type="Action solidaire" data-titre="Soirée de soutien aux grévistes d’ID Logistics" data-infos="16.11.2024 · Ateliers Jeanne Barret">
+    <div class="p-head g"><span class="kicker">Action solidaire</span><h1 class="title">Soirée de soutien aux grévistes d’ID Logistics</h1>
       <div class="figs"><span><b>16.11.2024</b><span class="s">Ateliers Jeanne Barret, Marseille</span></span><span><b>4 000 €</b><span class="s">reversés à la caisse de grève</span></span><span><b>500+</b><span class="s">personnes rassemblées</span></span></div>
     </div>
     <div class="g">
@@ -934,7 +934,7 @@ body{letter-spacing:-.03em}
 <footer>
   <div class="wrap g">
     <span class="mark" role="img" aria-label="Logo Underwave"></span>
-    <div class="links"><a class="flip" href="#projets">Projets</a><a class="flip" href="#actions-solidaires">Actions solidaires</a><a class="flip" href="#contact-infos">Contact &amp; infos</a><a class="flip" href="https://www.instagram.com/underwaveconcept/" target="_blank" rel="noopener">Instagram</a><a class="flip" href="#mentions-legales">Mentions légales</a></div>
+    <div class="links"><a class="flip" href="#projets">Projets</a><a class="flip" href="#evenements">Événements</a><a class="flip" href="#contact-infos">Contact &amp; infos</a><a class="flip" href="https://www.instagram.com/underwaveconcept/" target="_blank" rel="noopener">Instagram</a><a class="flip" href="#mentions-legales">Mentions légales</a></div>
     <span class="base s">underwave.asso@gmail.com | Marseille 13000</span>
   </div>
 </footer>
@@ -952,6 +952,7 @@ body{letter-spacing:-.03em}
   const hdr=document.getElementById('hdr');
   function show(){
     let id=(location.hash||'#accueil').slice(1);
+    if(id==='actions-solidaires'){id='evenements';history.replaceState(null,'','#evenements');}
     if(!pages.some(p=>p.dataset.page===id))id='accueil';
     pages.forEach(p=>p.hidden=p.dataset.page!==id);
     hdr.classList.toggle('on-lime',id==='accueil');
@@ -1176,13 +1177,13 @@ body{letter-spacing:-.03em}
   // Flèche de l'accueil
   document.querySelectorAll('[data-scroll]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();document.getElementById(a.dataset.scroll).scrollIntoView({behavior:'smooth'});}));
 
-  // Actions solidaires sur l'accueil : les affiches des événements défilent (toutes les 6 s et au clic), avec leur titre
+  // Événements sur l'accueil : les affiches des événements défilent (toutes les 6 s et au clic), avec leur titre
   document.querySelectorAll('[data-events]').forEach(card=>{
     const media=card.querySelector('.media');
-    document.querySelectorAll('[data-page="actions-solidaires"] .action').forEach((act,n)=>{
+    document.querySelectorAll('[data-page="evenements"] .action').forEach((act,n)=>{
       const src=act.querySelector('img[data-accueil]')||act.querySelector('img'); if(!src) return;
       const im=document.createElement('img'); im.src=src.getAttribute('src'); im.alt=src.alt; im.className='contain'+(n?'':' on'); im.loading=n?'lazy':'eager';
-      im.dataset.titre=act.dataset.titre||''; im.dataset.infos=act.dataset.infos||''; media.appendChild(im); });
+      im.dataset.titre=act.dataset.titre||''; im.dataset.infos=(act.dataset.type?act.dataset.type+' · ':'')+(act.dataset.infos||''); media.appendChild(im); });
     const imgs=[...media.querySelectorAll('img')];
     if(imgs[0]){ card.querySelector('.ev-titre').textContent=imgs[0].dataset.titre; card.querySelector('.ev-infos').textContent=imgs[0].dataset.infos; } if(imgs.length<2){ card.querySelector('.media').style.cursor='pointer'; return; }
     const t=card.querySelector('.ev-titre'), inf=card.querySelector('.ev-infos'); let i=0, timer=null;
