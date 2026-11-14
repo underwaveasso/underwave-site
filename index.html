@@ -186,6 +186,32 @@ a.row:hover{background:var(--lime)}
 .posters img{width:100%;display:block}
 .ev-feature{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(24px,3.5vw,56px);align-items:start;margin-top:clamp(28px,4vw,48px)}
 .ev-feature video{height:clamp(380px,36vw,560px);aspect-ratio:9/16;width:auto;max-width:100%;display:block;background:#000;object-fit:contain}
+[data-page="evenements"] .p-head{padding-top:clamp(36px,5vw,72px)}
+[data-page="evenements"] .p-head .title{font-size:clamp(44px,7vw,118px)}
+.idl-row{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(20px,3vw,48px);align-items:center;margin-top:clamp(24px,3vw,40px)}
+.idl-rev{grid-template-columns:minmax(0,1fr) auto}
+.idl-affiches img{aspect-ratio:4/5;object-fit:contain;background:#e2f1f3}
+.idl-affiches img{aspect-ratio:39/50;width:auto;object-fit:cover;object-position:50% 50%}
+.idl-rev .idl-pair img{height:clamp(320px,33vw,520px)}
+.idl-pair{display:flex;gap:var(--pad);align-items:flex-start}
+.idl-pair img{height:clamp(200px,19vw,300px);width:auto;max-width:calc(50% - var(--pad)/2);object-fit:contain;display:block}
+.ev-txt.idl-small{font-size:clamp(14px,1.05vw,16px)}
+.ev-txt.idl-lead{font-size:clamp(16px,1.3vw,20px)}
+.ev-strip.idl-strip .strip-in img{aspect-ratio:3/2!important;height:clamp(150px,14vw,220px)!important}
+.idl-strip{margin-top:clamp(24px,3vw,40px)}
+.idl-vid{margin:0}
+.idl-side{display:grid;gap:clamp(16px,2vw,28px);align-content:start}
+.idl-lu-t{margin:.7em 0 .1em;opacity:.6}
+.idl-lu-n{margin-top:.7em}
+.idl-aka{text-transform:none;font-size:max(11px,.36em);letter-spacing:0;opacity:.6;vertical-align:middle}
+.idl-lu-n a,.idl-lineup li a{text-decoration:underline;text-underline-offset:.12em;text-decoration-thickness:1px}
+.ev-lineup.idl-lineup ul{margin-top:0}
+.ev-lineup.idl-lineup li{font-size:clamp(20px,2.2vw,34px)}
+.idl-vid{width:clamp(280px,34vw,520px)}
+.idl-vid video{width:100%;aspect-ratio:16/9;display:block;background:#000}
+.idl-vid figcaption{margin-top:.5em}
+.idl-affiches img{aspect-ratio:39/50;height:auto!important;width:clamp(150px,14.5vw,235px)!important;max-width:calc(50% - var(--pad)/2);object-fit:cover;object-position:50% 0}
+@media (max-width:860px){.idl-affiches img{width:calc(50% - var(--pad)/2)!important}.idl-vid{width:100%}.idl-row,.idl-rev{grid-template-columns:1fr}.idl-rev .idl-pair{order:-1}.idl-pair img{height:auto;width:calc(50% - var(--pad)/2)}}
 .ev-vid{margin:0}
 .ev-vid figcaption{margin-top:.5em}
 .ev-vid figcaption a{text-decoration:underline;text-underline-offset:.15em}
@@ -901,24 +927,28 @@ body{letter-spacing:-.03em}
     <div class="p-head g"><span class="kicker">Action solidaire</span><h1 class="title">Soirée de soutien aux grévistes d’ID Logistics</h1>
       <div class="figs"><span><b>16.11.2024</b><span class="s">Ateliers Jeanne Barret, Marseille</span></span><span><b>4 000 €</b><span class="s">reversés à la caisse de grève</span></span><span><b>500+</b><span class="s">personnes rassemblées</span></span></div>
     </div>
-    <div class="g">
-      <div class="posters">
+    <div class="g idl-row">
+      <div class="idl-pair idl-affiches">
         <img data-accueil src="img/solidaire-1.jpg" alt="Affiche : soirée de soutien aux grévistes ID Logistics, Atelier Jeanne Barret, samedi 16 novembre">
         <img src="img/solidaire-2.jpg" alt="Affiche de la programmation DJ set et concerts">
-        <img src="img/solidaire-3.jpg" alt="4000 euros pour la caisse de grève">
-        <img src="img/solidaire-4.jpg" alt="Merci, 500 personnes en solidarité">
       </div>
-      <div class="p-body">
-        <div class="lead">
-          <p>Le 16 novembre 2024, Underwave a co-organisé avec Révolution Permanente une soirée de soutien aux salariés d’ID Logistics à Marseille, mobilisés contre la fermeture de leur site de la Madrague-Ville et contre ce qu’ils dénonçaient comme un licenciement économique déguisé.</p>
+      <div class="ev-txt idl-lead">
+        <p>Le 16 novembre 2024, Underwave a co-organisé avec Révolution Permanente une soirée de soutien aux salariés d’ID Logistics à Marseille, mobilisés contre la fermeture de leur site de la Madrague-Ville et contre ce qu’ils dénonçaient comme un licenciement économique déguisé.</p>
           <p>Elle a permis de récolter 4 000 €, reversés à la caisse de grève, et de rassembler plus de 500 personnes.</p>
-          <div class="pill" style="margin-top:.4em"><a href="https://www.instagram.com/p/DCyqSCFN1hT/" target="_blank" rel="noopener">Voir le récap vidéo de la soirée ↗</a></div>
-        </div>
-        <div class="side s">
-          <section><p>Sous-traitants d’Amazon, les travailleurs se voyaient proposer une mutation à plus de 130 km de Marseille ; en cas de refus, ils risquaient un licenciement pour faute grave, sans les garanties d’un véritable plan social.</p><p>Cette soirée avait pour objectif de soutenir les grévistes et de faire connaître leur situation, tout en dénonçant les pratiques de licenciements déguisés dans la sous-traitance.</p><p>À travers cette action, Underwave mobilise son réseau local pour créer des espaces où engagement social et expression culturelle se rencontrent.</p><p>Aux Ateliers Jeanne Barret, la soirée a mêlé table ronde, moments d’échange et une véritable scène musicale, avec concerts live et DJ sets portés par des artistes locaux.</p></section>
-          <section><p>La programmation artistique d’Underwave s’est appuyée sur des artistes engagés dans différentes dynamiques locales et sociales. Leur participation a donné à la soirée une véritable dimension collective, en lien direct avec le soutien aux grévistes.</p><p>Concerts live et DJ sets se sont enchaînés avec Tosma, Detox, S.Low, Acidturbozen, El Badra, Melaninn, Nyebra, Santiagzz, 3600 BPM, Kiks et Pipa Wave (renommée Blue Lyra).</p><p>Autour de cette scène, l’organisation a également reposé sur l’implication de contributeurs extérieurs à Underwave, notamment l'artiste Kiks, l’appui technique de Maati, ainsi que l’aide de Sαɾαԋ Mỹ et Trae Joly, contribuant à faire de l’événement un moment à la fois solidaire, musical et collectif.</p></section>
-        </div>
       </div>
+    </div>
+    <div class="g idl-row idl-rev">
+      <div class="ev-txt idl-small"><p>Sous-traitants d’Amazon, les travailleurs se voyaient proposer une mutation à plus de 130 km de Marseille ; en cas de refus, ils risquaient un licenciement pour faute grave, sans les garanties d’un véritable plan social.</p><p>Cette soirée avait pour objectif de soutenir les grévistes et de faire connaître leur situation, tout en dénonçant les pratiques de licenciements déguisés dans la sous-traitance.</p><p>À travers cette action, Underwave mobilise son réseau local pour créer des espaces où engagement social et expression culturelle se rencontrent.</p><p>Aux Ateliers Jeanne Barret, la soirée a mêlé table ronde, moments d’échange et une véritable scène musicale, avec concerts live et DJ sets portés par des artistes locaux.</p></div>
+      <div class="idl-pair">
+        <img src="img/solidaire-3.jpg" alt="4000 euros pour la caisse de grève" loading="lazy">
+        <img src="img/solidaire-4.jpg" alt="Merci, 500 personnes en solidarité" loading="lazy">
+      </div>
+    </div>
+    <div class="strip ev-strip idl-strip" aria-label="Photos de la soirée"><div class="strip-in"><img src="img/evenements/idl-bbq.jpg" alt="Barbecue pendant la soirée de soutien" loading="lazy"><img src="img/evenements/idl-table-ronde.jpg" alt="Table ronde avec les grévistes" loading="lazy"><img src="img/evenements/idl-concert.jpg" alt="Concert pendant la soirée" loading="lazy"><img src="img/evenements/idl-bbq.jpg" alt="Barbecue pendant la soirée de soutien" loading="lazy"><img src="img/evenements/idl-table-ronde.jpg" alt="Table ronde avec les grévistes" loading="lazy"><img src="img/evenements/idl-concert.jpg" alt="Concert pendant la soirée" loading="lazy"><img src="img/evenements/idl-bbq.jpg" alt="Barbecue pendant la soirée de soutien" loading="lazy"><img src="img/evenements/idl-table-ronde.jpg" alt="Table ronde avec les grévistes" loading="lazy"><img src="img/evenements/idl-concert.jpg" alt="Concert pendant la soirée" loading="lazy"><img src="img/evenements/idl-bbq.jpg" alt="Barbecue pendant la soirée de soutien" loading="lazy"><img src="img/evenements/idl-table-ronde.jpg" alt="Table ronde avec les grévistes" loading="lazy"><img src="img/evenements/idl-concert.jpg" alt="Concert pendant la soirée" loading="lazy"></div></div>
+    <div class="g idl-row idl-vid-row">
+      <figure class="idl-vid"><video src="img/evenements/idl-extrait.mp4" poster="img/evenements/idl-extrait-poster.jpg" controls playsinline preload="none" aria-label="Extrait vidéo de la soirée"></video><figcaption class="s">Extrait vidéo de la soirée</figcaption></figure>
+      <div class="idl-side"><div class="ev-lineup idl-lineup"><span class="kicker">Line-up</span><p class="idl-lu-t s">DJ set</p><ul><li>KIKS</li><li>MYSTIQUE</li><li>EL BADRA</li><li>BLUE LYRA <small class="idl-aka">(anciennement PIPA WAVE)</small></li><li>NYEBRA</li><li>ACIDTURBOZEN</li><li>KODJO</li><li>SANTIAGZZ</li><li>MELANIN</li></ul><p class="idl-lu-t s">Concerts live</p><ul><li><a href="https://www.instagram.com/tosma.wav/" target="_blank" rel="noopener">TOSMA</a></li><li><a href="https://www.instagram.com/detox.off/" target="_blank" rel="noopener">DETOX</a></li><li><a href="https://www.instagram.com/s.low_officiel/" target="_blank" rel="noopener">S.LOW</a></li></ul><p class="idl-lu-n s">Ingé son bénévole&nbsp;: <a href="https://www.instagram.com/maati_mr/" target="_blank" rel="noopener">MAATI</a></p></div>
+      <div class="ev-txt idl-small"><p>La programmation artistique d’Underwave s’est appuyée sur des artistes engagés dans différentes dynamiques locales et sociales. Leur participation a donné à la soirée une véritable dimension collective, en lien direct avec le soutien aux grévistes.</p><p>Concerts live et DJ sets se sont enchaînés avec Tosma, Detox, S.Low, Acidturbozen, El Badra, Melaninn, Nyebra, Santiagzz, 3600 BPM, Kiks et Pipa Wave (renommée Blue Lyra).</p><p>Autour de cette scène, l’organisation a également reposé sur l’implication de contributeurs extérieurs à Underwave, notamment l'artiste Kiks, l’appui technique de Maati, ainsi que l’aide de Sαɾαԋ Mỹ et Trae Joly, contribuant à faire de l’événement un moment à la fois solidaire, musical et collectif.</p></div></div>
     </div>
   </section>
   <section class="action" id="closing-roots" data-type="Soirée" data-titre="Closing party ROOT.S × UNDERWAVE" data-infos="09.03.2024 · DOUBLE JE, Marseille">
