@@ -187,6 +187,7 @@ a.row:hover{background:var(--lime)}
 .ev-feature{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(24px,3.5vw,56px);align-items:start;margin-top:clamp(28px,4vw,48px)}
 .ev-feature video{height:clamp(380px,36vw,560px);aspect-ratio:9/16;width:auto;max-width:100%;display:block;background:#000;object-fit:contain}
 [data-page="evenements"] .p-head{padding-top:clamp(36px,5vw,72px)}
+.ev-index{margin-bottom:clamp(24px,4vw,56px)}
 [data-page="evenements"] .p-head .title{font-size:clamp(44px,7vw,118px)}
 .idl-row{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(20px,3vw,48px);align-items:center;margin-top:clamp(24px,3vw,40px)}
 .idl-rev{grid-template-columns:minmax(0,1fr) auto}
@@ -231,7 +232,8 @@ a.row:hover{background:var(--lime)}
 @media (max-width:860px){.ev-feature{grid-template-columns:1fr}.ev-feature video{width:100%;height:auto;max-height:70vh}.ev-lineup li{font-size:clamp(30px,9vw,52px)}}
 .posters video{width:100%;display:block;aspect-ratio:5/7;object-fit:contain;background:#000}
 .posters img[hidden]{display:none}
-.action+.action{margin-top:clamp(64px,10vw,140px);border-top:1px solid currentColor}
+.action+.action{margin-top:clamp(48px,7vw,96px)}
+[data-page="evenements"] .action{border-top:8px solid var(--black)}
 @media (max-width:860px){.posters{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .next a{white-space:nowrap}
 @media (max-width:640px){.next a{white-space:normal}}
@@ -921,6 +923,11 @@ body{letter-spacing:-.03em}
 
 <!-- ================= ÉVÉNEMENTS (soirées, actions solidaires…) ================= -->
 <article data-page="evenements" class="page" hidden>
+  <!-- Sommaire : rempli automatiquement à partir des événements de la page -->
+  <div class="g ev-index">
+    <p class="index-intro">Tous nos événements, du plus récent au plus ancien.</p>
+    <div class="list" id="ev-list"><div class="row head"><span>Événement</span><span>Type</span><span>Date</span></div></div>
+  </div>
   <!-- Un événement = une <section class="action">. Pour en ajouter un : copier la section entière en haut de la liste (le plus récent en premier),
        changer data-titre / data-infos / data-type (ex. « Action solidaire », « Soirée »), le kicker, et mettre data-accueil sur l'image à montrer sur l'accueil. L'accueil se met à jour tout seul. -->
   <section class="action" id="action-id-logistics" data-type="Action solidaire" data-titre="Soirée de soutien aux grévistes d’ID Logistics" data-infos="16.11.2024 · Ateliers Jeanne Barret">
@@ -1270,6 +1277,15 @@ body{letter-spacing:-.03em}
     card.querySelector('.media').addEventListener('click',e=>{ e.preventDefault(); show(i+1); auto(); });
     auto();
   });
+
+  // Événements : sommaire en haut de la page, construit à partir des événements
+  (function(){ const list=document.getElementById('ev-list'); if(!list) return;
+    document.querySelectorAll('[data-page="evenements"] .action').forEach(act=>{
+      if(!act.id) return; const a=document.createElement('a'); a.className='row'; a.href='#'+act.id;
+      const date=(act.dataset.infos||'').split(' · ')[0];
+      [act.dataset.titre||'',act.dataset.type||'',date].forEach(t=>{const sp=document.createElement('span');sp.textContent=t;a.appendChild(sp);});
+      list.appendChild(a); });
+  })();
 
   // Aperçu d'image au survol de l'index
   const peek=document.getElementById('peek'),pimg=peek.querySelector('img');
