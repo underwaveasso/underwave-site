@@ -491,6 +491,10 @@ a.rr-cl-btn:hover{background:var(--white);color:var(--magenta)}
   .rr .relais-head p,.rr .rr-relais-txt p{font-size:15px}
 }
 @media (min-width:701px){.rr .rr-more{display:none}}
+.rr-card .media{cursor:pointer}
+.rr-anim{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;display:block}
+/* Projets sur téléphone : image du projet sous chaque ligne */
+@media (hover:none) and (max-width:700px){.row[data-peek]::after{content:"";grid-column:1 / -1;display:block;aspect-ratio:var(--pa,3/2);background:var(--pimg) center/cover no-repeat;margin-top:.5em}}
 /* Style « brat » : typo type Arial, serrée ; grands titres étirés en hauteur (lettres compressées en largeur
    et agrandies d'autant, comme une Arial Narrow étirée) et contours légèrement flous */
 body{letter-spacing:-.03em}
@@ -566,11 +570,6 @@ body{letter-spacing:-.03em}
     <div class="top g"><span class="tag">Open Platine</span></div>
     <div class="bot g"><span class="sub s">Rendez-vous régulier dédié aux DJ locaux, autour de la pratique, de l’échange et de l'accompagnement avec un espace dédié.</span><span class="go flip">Voir le projet</span></div>
   </a>
-  <a class="proj shade" href="#residence-roots" style="--bg:var(--black);--fg:var(--white)">
-    <div class="media"><img src="img/roots/backstage-collage-large.jpg" alt="Coulisses de la résidence ROOT.S × UNDERWAVE" class="on"></div>
-    <div class="top g"><span class="tag">Résidence ROOT.S × UNDERWAVE</span></div>
-    <div class="bot g"><span class="sub s">Résidence artistique · mars 2024. Six jours où des artistes de Paris et de Marseille ont créé ensemble autour du DJing.</span><span class="go flip">Voir le projet</span></div>
-  </a>
   <a class="proj" href="#espaces-partages" style="--bg:var(--white);--fg:var(--black)">
     <div class="media ep-card"><canvas class="ep-map" aria-hidden="true"></canvas><span class="ep-card-t">Espaces<br>Partagés</span></div>
     <div class="top g"><span class="tag">Espaces Partagés</span></div>
@@ -586,6 +585,11 @@ body{letter-spacing:-.03em}
     <div class="media"></div>
     <div class="top g"><span class="tag">Actions solidaires</span></div>
     <div class="bot g"><span class="sub"><span class="ev-titre">Soirée de soutien aux grévistes d’ID Logistics</span><span class="ev-infos s">16.11.2024 · Ateliers Jeanne Barret</span></span><span class="go flip">Voir les actions</span></div>
+  </a>
+  <a class="proj rr-card" href="#residence-roots" style="--bg:var(--black);--fg:var(--white)" aria-label="Résidence artistique ROOT.S × UNDERWAVE, Provence et Marseille, 04 au 09.03.2024">
+    <div class="media rr-card-m"><video class="rr-anim" muted loop playsinline autoplay preload="metadata" data-src="img/roots/rr-anim.mp4" data-src-m="img/roots/rr-anim-m.mp4" data-poster="img/roots/rr-anim-poster.jpg" data-poster-m="img/roots/rr-anim-m-poster.jpg" aria-hidden="true"></video></div>
+    <div class="top g"><span class="tag">ROOT.S × UNDERWAVE</span></div>
+    <div class="bot g"><span class="sub s">Provence · Marseille · 04 → 09.03.2024</span><span class="go flip">Voir le projet</span></div>
   </a>
 
   <section class="block g">
@@ -610,7 +614,7 @@ body{letter-spacing:-.03em}
     <div class="row head"><span>Projet</span><span>Type</span><span>Lancement</span></div>
     <a class="row" href="#alt-media" data-peek="img/alt-media.png"><span>ALT MEDIA</span><span>Média</span><span>À venir</span></a>
     <a class="row" href="#espaces-partages" data-peek="img/espaces-partages-apercu.jpg"><span>Espaces Partagés</span><span>Répertoire des lieux</span><span>2026</span></a>
-    <a class="row" href="#residence-roots" data-peek="img/roots/backstage-collage.jpg"><span>Résidence ROOT.S × UNDERWAVE</span><span>Résidence artistique collaborative</span><span>2024</span></a>
+    <a class="row" href="#residence-roots" data-peek="img/roots/backstage-peek.jpg" data-peek-m="img/roots/backstage-peek-m.jpg"><span>Résidence ROOT.S × UNDERWAVE</span><span>Résidence artistique collaborative</span><span>2024</span></a>
     <a class="row" href="#opn" data-peek="img/opn.jpg"><span>Open Platine Night</span><span>DJing, rencontres</span><span>2023</span></a>
   </div>
 </div>
@@ -1150,6 +1154,9 @@ body{letter-spacing:-.03em}
   document.querySelectorAll('[data-more]').forEach(box=>{const b=document.createElement('button');b.type='button';b.className='rr-more';b.textContent='Lire la suite';
     b.addEventListener('click',()=>{const o=box.classList.toggle('open');b.textContent=o?'Réduire':'Lire la suite';});box.appendChild(b);});
 
+  // Projets sur téléphone : image de chaque projet (version mobile si fournie)
+  if(matchMedia('(hover:none) and (max-width:700px)').matches){document.querySelectorAll('.row[data-peek]').forEach(r=>{const m=r.dataset.peekM;r.style.setProperty('--pimg',`url("${m||r.dataset.peek}")`);if(m)r.style.setProperty('--pa','3/4');});}
+
   // Espaces Partagés : copier le lien du site
   const cp=document.getElementById('ep-copy');
   if(cp)cp.addEventListener('click',async()=>{const u=cp.dataset.url;try{await navigator.clipboard.writeText(u);}catch(e){const t=document.createElement('textarea');t.value=u;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove();}const o=cp.textContent;cp.textContent='Lien copié ✓';setTimeout(()=>cp.textContent=o,2000);});
@@ -1187,5 +1194,10 @@ body{letter-spacing:-.03em}
 })();
 </script>
 
+<script>
+(function(){var v=document.querySelector('.rr-anim');if(!v)return;var mq=matchMedia('(max-width:700px) and (orientation:portrait)');
+function set(){var m=mq.matches,src=m?v.dataset.srcM:v.dataset.src;if(v.getAttribute('src')===src)return;v.poster=m?v.dataset.posterM:v.dataset.poster;v.src=src;var p=v.play();if(p&&p.catch)p.catch(function(){});}
+set();(mq.addEventListener?mq.addEventListener('change',set):mq.addListener(set));})();
+</script>
 </body>
 </html>
