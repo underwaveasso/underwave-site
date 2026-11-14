@@ -465,6 +465,32 @@ a.rr-cl-btn:hover{background:var(--white);color:var(--magenta)}
 @media (prefers-reduced-motion:reduce){.bs-p img{transition:none}}
 @media (max-width:860px){.bs-wall{--cols:3}}
 @media (max-width:520px){.bs-wall{--cols:2}}
+/* ROOT.S : version mobile condensée (contenus qui glissent) */
+@media (max-width:700px){
+  .rr .kv-grid,.rr .bs-wall{display:flex;gap:6px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-inline:var(--pad);margin-inline:calc(var(--pad) * -1)}
+  .rr .bs-wall{margin-inline:0}
+  .rr .kv-grid::-webkit-scrollbar,.rr .bs-wall::-webkit-scrollbar{display:none}
+  .rr .kv{flex:0 0 42vw;scroll-snap-align:start}
+  .rr .bs-p,.rr .bs-p.bs-w,.rr .bs-p.bs-v{flex:0 0 64vw;height:80vw;scroll-snap-align:start}
+  .rr .bs-p.bs-w{flex-basis:88vw}
+  .rr .rr-kv-intro{font-size:16px}
+  .rr .rr-sec{margin-top:calc(var(--rr-gap) * .7)}
+}
+@media (max-width:700px){
+  .rr [data-more]:not(.open) p:nth-child(n+2){display:none}
+  .rr .rr-more{display:inline-block;align-self:flex-start;margin-top:.4em;font-size:var(--small);text-decoration:underline;text-underline-offset:.15em;background:none;border:0;padding:0;color:inherit;cursor:pointer}
+  .rr .rr-aside .rr-meta:last-of-type{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;border:0;scrollbar-width:none;margin-inline:calc(var(--pad) * -1);padding-inline:var(--pad)}
+  .rr .rr-aside .rr-meta:last-of-type::-webkit-scrollbar{display:none}
+  .rr .rr-aside .rr-meta:last-of-type>div{flex:0 0 78vw;scroll-snap-align:start;display:block!important;border:1px solid var(--black);padding:.8em!important}
+  .rr .rr-aside .rr-meta:last-of-type dt{margin-bottom:.3em}
+  .rr .part-list{display:grid;grid-template-columns:1fr 1fr;column-gap:14px}
+  .rr .part-list .row{display:block!important;padding-block:.55em;font-size:15px!important}
+  .rr .part-list .row span{display:block!important}
+  .rr .part-list .row span:nth-child(2){font-size:13px;color:var(--grey)}
+  .rr .part-list .row span:last-child{display:none!important}
+  .rr .relais-head p,.rr .rr-relais-txt p{font-size:15px}
+}
+@media (min-width:701px){.rr .rr-more{display:none}}
 /* Style « brat » : typo type Arial, serrée ; grands titres étirés en hauteur (lettres compressées en largeur
    et agrandies d'autant, comme une Arial Narrow étirée) et contours légèrement flous */
 body{letter-spacing:-.03em}
@@ -540,6 +566,11 @@ body{letter-spacing:-.03em}
     <div class="top g"><span class="tag">Open Platine</span></div>
     <div class="bot g"><span class="sub s">Rendez-vous régulier dédié aux DJ locaux, autour de la pratique, de l’échange et de l'accompagnement avec un espace dédié.</span><span class="go flip">Voir le projet</span></div>
   </a>
+  <a class="proj shade" href="#residence-roots" style="--bg:var(--black);--fg:var(--white)">
+    <div class="media"><img src="img/roots/backstage-collage-large.jpg" alt="Coulisses de la résidence ROOT.S × UNDERWAVE" class="on"></div>
+    <div class="top g"><span class="tag">Résidence ROOT.S × UNDERWAVE</span></div>
+    <div class="bot g"><span class="sub s">Résidence artistique · mars 2024. Six jours où des artistes de Paris et de Marseille ont créé ensemble autour du DJing.</span><span class="go flip">Voir le projet</span></div>
+  </a>
   <a class="proj" href="#espaces-partages" style="--bg:var(--white);--fg:var(--black)">
     <div class="media ep-card"><canvas class="ep-map" aria-hidden="true"></canvas><span class="ep-card-t">Espaces<br>Partagés</span></div>
     <div class="top g"><span class="tag">Espaces Partagés</span></div>
@@ -579,7 +610,7 @@ body{letter-spacing:-.03em}
     <div class="row head"><span>Projet</span><span>Type</span><span>Lancement</span></div>
     <a class="row" href="#alt-media" data-peek="img/alt-media.png"><span>ALT MEDIA</span><span>Média</span><span>À venir</span></a>
     <a class="row" href="#espaces-partages" data-peek="img/espaces-partages-apercu.jpg"><span>Espaces Partagés</span><span>Répertoire des lieux</span><span>2026</span></a>
-    <a class="row" href="#residence-roots" data-peek="img/roots/shoot-pipa-wave.jpg"><span>Résidence ROOT.S × UNDERWAVE</span><span>Résidence artistique collaborative</span><span>2024</span></a>
+    <a class="row" href="#residence-roots" data-peek="img/roots/backstage-collage.jpg"><span>Résidence ROOT.S × UNDERWAVE</span><span>Résidence artistique collaborative</span><span>2024</span></a>
     <a class="row" href="#opn" data-peek="img/opn.jpg"><span>Open Platine Night</span><span>DJing, rencontres</span><span>2023</span></a>
   </div>
 </div>
@@ -600,7 +631,7 @@ body{letter-spacing:-.03em}
   <section class="rr-sec">
     <div class="g rr-sh"><h2 class="rr-sh-t">La résidence</h2></div>
     <div class="rr-about g">
-    <div class="rr-text">
+    <div class="rr-text" data-more>
       <p>En mars 2024, ROOT.S, collectif parisien, et UNDERWAVE, association marseillaise, ont réuni une douzaine d’artistes pour une semaine de résidence&nbsp;: six DJ, un beatmaker, une photographe, deux vidéastes, une créatrice et une styliste.</p>
       <p>L’idée&nbsp;: créer des liens entre les scènes créatives de Paris et de Marseille, favoriser les échanges et faire naître des projets à plusieurs, entre musique, image et mode.</p>
       <p>Dans un ancien corps de ferme en Provence, les artistes ont pu sortir de la ville, prendre le temps et créer, seul·e·s ou ensemble. Chacun·e est venu·e avec sa pratique, et la semaine a laissé une large place aux échanges et aux collaborations&nbsp;: sets filmés pour LE RELAIS, séries de portraits, vidéos de présentation, créations de tenues et bien d’autres choses encore.</p>
@@ -617,7 +648,7 @@ body{letter-spacing:-.03em}
       </dl>
       <h3 class="rr-subh">Pendant la semaine, à Marseille</h3>
       <dl class="rr-meta s">
-        <div><dt>Jeu 07.03</dt><dd><b>OPEN PLATINE</b><br>Platines ouvertes aux DJ de la résidence, organisées par DAR CLUB, à La Mer Veilleuse, Cours Julien</dd></div>
+        <div><dt>Jeu 07.03</dt><dd><b>OPEN PLATINE</b><br>Platines ouvertes aux DJ de la résidence, organisées par DAR CLUB, à La Merveilleuse, Cours Julien</dd></div>
         <div><dt>Ven 08.03</dt><dd><b>DANCEHALL NATION</b><br>Soirée du collectif marseillais, avec PIPA WAVE aux platines, à laquelle les membres de la résidence étaient invité·e·s.</dd></div>
         <div><dt>Sam 09.03</dt><dd><b>CLOSING PARTY ROOT.S × UNDERWAVE</b><br>Soirée de clôture de la résidence, avec tous les participant·e·s et tous les DJ au line-up. Une soirée collective, qui a aussi permis de soutenir le financement de la résidence.</dd></div>
       </dl>
@@ -643,7 +674,7 @@ body{letter-spacing:-.03em}
   <section class="rr-sec rr-band rr-black rr-relais">
     <div class="g rr-sh"><h2 class="rr-sh-t">LE RELAIS</h2><p class="rr-sh-c">Saison 2 · tournée pendant la résidence</p></div>
     <div class="g relais-in">
-      <div class="rr-relais-txt"><p class="s">LE RELAIS est une série de vidéos créée par ROOT.S pour faire découvrir des DJ émergent·e·s. Sa saison 2 a été tournée pendant la résidence, en collaboration avec UNDERWAVE&nbsp;: un set par DJ, filmé sur place. Les DJ marseillais·es y portent des tenues YNKY LAB.</p><p class="s rr-real">Réalisation des vidéos&nbsp;: BETTINA. Le set de SKI CARL a été filmé au caméscope par KENAV.</p></div>
+      <div class="rr-relais-txt"><p class="s">LE RELAIS est une série de vidéos créée par ROOT.S pour faire découvrir des DJ émergent·e·s. Sa saison 2 a été tournée pendant la résidence, en collaboration avec UNDERWAVE&nbsp;: un set par DJ, filmé sur place. Les DJ marseillais·es y portent des tenues créées sur mesure par YNKY LAB, spécialement pour ce tournage et en amont de la résidence.</p><p class="s rr-real">Réalisation des vidéos&nbsp;: BETTINA. Le set de SKI CARL a été filmé au caméscope par KENAV.</p></div>
       <a class="relais-screen" href="https://www.youtube.com/watch?v=t8oOidAHpLs" target="_blank" rel="noopener"><img src="img/roots/relais-mama-ace.jpg" alt="Image du set sélectionné"><span class="play" aria-hidden="true">▶</span><span class="lbl s">Regarder sur YouTube ↗</span></a>
       <ol class="tracklist">
           <li><a href="https://www.youtube.com/watch?v=t8oOidAHpLs" target="_blank" rel="noopener" data-img="img/roots/relais-mama-ace.jpg" class="on"><span class="n">01</span><span class="t">MAMA ACE</span><span class="go">▶</span></a></li>
@@ -746,7 +777,7 @@ body{letter-spacing:-.03em}
     </div>
   </section>
 
-  <div class="g"><nav class="next" aria-label="Projets"><a class="flip" href="#espaces-partages">Projet suivant : Espaces Partagés</a><a class="flip" href="#projets">Tous les projets</a></nav></div>
+  <div class="g"><nav class="next" aria-label="Projets"><a class="flip" href="#opn">Projet précédent : OPN</a><a class="flip" href="#espaces-partages">Projet suivant : Espaces Partagés</a></nav></div>
 </article>
 
 <!-- ================= OPN ================= -->
@@ -774,7 +805,7 @@ body{letter-spacing:-.03em}
       <p class="s" style="margin-top:.6em">Parmi les artistes et collectifs passés par les OPN :</p>
       <div class="list-names s" id="opn-names"></div>
     </section>
-    <nav class="next" aria-label="Projets"><a class="flip" href="#projets">Tous les projets</a><a class="flip" href="#espaces-partages">Projet suivant : Espaces Partagés</a></nav>
+    <nav class="next" aria-label="Projets"><a class="flip" href="#projets">Tous les projets</a><a class="flip" href="#residence-roots">Projet suivant : Résidence ROOT.S × UNDERWAVE</a></nav>
   </div>
 </article>
 
@@ -805,7 +836,7 @@ body{letter-spacing:-.03em}
     </div>
   </section>
   <div class="g">
-    <nav class="next" aria-label="Projets"><a class="flip" href="#opn">Projet précédent : OPN</a><a class="flip" href="#alt-media">Projet suivant : ALT MEDIA</a></nav>
+    <nav class="next" aria-label="Projets"><a class="flip" href="#residence-roots">Projet précédent : Résidence ROOT.S × UNDERWAVE</a><a class="flip" href="#alt-media">Projet suivant : ALT MEDIA</a></nav>
   </div>
 </article>
 
@@ -1114,6 +1145,10 @@ body{letter-spacing:-.03em}
     box.querySelectorAll('.tracklist a').forEach(a=>{ const pick=()=>{ box.querySelectorAll('.tracklist a').forEach(x=>x.classList.toggle('on',x===a)); img.src=a.dataset.img; scr.href=a.href; };
       a.addEventListener('mouseenter',pick); a.addEventListener('focus',pick); });
   });
+
+  // ROOT.S mobile : « Lire la suite »
+  document.querySelectorAll('[data-more]').forEach(box=>{const b=document.createElement('button');b.type='button';b.className='rr-more';b.textContent='Lire la suite';
+    b.addEventListener('click',()=>{const o=box.classList.toggle('open');b.textContent=o?'Réduire':'Lire la suite';});box.appendChild(b);});
 
   // Espaces Partagés : copier le lien du site
   const cp=document.getElementById('ep-copy');
