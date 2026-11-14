@@ -201,7 +201,12 @@ a.row:hover{background:var(--lime)}
 
 /* Résidence ROOT.S */
 .brouillon{background:var(--magenta);color:var(--white);padding-block:.6em}
-.duo{display:flex;align-items:center;gap:.5em;margin-top:1.2em;font-size:var(--big)}
+.duo{display:flex;align-items:center;gap:.5em;font-size:var(--big)}
+.roots-head{position:relative}
+.roots-head .duo{justify-content:flex-end;margin-bottom:.6em}
+.roots-head .da{color:var(--grey);margin-top:1em;max-width:40em}
+@media (min-width:900px){.roots-head .duo{position:absolute;right:var(--pad);bottom:.2em;margin:0;font-size:clamp(40px,5vw,80px)}.roots-head .tagline{max-width:calc(100% - 38vw)}}
+@media (max-width:899px){.roots-head .duo{justify-content:flex-start;font-size:28px;margin:.5em 0 .8em}}
 .duo img{height:1.3em;width:auto}
 .duo .mark{height:1.3em;width:auto}
 .dj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:48px var(--pad);margin-top:1.4em}
@@ -211,14 +216,32 @@ a.row:hover{background:var(--lime)}
 .dj-t{display:grid;gap:.5em}
 .dj h3{font-size:var(--big);font-weight:400;letter-spacing:-.03em;line-height:1}
 .dj .cred{color:var(--grey)}
+.intro-s{margin-top:.6em;max-width:46em}
+.shoot-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px var(--pad);margin-top:1.4em}
+.shoot{display:grid;gap:8px;align-content:start}
+.shoot img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+.shoot h3,.vid h3{font-size:var(--small);font-weight:500;letter-spacing:.06em;text-transform:uppercase}
+.aka{text-transform:none;letter-spacing:0;font-weight:400;color:var(--grey)}
+.cred{color:var(--grey)}
+.note-nom{margin-top:1.4em;color:var(--grey)}
+.vid-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:36px var(--pad);margin-top:1.4em}
+.vid{display:grid;gap:6px;align-content:start}
+.vid .thumb{position:relative;display:block}
+.vid img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+.vid .play{position:absolute;left:12px;bottom:12px;width:44px;height:44px;border-radius:50%;background:var(--lime);color:var(--black);display:grid;place-items:center;font-size:16px}
+@media (hover:hover){.vid:hover .play{background:var(--magenta);color:var(--white)}.shoot:hover h3{text-decoration:underline}}
+.lieu-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+@media (max-width:640px){.shoot-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.lieu-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
+.lieu-grid img{aspect-ratio:3/2!important}
 .relais-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:var(--pad);margin-top:1.2em}
 .relais{display:grid;gap:.5em;padding:12px;border:1px solid currentColor}
 .relais img{width:100%;aspect-ratio:16/7;object-fit:contain}
 @media (hover:hover){.relais:hover{background:var(--lime)}}
 .lieu-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--pad);margin-top:1.2em}
 .lieu-grid img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
-.part-list .row{grid-template-columns:minmax(0,1fr) minmax(0,1.2fr) 11em}
+.part-list .row{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr) 6.5em;column-gap:1em;font-size:clamp(19px,2.3vw,34px)}
 .part-list .row span:last-child{font-size:var(--small);align-self:center}
+@media (max-width:700px){.part-list .row{grid-template-columns:minmax(0,1fr) minmax(0,1fr);font-size:17px;padding-block:.45em}.part-list .row span:nth-child(2){display:block}.part-list .row span:last-child{display:none}.part-list .row-head span:first-child{visibility:hidden}}
 .pers-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:32px var(--pad);margin-top:1.2em}
 .pers{margin:0;display:grid;gap:10px;align-content:start}
 .pers img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
@@ -226,6 +249,212 @@ a.row:hover{background:var(--lime)}
 .pers .role{color:var(--grey)}
 @media (max-width:640px){.lieu-grid{grid-template-columns:1fr}}
 
+/* ROOT.S : bande LE RELAIS */
+.relais-band{background:var(--black);color:var(--white);margin-top:clamp(56px,8vw,110px);padding-block:clamp(40px,6vw,80px)}
+.relais-in{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:28px clamp(24px,3vw,48px);align-items:start}
+.relais-head{grid-column:1 / -1;display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:clamp(24px,3vw,48px);align-items:end;border-bottom:1px solid var(--white);padding-bottom:.6em}
+.relais-head h2{font-size:clamp(44px,7vw,110px);font-weight:400;letter-spacing:-.04em;line-height:.9;color:var(--lime)}
+.relais-head h2 span{font-size:.3em;letter-spacing:.04em;color:var(--white);vertical-align:top}
+.relais-screen{position:relative;display:block;aspect-ratio:16/9;overflow:hidden;background:#111}
+.relais-screen img{width:100%;height:100%;object-fit:cover;display:block;transition:opacity .25s}
+.relais-screen .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:76px;height:76px;border-radius:50%;background:var(--lime);color:var(--black);display:grid;place-items:center;font-size:26px}
+.relais-screen .lbl{position:absolute;right:12px;bottom:10px;background:var(--black);padding:.2em .5em}
+@media (hover:hover){.relais-screen:hover .play{background:var(--magenta);color:var(--white)}}
+.tracklist{list-style:none;margin:0;padding:0;border-top:1px solid rgba(255,255,255,.35)}
+.tracklist a{display:grid;grid-template-columns:2.6em minmax(0,1fr) auto;align-items:baseline;gap:.5em;padding:.55em 0;border-bottom:1px solid rgba(255,255,255,.35);font-size:clamp(17px,1.6vw,24px);letter-spacing:-.01em}
+.tracklist .n{font-size:var(--small);color:var(--lime)}
+.tracklist .go{font-size:.7em;opacity:0}
+.tracklist a.on,.tracklist a:hover{color:var(--lime)}
+.tracklist a.on .go,.tracklist a:hover .go{opacity:1}
+@media (max-width:860px){.relais-in,.relais-head{grid-template-columns:minmax(0,1fr)}}
+.relais-in>*,.relais-head>*{min-width:0}
+.rr-relais .relais-head h2{max-width:100%}
+/* ROOT.S : bande photo du lieu */
+.lieu-strip{margin-top:clamp(40px,6vw,80px)}
+.lieu-strip .kicker{margin-bottom:.8em}
+.strip{overflow:hidden}
+.strip-in{display:flex;gap:var(--pad);width:max-content;animation:strip 40s linear infinite}
+.strip-in img{height:clamp(120px,14vw,190px);width:auto;aspect-ratio:3/2;object-fit:cover;display:block}
+@keyframes strip{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.strip-in{animation:none}}
+.part-list .row-head{border-top:0;padding-bottom:.1em}
+.part-list .row-head span{font-size:var(--small)!important;letter-spacing:.06em;text-transform:uppercase;color:var(--grey)}
+a.ul{text-decoration:underline;text-underline-offset:.15em}
+
+/* ===== Résidence ROOT.S × UNDERWAVE (page .rr) ===== */
+.rr{overflow-x:clip}
+.rr-brat{display:inline-block;white-space:nowrap;transform:scaleX(.65);transform-origin:0 50%;filter:blur(.008em);letter-spacing:-.02em;line-height:.9;font-weight:400}
+.rr-head{padding-top:clamp(40px,6vw,90px)}
+.rr-top{display:flex;justify-content:space-between;align-items:center;gap:1em;border-bottom:1px solid var(--black);padding-bottom:.5em}
+.rr-logos{display:flex;align-items:center;gap:.4em;font-size:clamp(22px,2.4vw,34px)}
+.rr-logos img,.rr-logos .mark{height:1.1em;width:auto}
+.rr-title{display:flex;flex-direction:column;font-size:clamp(70px,17vw,300px);line-height:.86;letter-spacing:-.03em;font-weight:400;margin-top:.12em;transform:scaleX(.65);transform-origin:0 0;width:calc(100% / .65);filter:blur(.008em)}
+.rr-statement{font-size:var(--big);line-height:1.08;letter-spacing:-.025em;max-width:22em;margin-top:.4em}
+.rr-portraits{margin-top:clamp(36px,5vw,70px)}
+.rr-rail{display:flex;gap:var(--pad);overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--pad);padding-inline:var(--pad);scrollbar-width:none}
+.rr-rail::-webkit-scrollbar{display:none}
+.rr-rail::after{content:"";flex:0 0 1px}
+.rr-por{flex:0 0 auto;margin:0;scroll-snap-align:start;width:min(78vw,calc(72svh * .8))}
+.rr-por img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+.rr-por figcaption{display:grid;gap:.1em;padding-top:.5em;font-size:var(--small)}
+.rr-por figcaption .rr-n{grid-row:span 2;color:var(--magenta)}
+.rr-por figcaption b{font-weight:500;letter-spacing:.04em}
+.rr-por figcaption i,.rr-credits i{font-style:normal;color:var(--grey)}
+.rr-por figcaption span:last-child{color:var(--grey)}
+.rr-railbar{display:flex;justify-content:space-between;gap:1em;margin-top:1em;padding-top:.5em;border-top:1px solid var(--black)}
+.rr-hint{color:var(--grey)}
+.rr-about{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:40px clamp(28px,5vw,96px);margin-top:clamp(56px,8vw,120px)}
+.rr-text{display:grid;gap:.9em;align-content:start;max-width:40em}
+.rr-text p{font-size:clamp(20px,2vw,30px);line-height:1.2;letter-spacing:-.015em}
+.rr-text .rr-big{font-size:var(--big);line-height:1.1;letter-spacing:-.025em}
+.rr-meta{margin:0;display:grid;align-content:start;align-self:start;border-top:1px solid var(--black)}
+.rr-meta div{display:grid;grid-template-columns:9.5em 1fr;gap:1em;padding:.6em 0;border-bottom:1px solid var(--black)}
+.rr-meta dt{text-transform:uppercase;letter-spacing:.06em;font-size:.85em;padding-top:.15em}
+.rr-meta dd{margin:0}
+.rr-relais .relais-head h2{color:var(--lime);font-size:clamp(70px,12vw,200px)}
+.rr-relais .relais-head h2 span{font-size:.18em;color:var(--white);margin-left:.4em;vertical-align:top;letter-spacing:.06em}
+.rr-nights{background:var(--magenta);color:var(--white);padding-block:clamp(40px,6vw,80px)}
+.rr-nights .kicker{color:var(--white);border-bottom:1px solid var(--white);padding-bottom:.5em}
+.rr-nl{list-style:none;margin:0;padding:0}
+.rr-nl li{display:grid;grid-template-columns:7rem minmax(0,1fr) 19rem;align-items:baseline;gap:1em;border-bottom:1px solid var(--white);padding:.25em 0}
+.rr-nl .d,.rr-nl .w{font-size:var(--small);letter-spacing:.04em}
+.rr-nl b{display:block;font-size:clamp(46px,8.5vw,140px);white-space:nowrap;width:calc(100% / .65)}
+.rr-nl .w{text-align:right}
+.rr-credits{margin-top:clamp(56px,8vw,120px)}
+.rr-credits h2{font-size:clamp(60px,10vw,170px)}
+.rr-credits dl{border-top:1px solid var(--black)}
+.rr-credits dl{margin:0;columns:2 26em;column-gap:clamp(28px,5vw,96px)}
+.rr-credits dl div{break-inside:avoid;display:grid;grid-template-columns:10em 1fr;gap:1em;padding:.55em 0;border-bottom:1px solid var(--black)}
+.rr-credits dt{font-size:var(--small);text-transform:uppercase;letter-spacing:.06em;color:var(--grey);padding-top:.2em}
+.rr-credits dd{margin:0;font-size:clamp(18px,1.7vw,26px);line-height:1.25;letter-spacing:-.01em}
+.rr-credits dd a{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.15em}
+@media (hover:hover){.rr-credits dd a:hover{background:var(--lime);text-decoration:none}}
+.rr-note{margin-top:1em;color:var(--grey)}
+.rr-h{font-size:var(--small);font-weight:500;letter-spacing:.06em;text-transform:uppercase;margin-top:1.2em}
+.rr-aside{display:grid;gap:1.4em;align-content:start}
+.rr-soirs{grid-column:1 / -1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 var(--pad)}
+.rr-soirs .rr-h{grid-column:1 / -1;margin:0 0 .6em;padding-bottom:.5em;border-bottom:1px solid var(--black)}
+.rr-soir{display:grid;gap:.35em;align-content:start;padding-top:.2em}
+.rr-soir b{font-size:var(--big);font-weight:400;letter-spacing:-.03em;line-height:1}
+.rr-soir .d{color:var(--magenta);letter-spacing:.04em;text-transform:uppercase}
+@media (max-width:860px){.rr-soirs{grid-template-columns:1fr;gap:1.2em}}
+.rr-aside .rr-h{margin:0}
+.rr-mh dt{color:inherit}
+.rr .rr-aside .rr-mh{display:block!important}.rr .rr-aside .rr-mh dd{display:none}
+.rr-title{font-size:clamp(60px,13vw,230px)!important}
+@media (max-width:860px){.rr-about{grid-template-columns:1fr}.rr-nl li{grid-template-columns:1fr}.rr-nl .w{text-align:left}.rr-nl b{white-space:normal}.rr-credits dl div,.rr-meta div{grid-template-columns:1fr;gap:.15em}}
+
+.rr-logobig{display:flex;align-items:center;gap:.35em;font-size:clamp(56px,9vw,150px);margin-top:.35em}
+.rr-logobig img,.rr-logobig .mark{height:1em;width:auto}
+.rr-logobig>span[aria-hidden]{font-size:.6em}
+.rr-shootband{background:var(--lime);color:var(--black);padding-block:.5em;margin-bottom:var(--pad)}
+.rr-shootband .g{display:flex;flex-direction:column;gap:.1em}
+.rr-sb-t{font-size:clamp(46px,7vw,110px);line-height:.95;letter-spacing:-.03em;text-transform:uppercase;display:inline-block;transform:scaleX(.65);transform-origin:0 50%;filter:blur(.008em)}
+.rr-sb-c{font-size:var(--big);letter-spacing:-.02em}
+.rr-sb-c a{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.12em}
+.rr-meta .blk{display:block}.rr-meta .blk+.blk{margin-top:.35em}
+.rr-real{margin-top:.6em;color:rgba(255,255,255,.75)}
+
+
+.rr-text{gap:1.3em!important}
+.rr-aside{gap:2.4em!important}
+.strip-in{gap:0!important}
+.rr-text p{font-size:clamp(20px,2vw,30px)!important;line-height:1.22!important}
+.strip-in img{height:clamp(110px,12vw,180px)!important;aspect-ratio:21/9!important}
+
+/* ROOT.S : harmonisation (un seul rythme vertical, mêmes alignements) */
+.rr{--rr-gap:clamp(72px,9vw,150px)}
+.rr .rr-sec{margin-top:var(--rr-gap)}
+.rr-head{padding-top:clamp(36px,5vw,72px)}
+.rr-title{margin-top:.15em}
+.rr-intro{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:24px clamp(32px,5vw,96px);margin-top:clamp(20px,2.5vw,40px);padding-top:clamp(16px,2vw,28px);border-top:1px solid var(--black)}
+.rr-intro .rr-statement{margin:0;max-width:24em}
+.rr-intro .rr-logobig{margin:0;font-size:clamp(44px,6.5vw,110px)}
+.rr-bandrow{display:flex!important;flex-direction:row!important;justify-content:space-between;align-items:flex-end;gap:12px 32px;flex-wrap:wrap}
+.rr-shootband{padding-block:clamp(14px,1.6vw,24px);margin:0}
+.rr-shootband .rr-sb-c{font-size:var(--small);letter-spacing:0;max-width:30em;text-align:right}
+.rr-sb-t,.rr-relais .relais-head h2{font-size:clamp(64px,10vw,170px)!important;line-height:.82}
+.rr-rail{padding-top:var(--pad)}
+.rr-railbar{margin-top:var(--pad)}
+.rr-relais{padding-block:clamp(14px,1.6vw,24px) clamp(48px,6vw,90px)}
+.rr-relais .relais-head{border-bottom:1px solid rgba(255,255,255,.35);padding-bottom:clamp(14px,1.6vw,24px)}
+.rr-relais .relais-head>div{max-width:30em;text-align:right}
+.rr-relais .relais-in{row-gap:var(--pad)}
+.rr-label{display:flex;justify-content:space-between;gap:1em;border-bottom:1px solid var(--black);padding-bottom:.5em;margin-bottom:var(--pad)}
+.lieu-strip .kicker{margin:0}
+.rr-people .names:first-child{margin-top:0}
+.rr-people .names+.names{margin-top:clamp(56px,6vw,96px)}
+.rr-about{align-items:start}
+@media (max-width:860px){.rr-intro{grid-template-columns:1fr}.rr-shootband .rr-sb-c,.rr-relais .relais-head>div{text-align:left}.rr-label{flex-direction:column;gap:.2em}}
+
+.rr-kv-intro{margin-top:var(--pad);max-width:40em}
+.kv-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:var(--pad);margin-top:var(--pad)}
+.kv{display:grid;gap:8px;align-content:start}
+.kv-th{position:relative;display:block;aspect-ratio:9/16;overflow:hidden;background:var(--black)}
+.kv-th img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(1) contrast(1.05);transition:filter .3s}
+.kv-th .play{position:absolute;left:10px;bottom:10px;width:38px;height:38px;border-radius:50%;background:var(--lime);color:var(--black);display:grid;place-items:center;font-size:14px}
+.kv b{font-size:var(--small);font-weight:500;letter-spacing:.04em}
+@media (hover:hover){.kv:hover .kv-th img{filter:none}.kv:hover .play{background:var(--magenta);color:var(--white)}}
+.rr-sh-c a{text-decoration:underline;text-underline-offset:.12em}
+@media (max-width:860px){.kv-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+.rr-titlerow{position:relative}
+.rr-titlerow{--tfs:clamp(60px,13vw,230px)}
+.rr .rr-titlerow .rr-logobig{position:absolute;right:0;top:calc(var(--tfs) * .15 + var(--tfs) * .86 - 1em - var(--tfs) * .245);margin:0;font-size:calc(var(--tfs) * .52)}
+@media (max-width:1100px){.rr .rr-titlerow .rr-logobig{position:static;margin-top:.4em;font-size:clamp(40px,7vw,72px)}}
+.rr .rr-headrow{grid-template-columns:minmax(0,1fr)!important}
+.rr .rr-headrow .rr-statement{max-width:30em}
+.rr-logoband{background:var(--black);color:var(--white);margin-top:clamp(40px,5vw,80px);padding-block:clamp(28px,3.5vw,56px)}
+.rr-logoband .g{display:flex;justify-content:center}
+.rr .rr-logoband .rr-logobig{position:static;margin:0;font-size:clamp(76px,15vw,250px);gap:.3em}
+.rr-logoband .rr-logobig img{filter:invert(1)}
+.rr-subtitle{font-size:var(--big);letter-spacing:.02em;line-height:1;margin-top:.75em}
+.rr-fit,.rr-fit2{--w:calc(100vw - 2 * var(--pad));margin:0;font-weight:400;line-height:.86;white-space:nowrap;filter:blur(.008em)}
+.rr-fit{margin-top:.08em;letter-spacing:-.03em}
+.rr-fit2{margin-top:.22em;letter-spacing:-.02em}
+.rr-fit-in{display:inline-block;transform:scaleX(.65);transform-origin:0 0}
+.rr-fit{font-size:calc(var(--w) * .1815)}
+.rr-fit2{font-size:calc(var(--w) * .1395)}
+.m-only{display:none}
+@media (max-width:640px){.m-only{display:inline}.rr-fit{font-size:calc(var(--w) * .34)}}
+.rr .rr-about{align-items:stretch}
+.rr .rr-aside{gap:0!important;align-content:stretch;display:flex;flex-direction:column}
+.rr .rr-aside .rr-meta+.rr-meta{border-top:0}
+.rr .rr-aside{justify-content:space-between}
+.rr .rr-aside .rr-meta{font-size:clamp(16px,1.55vw,23px)}
+.rr .rr-aside .rr-meta div{grid-template-columns:minmax(0,.62fr) minmax(0,1.38fr)}
+.rr .rr-aside .rr-meta dt{font-size:.72em}
+.rr .rr-aside .rr-meta div{padding:.5em 0}
+.rr .rr-aside .rr-mh{padding-top:1.4em!important}
+.rr .rr-text{display:flex;flex-direction:column;justify-content:flex-start;gap:1.1em!important}
+.rr .rr-text p{margin:0}
+.rr .rr-about>*{min-height:0}
+.rr .rr-about{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;column-gap:clamp(32px,4vw,72px)!important}
+@media (max-width:860px){.rr .rr-about{grid-template-columns:minmax(0,1fr)!important}}
+/* ROOT.S : échelle typographique unique */
+.rr .rr-subh{font-size:clamp(22px,2.2vw,32px)!important;font-weight:400;text-transform:uppercase;letter-spacing:-.01em;line-height:1.15;margin:0;padding-bottom:.45em;border-bottom:1px solid var(--black)}
+.rr .rr-aside .rr-subh+.rr-meta{border-top:0}
+.rr .rr-aside .rr-meta+.rr-subh{margin-top:clamp(28px,3vw,48px)}
+.rr .rr-aside{justify-content:flex-start!important}
+.rr .rr-meta dt{font-size:var(--small)!important;letter-spacing:.04em;text-transform:uppercase;color:var(--grey)}
+.rr .rr-relais-txt p,.rr .rr-kv-intro,.rr .rr-railbar,.rr .rr-note{font-size:clamp(16px,1.35vw,20px)}
+.rr .rr-sh-c{font-size:clamp(18px,1.55vw,23px)}
+.rr .rr-sh+.list,.rr .rr-sh+section .list,.rr .part-list{border-top:0}
+.rr .part-list .row:first-child{border-top:0}
+.rr .rr-sh-c{white-space:normal}
+.rr .rr-lime .rr-sh-c br{display:none}
+.rr .rr-relais-txt{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:0 clamp(24px,3vw,48px);align-items:start}
+.rr .rr-relais-txt p{margin:0}
+.rr .rr-closing{background:var(--magenta);color:var(--white);padding-block:var(--rr-gap) calc(var(--rr-gap) * .8)}
+.rr .rr-closing .rr-sh{border-color:var(--white)}
+.rr .rr-closing .rr-sh-t,.rr .rr-closing .rr-sh-c{color:var(--white)}
+.rr-cl-strip{margin-top:var(--pad)}
+.rr-cl-strip .strip-in{gap:0;animation-duration:70s}
+.rr-cl-strip .strip-in img{height:clamp(300px,36vw,560px)!important;aspect-ratio:auto!important;width:auto;object-fit:cover}
+.rr-cl-foot{display:flex;justify-content:space-between;align-items:center;gap:1em;flex-wrap:wrap;margin-top:var(--pad);font-size:clamp(16px,1.35vw,20px)}
+.rr-cl-foot a{text-decoration:underline;text-underline-offset:.15em}
+.rr-cl-btn{border:1.5px solid currentColor;border-radius:999px;padding:.45em 1em;font-size:var(--small)}
+a.rr-cl-btn:hover{background:var(--white);color:var(--magenta)}
 /* Style « brat » : typo type Arial, serrée ; grands titres étirés en hauteur (lettres compressées en largeur
    et agrandies d'autant, comme une Arial Narrow étirée) et contours légèrement flous */
 body{letter-spacing:-.03em}
@@ -235,6 +464,34 @@ body{letter-spacing:-.03em}
 .ep-card-t{font-size:clamp(76px,21.6vw,324px);line-height:.92;letter-spacing:-.04em;transform:scaleX(.65);filter:blur(.007em)}
 /* Palette : sur les écrans larges gamme (Mac, iPhone…), le jaune-vert et le rose sont affichés avec les mêmes valeurs que les fichiers du logo (espace Display P3), sinon ils paraissent délavés */
 @media (color-gamut:p3){:root{--lime:color(display-p3 .8706 .9961 .3216);--magenta:color(display-p3 .9176 .2 .8235)}}
+/* ===== ROOT.S : système de mise en page harmonisé ===== */
+.rr{--rr-sec:clamp(80px,10vw,150px);--rr-gap:clamp(24px,3vw,44px)}
+.rr .rr-head{padding-top:clamp(36px,5vw,72px);margin:0}
+.rr .rr-top{display:flex;justify-content:space-between;gap:1em;border-bottom:1px solid var(--black);padding-bottom:.5em}
+.rr .rr-title{margin-top:.15em}
+.rr .rr-headrow{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:var(--rr-gap);margin-top:var(--rr-gap);padding-top:var(--rr-gap);border-top:1px solid var(--black)}
+.rr .rr-statement{margin:0;max-width:20em}
+.rr .rr-logobig{margin:0;font-size:clamp(48px,7vw,116px)}
+.rr .rr-sec{margin-top:var(--rr-sec)!important}
+.rr .rr-band{padding-block:var(--rr-gap) calc(var(--rr-gap) * 1.6)}
+.rr .rr-band.rr-lime{background:var(--lime);color:var(--black)}
+.rr .rr-band.rr-black{background:var(--black);color:var(--white)}
+.rr .rr-sh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,24em);align-items:end;gap:.5em var(--rr-gap);padding-bottom:.6em;margin-bottom:var(--rr-gap);background:linear-gradient(currentColor,currentColor) bottom center/calc(100% - 2*var(--pad)) 1px no-repeat}
+.rr .rr-sh-t{font-size:clamp(60px,9vw,150px);font-weight:400;letter-spacing:-.02em;line-height:.85;text-transform:uppercase;transform:scaleX(.65);transform-origin:0 100%;width:calc(100% / .65);white-space:nowrap;filter:blur(.008em)}
+.rr .rr-sh-c{margin:0;font-size:clamp(17px,1.5vw,22px);letter-spacing:-.01em;line-height:1.3;text-align:right}
+.rr .rr-sh-c a{text-decoration:underline;text-underline-offset:.15em}
+.rr .rr-black .rr-sh-t{color:var(--lime)}
+.rr .rr-portraits,.rr .rr-rail{margin:0}
+.rr .rr-railbar{border-top:0;margin-top:.8em;padding-top:0}
+.rr .rr-lime .rr-hint,.rr .rr-lime .rr-por figcaption span:last-child,.rr .rr-lime .rr-por figcaption i{color:rgba(0,0,0,.6)}
+.rr .rr-about{margin:0!important}
+.rr .relais-in{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr)}
+.rr .rr-relais-txt{grid-column:1 / -1;display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:0 clamp(24px,3vw,48px)}
+.rr .rr-relais-txt p{margin:0}
+.rr .rr-relais-txt .rr-real{color:rgba(255,255,255,.7)}
+.rr .rr-lieu .strip{margin:0}
+.rr .names{margin:0!important}
+@media (max-width:860px){.rr .rr-headrow,.rr .rr-sh,.rr .rr-relais-txt,.rr .relais-in{grid-template-columns:minmax(0,1fr)}.rr .rr-sh-c{text-align:left}.rr .rr-logobig{font-size:48px}}
 </style>
 </head>
 <body>
@@ -312,104 +569,147 @@ body{letter-spacing:-.03em}
     <div class="row head"><span>Projet</span><span>Type</span><span>Lancement</span></div>
     <a class="row" href="#alt-media" data-peek="img/alt-media.png"><span>ALT MEDIA</span><span>Média</span><span>À venir</span></a>
     <a class="row" href="#espaces-partages" data-peek="img/espaces-partages-apercu.jpg"><span>Espaces Partagés</span><span>Répertoire des lieux</span><span>2026</span></a>
-    <a class="row" href="#residence-roots" data-peek="img/roots/shoot-pipa-wave.jpg"><span>Résidence ROOT.S × Underwave</span><span>Résidence artistique collaborative</span><span>2024</span></a>
+    <a class="row" href="#residence-roots" data-peek="img/roots/shoot-pipa-wave.jpg"><span>Résidence ROOT.S × UNDERWAVE</span><span>Résidence artistique collaborative</span><span>2024</span></a>
     <a class="row" href="#opn" data-peek="img/opn.jpg"><span>Open Platine Night</span><span>DJing, rencontres</span><span>2023</span></a>
   </div>
 </div>
 
 <!-- ================= RÉSIDENCE ROOT.S × UNDERWAVE ================= -->
-<article data-page="residence-roots" class="page" hidden>
-  <div class="p-head g"><span class="kicker">Projet · Résidence artistique collaborative · Mars 2024</span><h1 class="title">Résidence ROOT.S × Underwave</h1><p class="tagline">Deux collectifs, l’un parisien, l’autre marseillais, réunis une semaine autour du DJing et de la création.</p>
-    <div class="figs"><span><b>04 → 09.03.2024</b><span class="s">En Provence, à 1 h de Marseille</span></span><span><b>6 DJ</b><span class="s">de Paris et de Marseille</span></span><span><b>7 épisodes</b><span class="s">Le Relais, sur YouTube</span></span></div>
-    <div class="duo"><img src="img/roots/logo-roots-noir.png" alt="Logo ROOT.S"><span aria-hidden="true">×</span><span class="mark" role="img" aria-label="Logo Underwave"></span></div>
+<article data-page="residence-roots" class="page rr" hidden>
+
+  <!-- En-tête -->
+  <div class="rr-head g">
+    <div class="rr-top"><span class="kicker">Projet · Mars 2024</span><span class="kicker">04 → 09.03.2024</span></div>
+    <div class="rr-titlerow"><h1 class="rr-fit"><span class="rr-fit-in">Résidence <br class="m-only">artistique</span></h1><p class="rr-fit2"><span class="rr-fit-in">ROOT.S × UNDERWAVE</span></p></div>
+    <div class="rr-headrow"><p class="rr-statement">Six jours où ROOT.S (Paris) et UNDERWAVE (Marseille) ont réuni des artistes des deux villes autour du DJing et de la création.</p></div>
   </div>
-  <div class="g">
-    <div class="p-body">
-      <div class="lead">
-        <p>Au printemps 2024, ROOT.S, collectif parisien, et Underwave, collectif marseillais, ont invité un groupe varié de talents créatifs pour une résidence artistique : DJs, compositeur, photographes, vidéastes, créatrice et styliste.</p>
-        <p>L’idée : créer une synergie entre les univers créatifs de Paris et de Marseille, favoriser les échanges culturels, stimuler la création à travers des collaborations et offrir un terrain fertile pour l’émergence de projets transdisciplinaires.</p>
-        <p>Dans un ancien corps de ferme au cœur de la nature provençale, les artistes ont pu se déconnecter de la ville, prendre le temps de réfléchir et de créer, seul·e·s ou en collectif.</p>
+
+  <div class="rr-logoband"><div class="g"><div class="rr-logobig" aria-label="ROOT.S × UNDERWAVE"><img src="img/roots/logo-roots-noir.png" alt="ROOT.S"><span aria-hidden="true">×</span><span class="mark" role="img" aria-label="UNDERWAVE"></span></div></div></div>
+
+  <!-- La résidence -->
+  <section class="rr-sec">
+    <div class="g rr-sh"><h2 class="rr-sh-t">La résidence</h2></div>
+    <div class="rr-about g">
+    <div class="rr-text">
+      <p>En mars 2024, ROOT.S, collectif parisien, et UNDERWAVE, association marseillaise, ont réuni une douzaine d’artistes pour une semaine de résidence&nbsp;: six DJ, un beatmaker, une photographe, deux vidéastes, une créatrice et une styliste.</p>
+      <p>L’idée&nbsp;: créer des liens entre les scènes créatives de Paris et de Marseille, favoriser les échanges et faire naître des projets à plusieurs, entre musique, image et mode.</p>
+      <p>Dans un ancien corps de ferme en Provence, les artistes ont pu sortir de la ville, prendre le temps et créer, seul·e·s ou ensemble. Chacun·e est venu·e avec sa pratique, et la semaine a laissé une large place aux échanges et aux collaborations&nbsp;: sets filmés pour LE RELAIS, séries de portraits, vidéos de présentation, créations de tenues et bien d’autres choses encore.</p>
+      <p>La semaine a aussi été rythmée par deux soirées à Marseille, avant la closing party ROOT.S × UNDERWAVE qui a clôturé la résidence le samedi.</p>
+    </div>
+    <div class="rr-aside">
+      <h3 class="rr-subh">En bref</h3>
+      <dl class="rr-meta s">
+        <div><dt>Dates</dt><dd>04 → 09.03.2024</dd></div>
+        <div><dt>Lieu</dt><dd>Un ancien corps de ferme en Provence</dd></div>
+        <div><dt>Format</dt><dd>Résidence artistique collective et pluridisciplinaire&nbsp;: musique, image, mode</dd></div>
+        <div><dt>Co-organisation</dt><dd><span class="blk"><b>ROOT.S</b> · collectif et organisateur d’événements, Paris</span><span class="blk"><b>UNDERWAVE</b> · association culturelle et sociale, Marseille</span></dd></div>
+        <div><dt>Direction artistique</dt><dd>ROOT.S × UNDERWAVE</dd></div>
+      </dl>
+      <h3 class="rr-subh">Pendant la semaine, à Marseille</h3>
+      <dl class="rr-meta s">
+        <div><dt>Jeu 07.03</dt><dd><b>OPEN PLATINE</b><br>Platines ouvertes aux DJ de la résidence, organisées par DAR CLUB, à La Mer Veilleuse, Cours Julien</dd></div>
+        <div><dt>Ven 08.03</dt><dd><b>DANCEHALL NATION</b><br>Soirée du collectif marseillais, avec PIPA WAVE aux platines, à laquelle les membres de la résidence étaient invité·e·s.</dd></div>
+        <div><dt>Sam 09.03</dt><dd><b>CLOSING PARTY ROOT.S × UNDERWAVE</b><br>Soirée de clôture de la résidence, avec tous les participant·e·s et tous les DJ au line-up. Une soirée collective, qui a aussi permis de soutenir le financement de la résidence.</dd></div>
+      </dl>
+    </div>
+    </div>
+  </section>
+
+  <!-- Shooting -->
+  <section class="rr-sec rr-band rr-lime" aria-label="Shooting">
+    <div class="g rr-sh"><h2 class="rr-sh-t">Shooting</h2><p class="rr-sh-c">Portraits réalisés par <a href="https://www.instagram.com/romaneskn/" target="_blank" rel="noopener">ROMANE KOUO</a> · <a href="https://romaneskn.com" target="_blank" rel="noopener">romaneskn.com ↗</a></p></div>
+    <div class="rr-rail">
+      <figure class="rr-por"><a href="https://www.instagram.com/p/C8Zxa3rt_XV/" target="_blank" rel="noopener"><img src="img/roots/shoot-mama-ace.jpg" alt="Portrait de MAMA ACE par ROMANE KOUO" loading="eager"></a><figcaption><b>MAMA ACE</b><span>Marseille · Stylisme KAOUTAR</span></figcaption></figure>
+      <figure class="rr-por"><a href="https://www.instagram.com/p/C8ppTLHN8vE/" target="_blank" rel="noopener"><img src="img/roots/shoot-slo.jpg" alt="Portrait de SLO par ROMANE KOUO" loading="eager"></a><figcaption><b>SLO</b><span>Marseille · Tenue YNKY LAB</span></figcaption></figure>
+      <figure class="rr-por"><a href="https://www.instagram.com/p/C82YMN6NENE/" target="_blank" rel="noopener"><img src="img/roots/shoot-crams.jpg" alt="Portrait de CRAMS par ROMANE KOUO" loading="eager"></a><figcaption><b>CRAMS</b><span>Marseille · Stylisme KAOUTAR</span></figcaption></figure>
+      <figure class="rr-por"><a href="https://www.instagram.com/p/C9A0-ljNZLZ/" target="_blank" rel="noopener"><img src="img/roots/shoot-pipa-wave.jpg" alt="Portrait de BLUE LYRA par ROMANE KOUO" loading="lazy"></a><figcaption><b>BLUE LYRA <i>(PIPA WAVE)</i></b><span>Marseille · Stylisme KAOUTAR</span></figcaption></figure>
+      <figure class="rr-por"><a href="https://www.instagram.com/p/C9c2AVMtqCN/" target="_blank" rel="noopener"><img src="img/roots/shoot-bodji.jpg" alt="Portrait de BODJI par ROMANE KOUO" loading="lazy"></a><figcaption><b>BODJI <i>(SITAM)</i></b><span>Paris · Stylisme KAOUTAR</span></figcaption></figure>
+      <figure class="rr-por"><a href="https://www.instagram.com/p/C9xcX_ttQrm/" target="_blank" rel="noopener"><img src="img/roots/shoot-ski-carl.jpg" alt="Portrait de SKI CARL par ROMANE KOUO" loading="lazy"></a><figcaption><b>SKI CARL</b><span>Paris · Stylisme KAOUTAR</span></figcaption></figure>
+    </div>
+    <div class="rr-railbar g s"><span>Chaque portrait mène à sa publication Instagram.</span><span class="rr-hint">Faire défiler →</span></div>
+  </section>
+
+  <!-- LE RELAIS -->
+  <section class="rr-sec rr-band rr-black rr-relais">
+    <div class="g rr-sh"><h2 class="rr-sh-t">LE RELAIS</h2><p class="rr-sh-c">Saison 2 · tournée pendant la résidence</p></div>
+    <div class="g relais-in">
+      <div class="rr-relais-txt"><p class="s">LE RELAIS est une série de vidéos créée par ROOT.S pour faire découvrir des DJ émergent·e·s. Sa saison 2 a été tournée pendant la résidence, en collaboration avec UNDERWAVE&nbsp;: un set par DJ, filmé sur place. Les DJ marseillais·es y portent des tenues YNKY LAB.</p><p class="s rr-real">Réalisation des vidéos&nbsp;: BETTINA. Le set de SKI CARL a été filmé au caméscope par KENAV.</p></div>
+      <a class="relais-screen" href="https://www.youtube.com/watch?v=t8oOidAHpLs" target="_blank" rel="noopener"><img src="img/roots/relais-mama-ace.jpg" alt="Image du set sélectionné"><span class="play" aria-hidden="true">▶</span><span class="lbl s">Regarder sur YouTube ↗</span></a>
+      <ol class="tracklist">
+          <li><a href="https://www.youtube.com/watch?v=t8oOidAHpLs" target="_blank" rel="noopener" data-img="img/roots/relais-mama-ace.jpg" class="on"><span class="n">01</span><span class="t">MAMA ACE</span><span class="go">▶</span></a></li>
+          <li><a href="https://www.youtube.com/watch?v=cI_wwTRwxCU" target="_blank" rel="noopener" data-img="img/roots/relais-slo.jpg"><span class="n">02</span><span class="t">SLO</span><span class="go">▶</span></a></li>
+          <li><a href="https://www.youtube.com/watch?v=lWs5lSNLjxA" target="_blank" rel="noopener" data-img="img/roots/relais-crams.jpg"><span class="n">03</span><span class="t">CRAMS</span><span class="go">▶</span></a></li>
+          <li><a href="https://www.youtube.com/watch?v=TQYDTFYvZG8" target="_blank" rel="noopener" data-img="img/roots/relais-pipa-wave.jpg"><span class="n">04</span><span class="t">PIPA WAVE</span><span class="go">▶</span></a></li>
+          <li><a href="https://www.youtube.com/watch?v=avmTZFc_xUk" target="_blank" rel="noopener" data-img="img/roots/relais-bodji.jpg"><span class="n">05</span><span class="t">BODJI</span><span class="go">▶</span></a></li>
+          <li><a href="https://www.youtube.com/watch?v=yJpvdxPLgKw" target="_blank" rel="noopener" data-img="img/roots/relais-ski-carl.jpg"><span class="n">06</span><span class="t">SKI CARL</span><span class="go">▶</span></a></li>
+          <li><a href="https://www.youtube.com/watch?v=iAkhQOGBylM" target="_blank" rel="noopener" data-img="img/roots/relais-fta.jpg"><span class="n">+</span><span class="t">FTA · bonus</span><span class="go">▶</span></a></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Vidéos de présentation (KENAV) -->
+  <section class="rr-sec rr-kenav">
+    <div class="g rr-sh"><h2 class="rr-sh-t">PRÉSENTATIONS</h2><p class="rr-sh-c">Captation et montage&nbsp;: <a href="https://www.instagram.com/kingkenav/" target="_blank" rel="noopener">KENAV</a></p></div>
+    <p class="g s rr-kv-intro">Caméscope à la main, KENAV a capté toute la semaine de résidence. À partir de ces images, il a monté une vidéo de présentation pour chaque DJ.</p>
+    <div class="g kv-grid">
+      <a class="kv" href="https://www.instagram.com/reel/C8cdEGStO7x/" target="_blank" rel="noopener"><span class="kv-th"><img src="img/roots/kenav-mama-ace.jpg" alt="Vidéo de présentation de MAMA ACE" loading="lazy"><span class="play" aria-hidden="true">▶</span></span><b>MAMA ACE</b></a>
+      <a class="kv" href="https://www.instagram.com/reel/C8sAgCLt00M/" target="_blank" rel="noopener"><span class="kv-th"><img src="img/roots/kenav-slo.jpg" alt="Vidéo de présentation de SLO" loading="lazy"><span class="play" aria-hidden="true">▶</span></span><b>SLO</b></a>
+      <a class="kv" href="https://www.instagram.com/reel/C85Dw22tdpE/" target="_blank" rel="noopener"><span class="kv-th"><img src="img/roots/kenav-crams.jpg" alt="Vidéo de présentation de CRAMS" loading="lazy"><span class="play" aria-hidden="true">▶</span></span><b>CRAMS</b></a>
+      <a class="kv" href="https://www.instagram.com/reel/C9DOxHBtKkh/" target="_blank" rel="noopener"><span class="kv-th"><img src="img/roots/kenav-pipa-wave.jpg" alt="Vidéo de présentation de PIPA WAVE" loading="lazy"><span class="play" aria-hidden="true">▶</span></span><b>PIPA WAVE</b></a>
+      <a class="kv" href="https://www.instagram.com/reel/C9fStIBNdA5/" target="_blank" rel="noopener"><span class="kv-th"><img src="img/roots/kenav-bodji.jpg" alt="Vidéo de présentation de BODJI" loading="lazy"><span class="play" aria-hidden="true">▶</span></span><b>BODJI</b></a>
+      <a class="kv" href="https://www.instagram.com/reel/C90ERWXs6Tm/" target="_blank" rel="noopener"><span class="kv-th"><img src="img/roots/kenav-ski-carl.jpg" alt="Vidéo de présentation de SKI CARL" loading="lazy"><span class="play" aria-hidden="true">▶</span></span><b>SKI CARL</b></a>
+    </div>
+  </section>
+
+  <!-- Le lieu -->
+  <section class="rr-sec rr-lieu" aria-label="Le lieu de la résidence">
+    <div class="g rr-sh"><h2 class="rr-sh-t">Le lieu</h2><p class="rr-sh-c">Un ancien corps de ferme en Provence</p></div>
+    <div class="strip"><div class="strip-in"><img src="img/roots/lieu-1.jpg" alt="" loading="lazy"><img src="img/roots/lieu-3.jpg" alt="" loading="lazy"><img src="img/roots/lieu-4.jpg" alt="" loading="lazy"><img src="img/roots/lieu-1.jpg" alt="" loading="lazy"><img src="img/roots/lieu-3.jpg" alt="" loading="lazy"><img src="img/roots/lieu-4.jpg" alt="" loading="lazy"></div></div>
+  </section>
+
+  <!-- Closing party : bande photo + lien futur vers la page de l'événement -->
+  <section class="rr-sec rr-closing" aria-label="Closing party">
+    <div class="g rr-sh"><h2 class="rr-sh-t">Closing party</h2><p class="rr-sh-c">Sam 09.03.2024 · DOUBLE JE, Voûtes de la Major, Marseille</p></div>
+    <div class="strip rr-cl-strip"><div class="strip-in"><img src="img/roots/closing-12.jpg" alt="" loading="lazy"><img src="img/roots/closing-16.jpg" alt="" loading="lazy"><img src="img/roots/closing-38.jpg" alt="" loading="lazy"><img src="img/roots/closing-46.jpg" alt="" loading="lazy"><img src="img/roots/closing-48.jpg" alt="" loading="lazy"><img src="img/roots/closing-55.jpg" alt="" loading="lazy"><img src="img/roots/closing-62.jpg" alt="" loading="lazy"><img src="img/roots/closing-12.jpg" alt="" loading="lazy"><img src="img/roots/closing-16.jpg" alt="" loading="lazy"><img src="img/roots/closing-38.jpg" alt="" loading="lazy"><img src="img/roots/closing-46.jpg" alt="" loading="lazy"><img src="img/roots/closing-48.jpg" alt="" loading="lazy"><img src="img/roots/closing-55.jpg" alt="" loading="lazy"><img src="img/roots/closing-62.jpg" alt="" loading="lazy"></div></div>
+    <div class="g rr-cl-foot"><span>ROOT.S × UNDERWAVE · soirée de clôture de la résidence · Photos <a href="https://www.instagram.com/lbshoot__/" target="_blank" rel="noopener">LOU B. (LB SHOOT)</a></span><span class="rr-cl-btn" aria-disabled="true">Page de la soirée bientôt</span></div>
+  </section>
+
+  <!-- Participant·e·s -->
+  <section class="rr-sec">
+    <div class="g rr-sh"><h2 class="rr-sh-t">Participant·e·s</h2><p class="rr-sh-c">Rôles pendant la résidence</p></div>
+    <div class="g">
+      <div class="list part-list">
+        <div class="row"><span>MAMA ACE</span><span>DJ</span><span></span></div>
+        <a class="row" href="https://www.instagram.com/slo_off/" target="_blank" rel="noopener"><span>SLO</span><span>DJ</span><span>@slo_off ↗</span></a>
+        <a class="row" href="https://www.instagram.com/craaaaaaaaaams/" target="_blank" rel="noopener"><span>CRAMS</span><span>DJ</span><span>@craaaaaaaaaams ↗</span></a>
+        <a class="row" href="https://www.instagram.com/bluelyra__/" target="_blank" rel="noopener"><span>BLUE LYRA (PIPA WAVE)</span><span>DJ</span><span>@bluelyra__ ↗</span></a>
+        <a class="row" href="https://www.instagram.com/bodjibodjibodji/" target="_blank" rel="noopener"><span>BODJI (SITAM)</span><span>DJ</span><span>@bodjibodjibodji ↗</span></a>
+        <a class="row" href="https://www.instagram.com/ski_carl/" target="_blank" rel="noopener"><span>SKI CARL</span><span>DJ</span><span>@ski_carl ↗</span></a>
+        <a class="row" href="https://www.instagram.com/iamhipno/" target="_blank" rel="noopener"><span>HIPNO</span><span>Beatmaker</span><span>@iamhipno ↗</span></a>
+        <a class="row" href="https://www.instagram.com/romaneskn/" target="_blank" rel="noopener"><span>ROMANE KOUO</span><span>Photographie</span><span>@romaneskn ↗</span></a>
+        <a class="row" href="https://www.instagram.com/kingkenav/" target="_blank" rel="noopener"><span>KENAV</span><span>Captation et montage vidéo</span><span>@kingkenav ↗</span></a>
+        <a class="row" href="https://www.instagram.com/latinanrv/" target="_blank" rel="noopener"><span>BETTINA</span><span>Réalisation des vidéos du RELAIS</span><span>@latinanrv ↗</span></a>
+        <a class="row" href="https://www.instagram.com/ynkylab/" target="_blank" rel="noopener"><span>YNKY LAB</span><span>Création des tenues</span><span>@ynkylab ↗</span></a>
+        <div class="row"><span>KAOUTAR</span><span>Stylisme</span><span></span></div>
       </div>
-      <div class="side s">
-        <section><h2>Le programme</h2><p>Connecter les artistes DJs de Marseille et de Paris pour créer des ponts entre deux scènes foisonnantes : des espaces de création, de performance et d’exposition pour enrichir les univers de chacun·e, donner de la visibilité aux projets et élargir les audiences.</p><p>Pour chaque artiste, un shooting photo avec des tenues proposées par une styliste et une créatrice, et une captation vidéo pour la série Le Relais.</p></section>
-        <section><h2>Les soirées</h2><p><b>Open Platine</b> · La Mer Veilleuse, Cours Julien — jeudi.</p><p><b>Dancehall Nation</b> · Le Makeda, la Plaine — vendredi.</p><p><b>Closing party ROOT.S × Underwave</b> · lieu underground à Marseille, sept DJs parisien·ne·s et marseillais·es — samedi.</p></section>
-        <section><h2>Les collectifs</h2><p><b>ROOT.S</b> · média et créateur d’événements à Paris, incubateur de la scène DJ et rap, à l’origine du concept Le Relais.</p><p><b>Underwave</b> · association culturelle et sociale à Marseille.</p></section>
+      <p class="s rr-note">Depuis la résidence, deux artistes ont changé de nom de scène&nbsp;: PIPA WAVE est devenue BLUE LYRA, et SITAM est devenu BODJI.</p>
+    </div>
+  </section>
+
+  <!-- Organisation -->
+  <section class="rr-sec">
+    <div class="g rr-sh"><h2 class="rr-sh-t">Organisation</h2></div>
+    <div class="g">
+      <div class="list part-list">
+        <a class="row" href="https://www.instagram.com/fta.youngboy/" target="_blank" rel="noopener"><span>FLORIAN S. (FTA)</span><span>Organisation · ROOT.S</span><span>@fta.youngboy ↗</span></a>
+        <a class="row" href="https://www.instagram.com/bluelyra__/" target="_blank" rel="noopener"><span>LOU B. (BLUE LYRA)</span><span>Organisation · UNDERWAVE</span><span>@bluelyra__ ↗</span></a>
+        <div class="row"><span>ADRIEN P.</span><span>Organisation · ROOT.S</span><span></span></div>
+        <div class="row"><span>THÉO L.</span><span>Organisation · UNDERWAVE</span><span></span></div>
       </div>
     </div>
+  </section>
 
-    <section class="names">
-      <h2>Les DJ &amp; Le Relais</h2>
-      <p class="s" style="margin-top:.6em">Pendant la résidence, chaque DJ a posé pour un shooting et enregistré un set pour la saison 2 du Relais, le concept de ROOT.S qui présente des artistes DJ émergent·e·s.</p>
-      <div class="dj-grid">
-        <article class="dj">
-          <img src="img/roots/shoot-mama-ace.jpg" alt="Shooting de Mama Ace pendant la résidence" loading="lazy">
-          <div class="dj-t"><span class="kicker">EP 1 · Le Relais</span><h3>Mama Ace</h3><p class="s">Naviguant entre Paris et Marseille, MAMA ACE allie tradition et modernité dans ses compositions musicales, qui sont de véritables voyages sensoriels et humains.</p><p class="s cred">Photo : Romane Kouo · Stylisme : Kaoutar · Tenue vidéo : YNKY LAB</p>
-            <div class="pill"><a href="https://www.youtube.com/watch?v=t8oOidAHpLs" target="_blank" rel="noopener">Voir le set ↗</a><a href="https://www.instagram.com/p/C8Zxa3rt_XV/" target="_blank" rel="noopener">Le post ↗</a></div></div>
-        </article>
-        <article class="dj">
-          <img src="img/roots/shoot-slo.jpg" alt="Shooting de SLO pendant la résidence" loading="lazy">
-          <div class="dj-t"><span class="kicker">EP 2 · Le Relais</span><h3>SLO</h3><p class="s">Né en Guadeloupe, Slo a été formé au son du reggae et du dancehall. Sa détermination et sa passion pour la musique l’ont rapidement propulsé sur les devants de la scène marseillaise.</p><p class="s cred">Photo : Romane Kouo · Création mode sur mesure : YNKY LAB</p>
-            <div class="pill"><a href="https://www.youtube.com/watch?v=cI_wwTRwxCU" target="_blank" rel="noopener">Voir le set ↗</a><a href="https://www.instagram.com/p/C8ppTLHN8vE/" target="_blank" rel="noopener">Le post ↗</a></div></div>
-        </article>
-        <article class="dj">
-          <img src="img/roots/shoot-crams.jpg" alt="Shooting de Crams pendant la résidence" loading="lazy">
-          <div class="dj-t"><span class="kicker">EP 3 · Le Relais</span><h3>Crams</h3><p class="s">La scène Rap et les rues de Marseille n’ont plus de secret pour CRAMS : jeune DJ marseillaise et figure montante du hip-hop en local.</p><p class="s cred">Photo : Romane Kouo · Stylisme : Kaoutar · Tenue vidéo : YNKY LAB</p>
-            <div class="pill"><a href="https://www.youtube.com/watch?v=lWs5lSNLjxA" target="_blank" rel="noopener">Voir le set ↗</a><a href="https://www.instagram.com/p/C82YMN6NENE/" target="_blank" rel="noopener">Le post ↗</a></div></div>
-        </article>
-        <article class="dj">
-          <img src="img/roots/shoot-pipa-wave.jpg" alt="Shooting de Pipa Wave (Blue Lyra) pendant la résidence" loading="lazy">
-          <div class="dj-t"><span class="kicker">EP 4 · Le Relais</span><h3>Pipa Wave (Blue Lyra)</h3><p class="s">Artiste pluridisciplinaire, militante du son et de la culture : entre Marseille, Paris et Bruxelles, Pipa Wave excelle dans la fusion des genres, des rythmes et des générations.</p><p class="s cred">Photo : Romane Kouo · Stylisme : Kaoutar · Tenue vidéo : YNKY LAB</p>
-            <div class="pill"><a href="https://www.youtube.com/watch?v=TQYDTFYvZG8" target="_blank" rel="noopener">Voir le set ↗</a><a href="https://www.instagram.com/p/C9A0-ljNZLZ/" target="_blank" rel="noopener">Le post ↗</a></div></div>
-        </article>
-        <article class="dj">
-          <img src="img/roots/shoot-bodji.jpg" alt="Shooting de Bodji pendant la résidence" loading="lazy">
-          <div class="dj-t"><span class="kicker">EP 5 · Le Relais</span><h3>Bodji</h3><p class="s">Bodji, jeune DJ et producteur basé à Paris, se distingue par une musicalité singulière inspirée de la musique électronique, aux sonorités africaines, caribéennes et lusophones.</p><p class="s cred">Photo : Romane Kouo · Stylisme : Kaoutar</p>
-            <div class="pill"><a href="https://www.youtube.com/watch?v=avmTZFc_xUk" target="_blank" rel="noopener">Voir le set ↗</a><a href="https://www.instagram.com/p/C9c2AVMtqCN/" target="_blank" rel="noopener">Le post ↗</a></div></div>
-        </article>
-        <article class="dj">
-          <img src="img/roots/shoot-ski-carl.jpg" alt="Shooting de Ski Carl pendant la résidence" loading="lazy">
-          <div class="dj-t"><span class="kicker">EP 6 · Le Relais</span><h3>Ski Carl</h3><p class="s">Ski Carl a notamment performé pour Rinse, Hotel Radio Paris, Spotify et Kiosk Radio. Ses sets mélangent rap, amapiano, house, afro house, bossa, baile, RnB et alté.</p><p class="s cred">Photo : Romane Kouo · Stylisme : Kaoutar</p>
-            <div class="pill"><a href="https://www.youtube.com/watch?v=yJpvdxPLgKw" target="_blank" rel="noopener">Voir le set ↗</a><a href="https://www.instagram.com/p/C9xcX_ttQrm/" target="_blank" rel="noopener">Le post ↗</a></div></div>
-        </article>
-      </div>
-    </section>
-
-    <section class="names">
-      <h2>Le lieu</h2>
-      <div class="lieu-grid"><img src="img/roots/lieu-1.jpg" alt="Le corps de ferme" loading="lazy"><img src="img/roots/lieu-3.jpg" alt="Le lieu de la résidence" loading="lazy"><img src="img/roots/lieu-4.jpg" alt="La terrasse" loading="lazy"></div>
-    </section>
-
-    <section class="names">
-      <h2>L’organisation</h2>
-      <div class="list part-list">
-        <a class="row" href="https://www.instagram.com/bluelyra__/" target="_blank" rel="noopener"><span>Lou B. (alias Blue Lyra)</span><span>Co-organisatrice · Underwave</span><span>@bluelyra__ ↗</span></a>
-        <a class="row" href="https://www.instagram.com/fta.youngboy/" target="_blank" rel="noopener"><span>Flo (FTA)</span><span>Co-organisateur · ROOT.S · <span class="s">a aussi enregistré un épisode bonus du Relais</span></span><span>@fta.youngboy ↗</span></a>
-        <div class="row"><span>Adrien</span><span>Organisation · ROOT.S</span><span></span></div>
-      </div>
-      <div class="pill" style="margin-top:1em"><a href="https://www.youtube.com/watch?v=iAkhQOGBylM" target="_blank" rel="noopener">Épisode bonus du Relais : FTA ↗</a></div>
-    </section>
-
-    <section class="names">
-      <h2>Les participant·e·s</h2>
-      <div class="list part-list">
-        <div class="row"><span>Mama Ace</span><span>DJ · Marseille</span><span></span></div>
-        <a class="row" href="https://www.instagram.com/slo_off/" target="_blank" rel="noopener"><span>SLO</span><span>DJ · Marseille</span><span>@slo_off ↗</span></a>
-        <a class="row" href="https://www.instagram.com/craaaaaaaaaams/" target="_blank" rel="noopener"><span>Crams</span><span>DJ · Marseille</span><span>@craaaaaaaaaams ↗</span></a>
-        <a class="row" href="https://www.instagram.com/bluelyra__/" target="_blank" rel="noopener"><span>Blue Lyra (ex-Pipa Wave)</span><span>DJ · Marseille</span><span>@bluelyra__ ↗</span></a>
-        <a class="row" href="https://www.instagram.com/bodjibodjibodji/" target="_blank" rel="noopener"><span>Bodji (ex-Sitam)</span><span>DJ, producteur · Paris</span><span>@bodjibodjibodji ↗</span></a>
-        <a class="row" href="https://www.instagram.com/ski_carl/" target="_blank" rel="noopener"><span>Ski Carl</span><span>DJ · Paris</span><span>@ski_carl ↗</span></a>
-        <a class="row" href="https://www.instagram.com/iamhipno/" target="_blank" rel="noopener"><span>Hipno</span><span>Beatmaker</span><span>@iamhipno ↗</span></a>
-        <a class="row" href="https://www.instagram.com/romaneskn/" target="_blank" rel="noopener"><span>Romane Kouo</span><span>Photographe</span><span>@romaneskn ↗</span></a>
-        <a class="row" href="https://www.instagram.com/kingkenav/" target="_blank" rel="noopener"><span>Kenav</span><span>Vidéaste reporter · vidéos de présentation des artistes</span><span>@kingkenav ↗</span></a>
-        <a class="row" href="https://www.instagram.com/latinanrv/" target="_blank" rel="noopener"><span>Bettina</span><span>Vidéaste · captations des sets DJ</span><span>@latinanrv ↗</span></a>
-        <a class="row" href="https://www.instagram.com/ynkylab/" target="_blank" rel="noopener"><span>YNKY LAB</span><span>Créatrice, tenues upcyclées</span><span>@ynkylab ↗</span></a>
-        <a class="row" href="https://www.instagram.com/kdwinitall_/" target="_blank" rel="noopener"><span>Kaoutar</span><span>Styliste</span><span>@kdwinitall_ ↗</span></a>
-        <a class="row" href="https://www.instagram.com/roots.paris/" target="_blank" rel="noopener"><span>ROOT.S</span><span>Collectif, Paris</span><span>@roots.paris ↗</span></a>
-      </div>
-    </section>
-
-    <nav class="next" aria-label="Projets"><a class="flip" href="#espaces-partages">Projet suivant : Espaces Partagés</a><a class="flip" href="#projets">Tous les projets</a></nav>
-  </div>
+  <div class="g"><nav class="next" aria-label="Projets"><a class="flip" href="#espaces-partages">Projet suivant : Espaces Partagés</a><a class="flip" href="#projets">Tous les projets</a></nav></div>
 </article>
 
 <!-- ================= OPN ================= -->
@@ -770,6 +1070,13 @@ body{letter-spacing:-.03em}
     PlanAnime(cv,{src:'img/espaces-partages-plan.webp', ordre:['lime','rose','noir','blanc'], racine:card, eviter:'.ep-card-t, .top > *, .bot > *', voile:false, rayon:420,
       echelle:(W,H)=>Math.max(.7,Math.min(1.1,Math.min(W,H)/800)), onTheme:n=>{card.style.color=PLAN_COULEURS[n].texte;}});
   })();
+
+  // ROOT.S : liste du RELAIS — survol/focus change l'image de l'écran
+  document.querySelectorAll('.relais-in').forEach(box=>{
+    const scr=box.querySelector('.relais-screen'), img=scr.querySelector('img');
+    box.querySelectorAll('.tracklist a').forEach(a=>{ const pick=()=>{ box.querySelectorAll('.tracklist a').forEach(x=>x.classList.toggle('on',x===a)); img.src=a.dataset.img; scr.href=a.href; };
+      a.addEventListener('mouseenter',pick); a.addEventListener('focus',pick); });
+  });
 
   // Espaces Partagés : copier le lien du site
   const cp=document.getElementById('ep-copy');
