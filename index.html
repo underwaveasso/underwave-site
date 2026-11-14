@@ -105,6 +105,7 @@ nav .c{margin-right:.22em}
 
 /* Actions */
 /* Nos actions : liste façon index (page Projets), image au survol */
+.act-intro{margin-top:.6em;max-width:34em;font-size:clamp(18px,1.8vw,28px);line-height:1.25;letter-spacing:-.01em}
 .act-list{margin-top:.8em}
 .act-row{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:.4em 1.2em;padding-block:.35em .6em;border-bottom:1px solid currentColor;align-items:baseline}
 .act-row h3{font-size:var(--big);font-weight:400;line-height:1.02;letter-spacing:-.03em;text-wrap:balance}
@@ -530,6 +531,9 @@ body{letter-spacing:-.03em}
 .rr .rr-relais-txt p{margin:0}
 .rr .rr-relais-txt .rr-real{color:rgba(255,255,255,.7)}
 .rr .rr-lieu .strip{margin:0}
+.ynky-row{display:flex;overflow-x:auto;scrollbar-width:none;scroll-snap-type:x mandatory}
+.ynky-row::-webkit-scrollbar{display:none}
+.ynky-row img{flex:1 0 auto;height:clamp(220px,26vw,380px);width:auto;object-fit:cover;display:block;scroll-snap-align:start}
 .rr .names{margin:0!important}
 @media (max-width:860px){.rr .rr-headrow,.rr .rr-sh,.rr .rr-relais-txt,.rr .relais-in{grid-template-columns:minmax(0,1fr)}.rr .rr-sh-c{text-align:left}.rr .rr-logobig{font-size:48px}}
 </style>
@@ -559,6 +563,17 @@ body{letter-spacing:-.03em}
   <section class="block g" id="notre-approche">
     <h2 class="kicker">Notre approche</h2>
     <p class="statement">Underwave développe ses projets en collaboration avec les acteurs locaux : artistes, collectifs, lieux et associations. L’objectif est de créer des espaces de rencontre et de coopération pour soutenir les initiatives émergentes et rendre les ressources culturelles et sociales plus accessibles.</p>
+  </section>
+
+  <section class="block g" id="ce-que-nous-faisons">
+    <h2 class="kicker">Ce que nous faisons</h2>
+    <p class="act-intro">Les actions d’Underwave s’organisent autour de quatre axes. Ils concernent aussi bien nos propres projets que les collaborations menées avec d’autres structures.</p>
+    <div class="act-list">
+      <div class="act-row" data-peek="img/action-evenements.jpg"><img src="img/action-evenements.jpg" alt="Public qui danse pendant une soirée" loading="lazy"><h3>Événements &amp; programmation</h3><p class="s">Organisation de soirées et d’événements culturels, programmation d’artistes et création de projets collectifs avec les acteurs locaux.</p></div>
+      <div class="act-row" data-peek="img/action-pratiques.jpg"><img src="img/action-pratiques.jpg" alt="DJ set dans un espace de pratique" loading="lazy"><h3>Espaces de pratique &amp; de partage</h3><p class="s">Création d’espaces ouverts pour pratiquer, expérimenter et transmettre&nbsp;: ateliers, mise à disposition de matériel et formats qui favorisent la rencontre.</p></div>
+      <div class="act-row" data-peek="img/action-reseau.jpg"><img src="img/action-reseau.jpg" alt="Personnes réunies en cercle lors d'une rencontre" loading="lazy"><h3>Réseau, collaborations &amp; solidarités</h3><p class="s">Mise en relation d’artistes, de collectifs, de lieux et d’initiatives pour développer des projets communs et partager les ressources, y compris lors d’événements associatifs et solidaires.</p></div>
+      <div class="act-row" data-peek="img/action-productions.jpg"><img src="img/action-productions.jpg" alt="Mains d’un saxophoniste tenant son instrument et un micro" loading="lazy"><h3>Productions &amp; contenus</h3><p class="s">Développement de projets artistiques et création de contenus&nbsp;: shootings, résidences, reportages, interviews, productions photo et vidéo.</p></div>
+    </div>
   </section>
 
   <section class="block g" style="padding-bottom:0">
@@ -591,16 +606,6 @@ body{letter-spacing:-.03em}
     <div class="top g"><span class="tag">ROOT.S × UNDERWAVE</span></div>
     <div class="bot g"><span class="sub s">Provence · Marseille · 04 → 09.03.2024</span><span class="go flip">Voir le projet</span></div>
   </a>
-
-  <section class="block g">
-    <h2 class="kicker">Nos actions</h2>
-    <div class="act-list">
-      <div class="act-row" data-peek="img/action-evenements.jpg"><img src="img/action-evenements.jpg" alt="Public qui danse pendant une soirée" loading="lazy"><h3>Évènements &amp; programmation</h3><p class="s">Organisation de soirées et d’événements culturels, programmation d’artistes et création de projets collectifs réunissant plusieurs acteurs locaux.</p></div>
-      <div class="act-row" data-peek="img/action-pratiques.jpg"><img src="img/action-pratiques.jpg" alt="DJ set dans un espace de pratique" loading="lazy"><h3>Créations d'espaces de pratiques &amp; de partage</h3><p class="s">Création d’espaces ouverts pour pratiquer, expérimenter et partager des connaissances. Ateliers, mise à disposition de matériel et formats favorisant la rencontre et la transmission.</p></div>
-      <div class="act-row" data-peek="img/action-reseau.jpg"><img src="img/action-reseau.jpg" alt="Personnes réunies en cercle lors d'une rencontre" loading="lazy"><h3>Réseau, collab &amp; solidarités</h3><p class="s">Mise en relation d’artistes, collectifs, lieux et initiatives afin de favoriser les collaborations, le partage de ressources et le développement de projets communs, y compris des événements associatifs et solidaires.</p></div>
-      <div class="act-row" data-peek="img/action-productions.jpg"><img src="img/action-productions.jpg" alt="Shooting photo d'un saxophoniste" loading="lazy"><h3>Productions &amp; contenus</h3><p class="s">Développement de projets artistiques et création de contenus : shootings, résidences, formats collaboratifs, reportages, interviews et productions photo ou vidéo.</p></div>
-    </div>
-  </section>
 
   <section class="ask">
     <div class="g"><p>Vous avez des questions ?</p><p>Contactez-nous à l’adresse <span class="mail">underwave.asso@gmail.com</span> pour en savoir plus</p></div>
@@ -690,6 +695,12 @@ body{letter-spacing:-.03em}
           <li><a href="https://www.youtube.com/watch?v=iAkhQOGBylM" target="_blank" rel="noopener" data-img="img/roots/relais-fta.jpg"><span class="n">+</span><span class="t">FTA · bonus</span><span class="go">▶</span></a></li>
       </ol>
     </div>
+  </section>
+
+  <!-- Tenues YNKY LAB -->
+  <section class="rr-sec rr-ynky" aria-label="Tenues YNKY LAB">
+    <div class="g rr-sh"><h2 class="rr-sh-t">TENUES</h2><p class="rr-sh-c">Créations sur mesure&nbsp;: <a href="https://www.instagram.com/ynkylab/" target="_blank" rel="noopener">YNKY LAB</a></p></div>
+    <div class="ynky-row"><img src="img/roots/ynky/ynky-1.jpg" alt="Ensemble en jean noir et blanc YNKY LAB" loading="lazy"><img src="img/roots/ynky/ynky-2.jpg" alt="Détail d’une poche avec l’étiquette YNKY LAB" loading="lazy"><img src="img/roots/ynky/ynky-3.jpg" alt="Ensemble YNKY LAB porté dans un van" loading="lazy"><img src="img/roots/ynky/ynky-4.jpg" alt="Détail d’un patchwork en jean noir et rouge" loading="lazy"><img src="img/roots/ynky/ynky-5.jpg" alt="Gilet à capuche en patchwork de jean noir et rouge YNKY LAB" loading="lazy"></div>
   </section>
 
   <!-- Vidéos de présentation (KENAV) -->
