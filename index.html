@@ -82,6 +82,10 @@ nav .c{margin-right:.22em}
 .proj img.blend{mix-blend-mode:multiply}
 .alt-card img.contain{padding-block:calc(var(--big)*2 + 70px)}
 .proj .ep-card{display:grid;place-items:center;cursor:pointer}
+.c13-card-cr{display:block;margin-top:.5em;font-size:11px;letter-spacing:.04em;opacity:.55}
+.c13-card-m{display:grid;place-items:center;cursor:pointer}
+.proj .c13-card-m img{filter:grayscale(1) contrast(1.05) brightness(.62)}
+.c13-card-t{position:absolute;left:50%;top:50%;z-index:2;font-size:clamp(64px,19vw,300px);line-height:.92;letter-spacing:-.04em;transform:translate(-50%,-50%) scaleX(.65);filter:blur(.007em);white-space:nowrap;color:var(--white)}
 .ep-card-t{position:relative;font-size:clamp(56px,16vw,240px);line-height:.88;letter-spacing:-.05em;text-align:center}
 .ep-map{position:absolute;inset:0;width:100%;height:100%;display:block}
 .proj img.on{opacity:1}
@@ -716,6 +720,12 @@ body{letter-spacing:-.03em}
     <div class="media rr-card-m"><video class="rr-anim" muted loop playsinline autoplay preload="metadata" data-src="img/roots/rr-anim.mp4" data-src-m="img/roots/rr-anim-m.mp4" data-poster="img/roots/rr-anim-poster.jpg" data-poster-m="img/roots/rr-anim-m-poster.jpg" aria-hidden="true"></video></div>
     <div class="top g"><span class="tag">ROOT.S × UNDERWAVE</span></div>
     <div class="bot g"><span class="sub s">Provence · Marseille · 04 → 09.03.2024</span><span class="go flip">Voir le projet</span></div>
+  </a>
+
+  <a class="proj shade c13-card" href="#13connexion" style="--bg:var(--black);--fg:var(--white)">
+    <div class="media c13-card-m"><img src="img/13c/13c-57.jpg" alt="Public de la première édition de 13CONNEXION" class="on"><span class="c13-card-t">13CONNEXION</span></div>
+    <div class="top g"><span class="tag">13CONNEXION</span></div>
+    <div class="bot g"><span class="sub s">Un projet qui fait se rencontrer les scènes indépendantes de Marseille.<span class="c13-card-cr">Photo VERONIKA PUTNIKOVIĆ</span></span><span class="go flip">Voir le projet</span></div>
   </a>
 
   <section class="ask">
