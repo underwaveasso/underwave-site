@@ -252,10 +252,28 @@ a.c13-edrow:hover .c13-edgo{background:var(--magenta);color:var(--white)}
 .c13-eds .ev-strip{margin-top:clamp(28px,3.5vw,48px)}
 .c13-edfoot{margin-top:.6em}
 .c13-edfoot a{text-decoration:underline;text-underline-offset:.15em}
-.c13-eds .c13-next{margin-top:clamp(20px,2.5vw,36px);border-top:1px solid rgba(0,0,0,.85);color:rgba(0,0,0,.55)}
+.c13-eds .c13-next{color:rgba(0,0,0,.55)}
 @media (max-width:860px){#soiree-13connexion .ev-feature video{width:auto;max-width:100%;height:62vh;margin-inline:auto}}
 .c13-evcol{margin-top:clamp(48px,6vw,96px)}
 .c13-hero img{object-position:50% 40%}
+.fu-arts{margin-top:clamp(48px,6vw,96px)}
+.fu-arts+.ev-credit{margin-top:clamp(32px,4vw,56px)}
+.fu-grid{list-style:none;margin:1.2em 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:clamp(20px,2.4vw,36px) clamp(20px,2.4vw,40px)}
+.fu-grid li{display:grid;gap:.3em;align-content:start;padding-top:.6em;border-top:1px solid currentColor}
+.fu-grid b{font-weight:400;font-size:clamp(22px,2vw,30px);line-height:1;letter-spacing:-.02em}
+.fu-grid .fu-k{opacity:.55;text-transform:uppercase;letter-spacing:.06em;font-size:11px}
+.fu-grid .fu-c{opacity:.55;font-size:11px}
+.fu-grid a{text-decoration:none}
+.fu-grid .fu-d a,.fu-grid .fu-c a{text-decoration:underline;text-underline-offset:.12em}
+.fu-aff img{height:clamp(380px,36vw,560px);width:auto;max-width:100%;display:block}
+@media (max-width:860px){.fu-aff img{width:100%;height:auto}}
+.ev-strip.fu-strip .strip-in img{aspect-ratio:1/1!important;height:clamp(200px,19vw,300px)!important;object-fit:contain}
+.ev-txt a.u{text-decoration:underline;text-underline-offset:.15em}
+.c13-artl{margin-top:clamp(20px,2.5vw,36px);font-size:clamp(20px,2.2vw,34px);line-height:1.15;letter-spacing:-.02em}
+.c13-lbl{margin-top:clamp(20px,2.5vw,36px);margin-bottom:0}
+.c13-lbl+.c13-part{margin-top:.6em}
+.c13-edfoot+.g .c13-edrow{margin-top:clamp(20px,2.5vw,36px);border-top:1px solid rgba(0,0,0,.85)}
+.c13-artl .s{display:block;font-size:var(--small);letter-spacing:.06em;text-transform:uppercase;opacity:.6;margin-bottom:.4em}
 .c13-part{margin-top:clamp(20px,2.5vw,36px)}
 .c13-ed-in{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(24px,3.5vw,64px);align-items:end}
 .c13-ed-aff{height:clamp(300px,30vw,480px);width:auto;display:block}
@@ -961,10 +979,10 @@ body{letter-spacing:-.03em}
     <div class="g rr-sh"><h2 class="rr-sh-t">Le projet</h2></div>
     <div class="rr-about g">
       <div class="rr-text">
-        <p>À Marseille, la scène indépendante ne manque ni d’énergie ni d’idées. Collectifs, médias, organisateur·ice·s&nbsp;: chacun fait vivre ses soirées, son univers et son public. Mais on se croise plus souvent qu’on ne construit ensemble.</p>
-        <p>13CONNEXION, c’est l’envie de changer ça. Le principe est simple&nbsp;: plusieurs structures marseillaises s’associent pour une réalisation commune. On programme ensemble, on communique ensemble, on met nos moyens en commun, et chacun garde son identité.</p>
-        <p>Le résultat&nbsp;: des publics qui ne se seraient pas croisés partagent la même piste, et chaque collectif fait découvrir son univers à d’autres.</p>
-        <p>Porté par UNDERWAVE, 13CONNEXION s’inscrit dans ce qui guide l’association depuis ses débuts&nbsp;: rassembler et faire avancer la scène locale collectivement. Une première édition en mai 2024, d’autres à venir.</p>
+        <p>À Marseille, la scène indépendante ne manque ni d’énergie ni d’idées. Collectifs, médias, artistes, organisateur·ice·s&nbsp;: chacun fait vivre ses soirées, son univers et son public. Mais on se croise plus souvent qu’on ne construit ensemble.</p>
+        <p>13CONNEXION, c’est l’envie de changer ça. Le principe est simple&nbsp;: des collectifs ou des artistes de scènes différentes se réunissent pour une réalisation commune. On programme ensemble, on communique ensemble, on met nos moyens en commun, et chacun garde son identité.</p>
+        <p>Le résultat&nbsp;: des publics qui ne se seraient pas croisés partagent la même piste, et chacun fait découvrir son univers à d’autres.</p>
+        <p>Porté par UNDERWAVE, 13CONNEXION s’inscrit dans ce qui guide l’association depuis ses débuts&nbsp;: rassembler et faire avancer la scène locale collectivement. Deux éditions en 2024, d’autres à venir.</p>
       </div>
       <div class="rr-aside">
         <h3 class="rr-subh">En bref</h3>
@@ -972,15 +990,15 @@ body{letter-spacing:-.03em}
           <div><dt>Projet de</dt><dd><b>UNDERWAVE</b> · initiative et coordination</dd></div>
           <div><dt>Lancement</dt><dd>Mai 2024</dd></div>
           <div><dt>Format</dt><dd>Éditions ponctuelles&nbsp;: soirées, événements, projets partagés</dd></div>
-          <div><dt>Avec qui</dt><dd>Des collectifs et structures de la scène marseillaise, différents à chaque édition</dd></div>
-          <div><dt>Éditions</dt><dd>1 réalisée</dd></div>
+          <div><dt>Avec qui</dt><dd>Des collectifs et des artistes de la scène marseillaise, différents à chaque édition</dd></div>
+          <div><dt>Éditions</dt><dd>2 réalisées</dd></div>
         </dl>
       </div>
     </div>
   </section>
 
   <section class="rr-sec rr-band rr-lime c13-eds">
-    <div class="g rr-sh"><h2 class="rr-sh-t">Éditions</h2><p class="rr-sh-c">Chaque édition réunit de nouvelles structures marseillaises</p></div>
+    <div class="g rr-sh"><h2 class="rr-sh-t">Éditions</h2><p class="rr-sh-c">Chaque édition réunit de nouveaux collectifs ou artistes marseillais</p></div>
     <div class="g">
       <a class="c13-edrow" href="#soiree-13connexion">
         <img src="img/13c/13c-affiche-lineup.jpg" alt="" loading="lazy">
@@ -992,12 +1010,22 @@ body{letter-spacing:-.03em}
     </div>
     <div class="strip ev-strip idl-strip" aria-label="Photos de l’édition 01"><div class="strip-in"><img src="img/13c/13c-22.jpg" alt="" loading="lazy"><img src="img/13c/13c-28.jpg" alt="" loading="lazy"><img src="img/13c/13c-09.jpg" alt="" loading="lazy"><img src="img/13c/13c-35.jpg" alt="" loading="lazy"><img src="img/13c/13c-41.jpg" alt="" loading="lazy"><img src="img/13c/13c-57.jpg" alt="" loading="lazy"><img src="img/13c/13c-46.jpg" alt="" loading="lazy"><img src="img/13c/13c-19.jpg" alt="" loading="lazy"><img src="img/13c/13c-47.jpg" alt="" loading="lazy"><img src="img/13c/13c-04.jpg" alt="" loading="lazy"><img src="img/13c/13c-22.jpg" alt="" loading="lazy"><img src="img/13c/13c-28.jpg" alt="" loading="lazy"><img src="img/13c/13c-09.jpg" alt="" loading="lazy"><img src="img/13c/13c-35.jpg" alt="" loading="lazy"><img src="img/13c/13c-41.jpg" alt="" loading="lazy"><img src="img/13c/13c-57.jpg" alt="" loading="lazy"><img src="img/13c/13c-46.jpg" alt="" loading="lazy"><img src="img/13c/13c-19.jpg" alt="" loading="lazy"><img src="img/13c/13c-47.jpg" alt="" loading="lazy"><img src="img/13c/13c-04.jpg" alt="" loading="lazy"></div></div>
     <div class="g c13-edfoot s"><span>Édition 01 · Photos <a href="https://www.instagram.com/dolceputnikovic/" target="_blank" rel="noopener">VERONIKA PUTNIKOVIĆ</a></span></div>
-    <div class="g"><div class="c13-edrow c13-next"><span class="c13-edn">02</span><span class="c13-edinfo s">Prochaine édition à venir</span></div></div>
+    <div class="g">
+      <a class="c13-edrow" href="#fusion-party">
+        <img src="img/fusion/fusion-affiche.jpg" alt="" loading="lazy">
+        <span class="c13-edn">02</span>
+        <span class="c13-edinfo"><b>13CONNEXION • FUSION PARTY</b><span class="s">Concerts live et DJ sets · 10 artistes · LE MAKEDA, Marseille</span></span>
+        <span class="c13-eddate">13.07.2024</span>
+        <span class="c13-edgo">Voir l’événement →</span>
+      </a>
+    </div>
+    <div class="g"><div class="c13-edrow c13-next"><span class="c13-edn">03</span><span class="c13-edinfo s">Prochaine édition à venir</span></div></div>
   </section>
 
   <section class="rr-sec">
-    <div class="g rr-sh"><h2 class="rr-sh-t">Collectifs réunis</h2><p class="rr-sh-c">Les structures qui ont pris part à 13CONNEXION</p></div>
+    <div class="g rr-sh"><h2 class="rr-sh-t">Collectifs &amp; artistes</h2></div>
     <div class="g">
+      <p class="c13-artl c13-lbl"><span class="s">Collectifs · édition 01</span></p>
       <div class="c13-logos c13-part">
         <a class="lg-af" href="https://www.instagram.com/afrodrop.marseille/" target="_blank" rel="noopener" title="AFRODROP"><img src="img/13c/logo-afrodrop.png" alt="AFRODROP"></a>
         <a href="https://www.instagram.com/vybz.party/" target="_blank" rel="noopener" title="VYBZ"><img src="img/13c/logo-vybz.png" alt="VYBZ"></a>
@@ -1005,6 +1033,7 @@ body{letter-spacing:-.03em}
         <a href="https://www.instagram.com/treizeheures13/" target="_blank" rel="noopener" title="13H13"><span class="lg-txt">13H13</span></a>
         <a href="https://www.instagram.com/trim.jam/" target="_blank" rel="noopener" title="TRIM.JAM"><img src="img/13c/logo-trim.png" alt="TRIM.JAM"></a>
       </div>
+      <p class="c13-artl"><span class="s">Artistes · édition 02</span>SADEO · JOY C · KETTA · S.LOW · NEDJMA BACHI · F35 · KIKS · OG.BEATS · BLUE LYRA · AAZUR</p>
     </div>
   </section>
 
@@ -1095,6 +1124,26 @@ body{letter-spacing:-.03em}
       <div class="idl-side"><div class="ev-lineup idl-lineup"><span class="kicker">Line-up</span><p class="idl-lu-t s">DJ set</p><ul><li>KIKS</li><li>MYSTIQUE</li><li>EL BADRA</li><li>BLUE LYRA <small class="idl-aka">(anciennement PIPA WAVE)</small></li><li>NYEBRA</li><li>ACIDTURBOZEN</li><li>KODJO</li><li>SANTIAGZZ</li><li>MELANIN</li></ul><p class="idl-lu-t s">Concerts live</p><ul><li><a href="https://www.instagram.com/tosma.wav/" target="_blank" rel="noopener">TOSMA</a></li><li><a href="https://www.instagram.com/detox.off/" target="_blank" rel="noopener">DETOX</a></li><li><a href="https://www.instagram.com/s.low_officiel/" target="_blank" rel="noopener">S.LOW</a></li></ul><p class="idl-lu-n s">Ingé son bénévole&nbsp;: <a href="https://www.instagram.com/maati_mr/" target="_blank" rel="noopener">MAATI</a></p></div>
       <div class="ev-txt idl-small"><p>La programmation artistique d’Underwave s’est appuyée sur des artistes engagés dans différentes dynamiques locales et sociales. Leur participation a donné à la soirée une véritable dimension collective, en lien direct avec le soutien aux grévistes.</p><p>Concerts live et DJ sets se sont enchaînés avec Tosma, Detox, S.Low, Acidturbozen, El Badra, Melaninn, Nyebra, Santiagzz, 3600 BPM, Kiks et Pipa Wave (renommée Blue Lyra).</p><p>Autour de cette scène, l’organisation a également reposé sur l’implication de contributeurs extérieurs à Underwave, notamment l'artiste Kiks, l’appui technique de Maati, ainsi que l’aide de Sαɾαԋ Mỹ et Trae Joly, contribuant à faire de l’événement un moment à la fois solidaire, musical et collectif.</p></div></div>
     </div>
+  </section>
+  <section class="action" id="fusion-party" data-type="Soirée" data-titre="13CONNEXION • FUSION PARTY" data-infos="13.07.2024 · LE MAKEDA, Marseille">
+    <div class="p-head g"><span class="kicker">Soirée · Édition 02</span><h1 class="title">13CONNEXION • FUSION PARTY</h1>
+      <div class="figs"><span><b>13.07.2024</b><span class="s">LE MAKEDA, Marseille</span></span><span><b>10</b><span class="s">artistes marseillais</span></span><span><b>Live + DJ</b><span class="s">concerts et DJ sets</span></span><span><b>Tremplin</b><span class="s">une place pour les Open Platine</span></span></div>
+    </div>
+    <div class="g ev-feature">
+      <figure class="ev-vid fu-aff"><img data-accueil src="img/fusion/fusion-affiche.jpg" alt="Affiche de la FUSION PARTY du 13 juillet 2024 au MAKEDA"></figure>
+      <div class="ev-side">
+        <div class="ev-lineup idl-lineup"><span class="kicker">Line-up</span><p class="idl-lu-t s">Concerts live</p><ul><li><a href="https://www.instagram.com/jeunesadeo/" target="_blank" rel="noopener">SADEO</a></li><li><a href="https://www.instagram.com/iamjoy_c/" target="_blank" rel="noopener">JOY C</a></li><li><a href="https://www.instagram.com/keett__a/" target="_blank" rel="noopener">KETTA</a></li><li><a href="https://www.instagram.com/s.low_officiel/" target="_blank" rel="noopener">S.LOW</a></li><li><a href="https://www.instagram.com/nedjma.bachi/" target="_blank" rel="noopener">NEDJMA BACHI</a> <small class="idl-aka">(avec <a href="https://www.instagram.com/emilecoste/" target="_blank" rel="noopener">ÉMILE COSTE</a> à la guitare)</small></li><li><a href="https://www.instagram.com/f35thelord/" target="_blank" rel="noopener">F35</a></li></ul><p class="idl-lu-t s">DJ sets</p><ul><li><a href="https://www.instagram.com/__kiks/" target="_blank" rel="noopener">KIKS</a></li><li><a href="https://www.instagram.com/o_gbeats/" target="_blank" rel="noopener">OG.BEATS</a></li><li><a href="https://www.instagram.com/bluelyra__/" target="_blank" rel="noopener">BLUE LYRA</a> <small class="idl-aka">(anciennement PIPA WAVE)</small></li><li><a href="https://www.instagram.com/aazur___/" target="_blank" rel="noopener">AAZUR</a> <small class="idl-aka">(Tremplin Open Platine)</small></li></ul></div>
+        <div class="ev-txt">
+          <p>Deuxième édition de 13CONNEXION, le projet d’UNDERWAVE qui fait se rencontrer les scènes indépendantes de Marseille.</p>
+          <p>Pour cette édition, UNDERWAVE a réuni au MAKEDA des artistes marseillais issus de scènes et de communautés différentes, du rap au jazz en passant par les musiques électroniques. Concerts live et DJ sets se sont partagé la même scène et le même public, pour une soirée placée sous le signe de la fusion des genres.</p>
+          <p>Une place du line-up était ouverte aux DJ des <a class="u" href="#opn">Open Platine Night</a>, le rendez-vous DJ d’UNDERWAVE, pour une première expérience sur une grande scène. Elle est revenue à AAZUR.</p>
+          <a class="ev-cta" href="#13connexion">Voir le projet 13CONNEXION →</a>
+        </div>
+      </div>
+    </div>
+    <div class="strip ev-strip fu-strip" aria-label="Visuels d’annonce des artistes"><div class="strip-in"><img src="img/fusion/fusion-sadeo.jpg" alt="Visuel d’annonce : SADEO" loading="lazy"><img src="img/fusion/fusion-nedjma.jpg" alt="Visuel d’annonce : NEDJMA BACHI" loading="lazy"><img src="img/fusion/fusion-joyc.jpg" alt="Visuel d’annonce : JOY C" loading="lazy"><img src="img/fusion/fusion-ketta.jpg" alt="Visuel d’annonce : KETTA" loading="lazy"><img src="img/fusion/fusion-f35.jpg" alt="Visuel d’annonce : F35" loading="lazy"><img src="img/fusion/fusion-kiks.jpg" alt="Visuel d’annonce : KIKS" loading="lazy"><img src="img/fusion/fusion-ogbeats.jpg" alt="Visuel d’annonce : OG.BEATS" loading="lazy"><img src="img/fusion/fusion-bluelyra.jpg" alt="Visuel d’annonce : BLUE LYRA" loading="lazy"><img src="img/fusion/fusion-aazur.jpg" alt="Visuel d’annonce : AAZUR" loading="lazy"><img src="img/fusion/fusion-sadeo.jpg" alt="Visuel d’annonce : SADEO" loading="lazy"><img src="img/fusion/fusion-nedjma.jpg" alt="Visuel d’annonce : NEDJMA BACHI" loading="lazy"><img src="img/fusion/fusion-joyc.jpg" alt="Visuel d’annonce : JOY C" loading="lazy"><img src="img/fusion/fusion-ketta.jpg" alt="Visuel d’annonce : KETTA" loading="lazy"><img src="img/fusion/fusion-f35.jpg" alt="Visuel d’annonce : F35" loading="lazy"><img src="img/fusion/fusion-kiks.jpg" alt="Visuel d’annonce : KIKS" loading="lazy"><img src="img/fusion/fusion-ogbeats.jpg" alt="Visuel d’annonce : OG.BEATS" loading="lazy"><img src="img/fusion/fusion-bluelyra.jpg" alt="Visuel d’annonce : BLUE LYRA" loading="lazy"><img src="img/fusion/fusion-aazur.jpg" alt="Visuel d’annonce : AAZUR" loading="lazy"></div></div>
+    <div class="g fu-arts"><h2 class="c13-h">Les artistes</h2><ul class="fu-grid s"><li><span class="fu-k s">Concert</span><b><a href="https://www.instagram.com/jeunesadeo/" target="_blank" rel="noopener">SADEO</a></b><span class="fu-d">Rap, jazz et RnB, une écriture douce mais puissante.</span><span class="fu-c">Photo <a href="https://www.instagram.com/louis_bllrn/" target="_blank" rel="noopener">@louis_bllrn</a></span></li><li><span class="fu-k s">Concert</span><b><a href="https://www.instagram.com/iamjoy_c/" target="_blank" rel="noopener">JOY C</a></b><span class="fu-d">Rap, gospel et afro, une voix atypique.</span><span class="fu-c">Photo <a href="https://www.instagram.com/latinanrv/" target="_blank" rel="noopener">@latinanrv</a></span></li><li><span class="fu-k s">Concert</span><b><a href="https://www.instagram.com/keett__a/" target="_blank" rel="noopener">KETTA</a></b><span class="fu-d">Hip-hop nourri de soul, de rock, de jazz et de pop.</span><span class="fu-c">Photo <a href="https://www.instagram.com/louis_bllrn/" target="_blank" rel="noopener">@louis_bllrn</a></span></li><li><span class="fu-k s">Concert</span><b><a href="https://www.instagram.com/s.low_officiel/" target="_blank" rel="noopener">S.LOW</a></b><span class="fu-d">Rap aux influences US, UK et françaises, entre titres turn-up et morceaux plus mélodieux.</span><span class="fu-c">Photo <a href="https://www.instagram.com/leon_smila/" target="_blank" rel="noopener">@leon_smila</a></span></li><li><span class="fu-k s">Concert</span><b><a href="https://www.instagram.com/nedjma.bachi/" target="_blank" rel="noopener">NEDJMA BACHI</a></b><span class="fu-d">Jazz et musique traditionnelle séfarade, accompagnée d’<a href="https://www.instagram.com/emilecoste/" target="_blank" rel="noopener">ÉMILE COSTE</a> à la guitare.</span></li><li><span class="fu-k s">Concert</span><b><a href="https://www.instagram.com/f35thelord/" target="_blank" rel="noopener">F35</a></b><span class="fu-d">Rap croisé avec les musiques électroniques britanniques&nbsp;: drum and bass, bassline, garage.</span></li><li><span class="fu-k s">DJ set</span><b><a href="https://www.instagram.com/__kiks/" target="_blank" rel="noopener">KIKS</a></b><span class="fu-d">Jersey club, rap et emo music.</span><span class="fu-c">Photo <a href="https://www.instagram.com/camsuwoo/" target="_blank" rel="noopener">@camsuwoo</a></span></li><li><span class="fu-k s">DJ set</span><b><a href="https://www.instagram.com/o_gbeats/" target="_blank" rel="noopener">OG.BEATS</a></b><span class="fu-d">DJ, compositeur et batteur&nbsp;: shatta, dancehall, afro, moombahton, bouyon.</span></li><li><span class="fu-k s">DJ set</span><b><a href="https://www.instagram.com/bluelyra__/" target="_blank" rel="noopener">BLUE LYRA</a></b><span class="fu-d">Hip-hop, sonorités afro-caribéennes, brésiliennes et dub sound system. <i>Anciennement PIPA WAVE.</i></span><span class="fu-c">Photo <a href="https://www.instagram.com/_cap3k_/" target="_blank" rel="noopener">@_cap3k_</a></span></li><li><span class="fu-k s">DJ set · Tremplin Open Platine</span><b><a href="https://www.instagram.com/aazur___/" target="_blank" rel="noopener">AAZUR</a></b><span class="fu-d">Rythmes brésiliens, garage anglaise et rap.</span><span class="fu-c">Photo <a href="https://www.instagram.com/underwaveconcept/" target="_blank" rel="noopener">@underwaveconcept</a></span></li></ul></div>
+    <div class="g ev-credit s">Avec le soutien de <a href="https://www.instagram.com/bmcmarseille/" target="_blank" rel="noopener">BMC MARSEILLE</a> à l’organisation · Stand de créations <a href="https://www.instagram.com/ynkylab/" target="_blank" rel="noopener">YNKY LAB</a> pendant la soirée · Merci au <a href="https://www.instagram.com/lemakeda13/" target="_blank" rel="noopener">MAKEDA</a> pour l’accueil</div>
   </section>
   <section class="action" id="soiree-13connexion" data-type="Soirée" data-titre="13CONNEXION • HOT PARTY" data-infos="11.05.2024 · FARANIGHT, Marseille">
     <div class="p-head g"><span class="kicker">Soirée club · Édition 01</span><h1 class="title">13CONNEXION • HOT PARTY</h1>
