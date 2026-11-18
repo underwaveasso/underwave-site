@@ -194,6 +194,9 @@ a.row:hover{background:var(--lime)}
 [data-page="evenements"] .p-head{padding-top:clamp(36px,5vw,72px)}
 .ev-index{margin-bottom:clamp(24px,4vw,56px)}
 [data-page="evenements"] .p-head .title{font-size:clamp(44px,7vw,118px)}
+.noel-aff{width:clamp(260px,30vw,460px);height:auto;display:block}
+.noel-row2{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);align-items:start}
+@media (max-width:860px){.noel-aff{width:100%;max-width:520px}.noel-row2{grid-template-columns:1fr}}
 .idl-row{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(20px,3vw,48px);align-items:center;margin-top:clamp(24px,3vw,40px)}
 .idl-rev{grid-template-columns:minmax(0,1fr) auto}
 .idl-affiches img{aspect-ratio:4/5;object-fit:contain;background:#e2f1f3}
@@ -1095,6 +1098,24 @@ body{letter-spacing:-.03em}
   </div>
   <!-- Un événement = une <section class="action">. Pour en ajouter un : copier la section entière en haut de la liste (le plus récent en premier),
        changer data-titre / data-infos / data-type (ex. « Action solidaire », « Soirée »), le kicker, et mettre data-accueil sur l'image à montrer sur l'accueil. L'accueil se met à jour tout seul. -->
+  <section class="action" id="noel-solidarite" data-type="Action solidaire" data-titre="NOËL &amp; SOLIDARITÉ" data-infos="12.12.2024 · Cours Julien, Marseille">
+    <div class="p-head g"><span class="kicker">Action solidaire</span><h1 class="title">NOËL &amp; SOLIDARITÉ</h1>
+      <div class="figs"><span><b>12.12.2024</b><span class="s">Cours Julien, Marseille</span></span><span><b>~300 €</b><span class="s">et des dons matériels reversés pour Mayotte</span></span><span><b>100 %</b><span class="s">bénévole, artistes compris</span></span></div>
+    </div>
+    <div class="g idl-row">
+      <img class="noel-aff" data-accueil src="img/evenements/noel-affiche.jpg" alt="Affiche : Noël &amp; Solidarité, 12/12, événement solidaire, collecte de dons, live et DJ set">
+      <div class="ev-txt idl-lead">
+        <p>Le 12 décembre 2024, UNDERWAVE a organisé une soirée solidaire dans un bar du cours Julien : concerts live, DJ sets et collecte de dons. L’entrée était à prix libre, et l’intégralité des entrées et des dons a été reversée à la collecte. Les artistes comme l’équipe ont participé bénévolement.</p>
+        <p>L’envie de départ était simple. Pendant les fêtes, beaucoup de personnes se retrouvent isolées ou en situation de précarité, et les inégalités se font encore plus sentir. Avec cette soirée, UNDERWAVE souhaitait créer un moment chaleureux et ouvert à toutes et tous, et préparer une maraude pour le 24 décembre : vêtements chauds, couvertures, produits d’hygiène, denrées et petits cadeaux.</p>
+      </div>
+    </div>
+    <div class="g idl-row noel-row2">
+      <div class="ev-txt idl-small"><p>Deux jours plus tard, le cyclone Chido a dévasté Mayotte, privant une grande partie des habitant·e·s d’eau, d’électricité et d’accès aux soins. UNDERWAVE a alors consulté celles et ceux qui avaient participé, et la décision a été prise collectivement&nbsp;: l’ensemble de la collecte serait destiné à Mayotte.</p><p>Près de 300 € et la totalité des dons matériels ont été remis à un centre social du 13ᵉ arrondissement qui centralisait l’aide pour l’île. Les dons ont été complétés selon la liste des besoins diffusée par ce centre. La maraude a été reportée à une prochaine collecte.</p><p>Un moment de partage à Marseille, devenu un soutien concret pour Mayotte.</p></div>
+      <div class="ev-lineup idl-lineup"><span class="kicker">Line-up</span><p class="idl-lu-t s">Live</p><ul><li><a href="https://www.instagram.com/s.low_officiel/" target="_blank" rel="noopener">S.LOW</a></li></ul><p class="idl-lu-t s">DJ sets</p><ul><li><a href="https://www.instagram.com/idazerrr/" target="_blank" rel="noopener">IDAZERRR</a></li><li><a href="https://www.instagram.com/mbenam_/" target="_blank" rel="noopener">MBÉNAM</a></li><li><a href="https://www.instagram.com/slo_off/" target="_blank" rel="noopener">SLO</a></li><li><a href="https://www.instagram.com/angelina.trobel/" target="_blank" rel="noopener">ANGELINA TROBEL</a></li><li><a href="https://www.instagram.com/popgenius.music/" target="_blank" rel="noopener">POPGENIUS</a></li><li><a href="https://www.instagram.com/sweetanaz/" target="_blank" rel="noopener">SWEETANAZ</a></li><li><a href="https://www.instagram.com/bluelyra__/" target="_blank" rel="noopener">BLUE LYRA</a> <small class="idl-aka">(anciennement PIPA WAVE)</small></li></ul></div>
+    </div>
+    <div class="strip ev-strip idl-strip" aria-label="Photos des dons"><div class="strip-in"><img src="img/evenements/noel-dons-tl.jpg" alt="Vêtements donnés, triés sur une table" loading="lazy"><img src="img/evenements/noel-dons-tr.jpg" alt="Sacs de dons chargés dans un coffre de voiture" loading="lazy"><img src="img/evenements/noel-dons-br.jpg" alt="Dons déposés au centre social, dans des cartons" loading="lazy"><img src="img/evenements/noel-dons-tl.jpg" alt="Vêtements donnés, triés sur une table" loading="lazy"><img src="img/evenements/noel-dons-tr.jpg" alt="Sacs de dons chargés dans un coffre de voiture" loading="lazy"><img src="img/evenements/noel-dons-br.jpg" alt="Dons déposés au centre social, dans des cartons" loading="lazy"><img src="img/evenements/noel-dons-tl.jpg" alt="Vêtements donnés, triés sur une table" loading="lazy"><img src="img/evenements/noel-dons-tr.jpg" alt="Sacs de dons chargés dans un coffre de voiture" loading="lazy"><img src="img/evenements/noel-dons-br.jpg" alt="Dons déposés au centre social, dans des cartons" loading="lazy"><img src="img/evenements/noel-dons-tl.jpg" alt="Vêtements donnés, triés sur une table" loading="lazy"><img src="img/evenements/noel-dons-tr.jpg" alt="Sacs de dons chargés dans un coffre de voiture" loading="lazy"><img src="img/evenements/noel-dons-br.jpg" alt="Dons déposés au centre social, dans des cartons" loading="lazy"></div></div>
+    <div class="g ev-credit s">Photos&nbsp;: UNDERWAVE</div>
+  </section>
   <section class="action" id="action-id-logistics" data-type="Action solidaire" data-titre="Soirée de soutien aux grévistes d’ID Logistics" data-infos="16.11.2024 · Ateliers Jeanne Barret">
     <div class="p-head g"><span class="kicker">Action solidaire</span><h1 class="title">Soirée de soutien aux grévistes d’ID Logistics</h1>
       <div class="figs"><span><b>16.11.2024</b><span class="s">Ateliers Jeanne Barret, Marseille</span></span><span><b>4 000 €</b><span class="s">reversés à la caisse de grève</span></span><span><b>500+</b><span class="s">personnes rassemblées</span></span></div>
